@@ -1,17 +1,17 @@
 # Skills, not syllabi
 
-Operational agent skills. Each one tells an agent how to *do* a job. None of them teach a class.
+Operational **agent skills**. Each one tells an agent how to *do* a job.
+
+Format: `skills/<name>/SKILL.md` — the Agent Skills standard. Works in any harness that loads SKILL.md.
 
 Paste this repo into an agent and tell it to follow `AGENTS.md`.
 
 ## For agents
 
 1. Read [`AGENTS.md`](AGENTS.md).
-2. Install with the command there, or work from this checkout.
+2. Install with a command below, or work from this checkout.
 3. Load one skill at a time from `skills/<name>/SKILL.md`.
-4. Use the workflow map in `AGENTS.md` — do not load every skill.
-
-Humans can ignore that and use the install commands below.
+4. Use the workflow map in `AGENTS.md`. Do not load every skill.
 
 ## Install
 
@@ -23,22 +23,15 @@ npx skills add Thingscorp/skills
 gh skill install Thingscorp/skills
 ```
 
-```text
-# Claude Code marketplace
-/plugin marketplace add Thingscorp/skills
-```
+That copies the SKILL.md folders into whichever agents are on the machine.
 
 From a checkout:
 
 ```bash
-./tools/install.sh --dest ~/.claude/skills
+./tools/install.sh --dest <skills-dir>
 ```
 
-List skills first:
-
-```bash
-npx skills add Thingscorp/skills --list
-```
+`<skills-dir>` is harness-specific (`.agents/skills`, `.cursor/skills`, `~/.claude/skills`, …). See `docs/HARNESS-MATRIX.md` when that file is present.
 
 ## The library
 
@@ -52,19 +45,24 @@ npx skills add Thingscorp/skills --list
 | `compact` | Same agent, same directory, need room. One-line focus. Cast-iron case: implement → QA. |
 | `kill-context-bloat` | Starting context is fat. Measure, cut, quit, relaunch, remeasure. |
 | `session-hygiene` | Portable session habits. Floor checks, rewind, permissions. |
-| `claude-code-habits` | Claude Code instance of session-hygiene (`/context`, `/rewind`, bash modes). |
 | `steering-push-vs-point` | What belongs in always-on AGENTS.md vs an on-demand skill. |
+
+Harness-specific adapters (optional):
+
+| Skill | Use it when |
+|---|---|
+| `claude-code-habits` | Claude Code command names for the portable session-hygiene skill. |
 
 ## Layout
 
 ```
-AGENTS.md            runbook for agents that were handed this URL
-CLAUDE.md            pointer at AGENTS.md
+AGENTS.md            runbook for agents handed this URL
+CLAUDE.md            pointer at AGENTS.md (Claude Code looks here)
 llms.txt             sitemap
 skills/              one directory per skill, SKILL.md inside
-docs/                authoring, config schema, harness matrix, landmines, glossary
-harness/             claude-code and muse adapters
-tools/               install.sh, validate.py, config.py, usage-report.py
+docs/                authoring, config, harness matrix, landmines, glossary
+harness/             per-harness command adapters
+tools/               install.sh, validate.py, config.py
 examples/            annotated .skills-config.yaml
 ```
 
@@ -75,10 +73,7 @@ Repo differences live in config, never in forked skill bodies.
 ```bash
 cp examples/skills-config.yaml <repo>/.skills-config.yaml
 python3 tools/config.py validate --repo <repo>
-python3 tools/config.py resolve --repo <repo> --skill to-spec
 ```
-
-Schema: `docs/CONFIG-SCHEMA.md`.
 
 ## Validate
 
