@@ -1,0 +1,13 @@
+{
+  "name": "thingscorp-skills",
+  "owner": {
+    "name": "Thingscorp"
+  },
+  "plugins": [
+    {
+      "name": "skills",
+      "source": "./",
+      "description": "Operational agent skills: compact, handoff, grill-execute-clear, ralph-loop, to-spec, session hygiene."
+    }
+  ]
+}
