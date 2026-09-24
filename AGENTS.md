@@ -4,16 +4,17 @@ You were handed this repository. Do not summarize it. Navigate it.
 
 ## What this is
 
-A library of operational skills for coding agents. Each skill is `skills/<name>/SKILL.md` with YAML frontmatter (`name`, `description`, `portability`) and a short body. Load **one skill that matches the current job**. Do not ingest the whole library.
+A library of operational **agent skills**. Each skill is `skills/<name>/SKILL.md` with YAML frontmatter (`name`, `description`, `portability`) and a short body. The format is the Agent Skills standard. Load **one skill that matches the current job**. Do not ingest the whole library.
 
-This repo is not a bot, not an orchestra, not a course.
+This repo is not a bot, not an orchestra, not a course, not a single-harness plugin.
 
 ## First moves
 
 1. If the user wants these skills available in their harness, install:
    - `npx skills add Thingscorp/skills`
    - or `gh skill install Thingscorp/skills`
-   - or `./tools/install.sh --dest ~/.claude/skills` from a checkout
+   - or `./tools/install.sh --dest <skills-dir>` from a checkout
+   Those commands write SKILL.md folders into whichever compatible agents are on the machine. `<skills-dir>` is harness-specific.
 2. If the user wants you to *use* a workflow now, pick from the map below and read that SKILL.md before acting.
 3. If the user wants you to change this library, read `docs/AUTHORING.md` and run `python3 tools/validate.py`.
 
@@ -31,10 +32,9 @@ Pick the first matching row. Stop. Read that skill.
 | Same session, need room, especially implement→QA | compact | skills/compact/SKILL.md |
 | Starting context is bloated | kill-context-bloat | skills/kill-context-bloat/SKILL.md |
 | Session habits, rewind, permissions | session-hygiene | skills/session-hygiene/SKILL.md |
-| Claude Code-specific commands | claude-code-habits | skills/claude-code-habits/SKILL.md |
 | Deciding what belongs in AGENTS.md | steering-push-vs-point | skills/steering-push-vs-point/SKILL.md |
 
-Harness command equivalents: `docs/HARNESS-MATRIX.md` and `harness/<name>.md`.
+Harness command names differ. See `docs/HARNESS-MATRIX.md` and `harness/<name>.md` when those files are present. `claude-code-habits` is an optional adapter over `session-hygiene` — load it only if this session is Claude Code.
 
 ## Doctrine that must not be softened
 
