@@ -1,16 +1,17 @@
 ---
 name: session-hygiene
 description: >-
-  use this for portable agent-session habits that work in any harness —
+  use this when you need portable session habits that work in any harness —
   context-floor checks, rewind options, permission discipline, and
   starting-context hygiene
-portability: portable
+license: MIT
+metadata:
+  portability: portable
 ---
 # session-hygiene
 
-Harness-agnostic habits for a clean agent session. For harness-specific
-commands see `docs/HARNESS-MATRIX.md` and the `harness/` adapters
-(`claude-code-habits` is the Claude Code instance of this skill).
+Harness-agnostic habits for a clean agent session. Claude Code command names
+live in `claude-code-habits`. There is no `docs/HARNESS-MATRIX.md`.
 
 ## Session checks
 Check your context floor after big operations; watch for silent jumps.
