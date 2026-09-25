@@ -29,6 +29,7 @@ Get productive in an unfamiliar codebase with a structured, disk-backed workflow
 - Compare subagent exploration vs solo skim; note token cost of surface vs deep dive.
 - Demand real file paths for round-trips (entry → data → UI → tests).
 - Re-ask or verify with file reads when answers disagree.
+- If a shape sketch helps: C4 **Context** then **Container** (a running app or store, not Docker). Stop there. A repo tree is not C4. Do not hand-draw Code diagrams.
 
 ## Done when
 Real files identified, disk-backed MISSION/NOTES/RESOURCES/lessons/records in place, and at least one prove-it check run — not a chat-only architecture sketch.
