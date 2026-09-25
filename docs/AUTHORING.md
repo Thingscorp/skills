@@ -30,6 +30,24 @@ metadata:
 
 Do not put `portability` at the top level. Agents that validate the spec will reject unknown keys.
 
+## Folder layout
+
+```
+skills/<name>/
+├── SKILL.md          # required
+├── scripts/          # optional — deterministic checks the agent can run
+├── references/       # optional — loaded only when the body points at them
+└── assets/           # optional — templates, not extra doctrine
+```
+
+Progressive disclosure: harnesses load `name` + `description` first, the body
+on match, then `scripts/` / `references/` / `assets/` only when the body says
+to. Keep `SKILL.md` under 500 lines. Put long templates in `references/`, not
+in the body. `tools/validate.py` is this library's script; a skill only adds
+`scripts/` when a check is mechanical.
+
+Composition is a `## Related` line, not a supervisor agent.
+
 ## Add a skill in 5 minutes
 
 1. Create `skills/<dashed-name>/SKILL.md`.
@@ -37,7 +55,7 @@ Do not put `portability` at the top level. Agents that validate the spec will re
 3. Body: keep it short. One H1, a few H2 sections, bullets over prose.
    - **When** — the trigger situation.
    - **Steps / rules** — the operational content.
-   - **Anti-patterns** — what not to do (if any).
+   - **Anti-patterns** — what not to do (if any). Do not restate the section above.
    - **Related** — other skills in this library, when a workflow spans them.
 4. Check the folder name equals `name`.
 5. Wire every catalog so a discovering agent still finds it:
@@ -58,3 +76,5 @@ Do not put `portability` at the top level. Agents that validate the spec will re
 - **Docs describe shipped behavior.** Do not document a private product runtime
   (paths, MCP tool names, Compose networks) as if it were a portable skill.
 - Do not point at files that are not in this repo (`docs/HARNESS-MATRIX.md`, `harness/`, `./tools/install.sh`).
+- Do not wrap this library in an orchestration framework. Skills are playbooks.
+  State lives in git, temp handoff docs, or `.ralph/` — not a framework checkpointer.

@@ -38,6 +38,15 @@ A *plan/diff review* is the `review` skill (P0/P1/P2). A *phase-boundary
 automated review → subagent; cross-agent/person → handoff. Never outsource
 mid-phase boundaries to auto-compaction — mid-phase auto-compact is dangerous.
 
+## Skill vs orchestrator
+
+- **Skill** = a `SKILL.md` playbook. One job. Loaded on match.
+- **Handoff** = the portable unit when work crosses a session, agent, or repo.
+- **Orchestration framework** (LangGraph, CrewAI, AutoGen, vendor SDKs) = a
+  product runtime with its own graph, roles, or checkpointer. This library is
+  not that. Do not add a conductor skill. Do not store session state in a
+  framework checkpointer.
+
 ## Spec lifetime
 
 - Specs and tickets live in the **issue tracker** (GitHub Issues, Linear,
