@@ -1,12 +1,7 @@
-# ADR template (Nygard short)
+# ADR template (Nygard-short)
 
 Use from the `review` skill. One decision per file.
-Path: `docs/adr/NNNN-short-slug.md`. `NNNN` is the next unused integer
-in that folder. Never reuse a number.
-
-Full MADR (RACI, drivers matrix, confirmation) stays out. Steal two
-fields only: Status, and optional considered options when the call had
-real alternatives.
+Path: `docs/adr/NNNN-short-slug.md`
 
 ```markdown
 # ADR-NNNN: <decision in one line>
@@ -18,9 +13,8 @@ Status: Proposed
 What forced the call. Neutral. Tensions, not a pitch.
 
 ## Options considered
-- A — why not
-- B — why not
-(omit this section when there was only one serious option)
+- A — why it lost or won
+- B — …
 
 ## Decision
 What we will do from now on.
@@ -29,35 +23,27 @@ What we will do from now on.
 Easier: …
 Forbidden: …
 
+## Confirmation
+One check a later agent can run.
+
 ## Supersedes
-ADR-NNNN (omit if none)
+ADR-NNNN
 ```
+
+Omit Options / Confirmation / Supersedes when empty.
 
 Status: `Proposed` | `Accepted` | `Rejected` | `Deprecated` | `Superseded by ADR-NNNN`.
 
-## Which status
+## Supersede vs deprecate
 
-| Status | Use when |
-|---|---|
-| Proposed | Written, owner has not accepted. Only state you freely edit. |
-| Accepted | In force. Body is frozen. |
-| Rejected | Considered and refused. Keep the file so the debate does not restart. |
-| Deprecated | No longer applies and nothing replaced it (system gone). |
-| Superseded by ADR-M | A later ADR replaced this call. |
+- Same question, new answer → new file + old Status `Superseded by ADR-M`.
+- Question gone → old Status `Deprecated`. No replacement file.
+- Proposal died → `Rejected`. Keep the file.
 
-## Supersede workflow
+Two-file commit after owner accepts:
+1. ADR-M Accepted, `Supersedes: ADR-N`.
+2. ADR-N Status line only → `Superseded by ADR-M`.
 
-Same change, two files. Do not edit ADR-N's Decision or Consequences.
-
-1. Confirm ADR-N is `Accepted`. If it is still `Proposed`, edit N — that
-   is not a supersede.
-2. Next number M = max existing NNNN + 1.
-3. Write `docs/adr/MMMM-short-slug.md` with Status `Accepted` (owner
-   already agreed) and `## Supersedes` → ADR-N.
-4. On ADR-N, change **only** `Status: Superseded by ADR-M`.
-5. Leave ADR-N's body intact. Truth is N then M, not M alone.
-
-Partial change of one consequence still gets a new ADR that supersedes
-the whole record. Do not patch a paragraph in N.
-
-Never delete. Date is a field, not the filename.
+Accepted body does not change. Never delete. Date is the decision date.
+Do not adopt full MADR (YAML RACI, per-option Good/Bad matrices) unless
+the owner asked for an audit-grade comparison.

@@ -69,24 +69,48 @@ one-off fixes, restating a rule that already lives in the repo.
 **Incident note, not ADR:** a run failed for operational reasons (lock, quota,
 provider). One paragraph in the project progress log. No `docs/adr/` file.
 
-### Versioning
+### File and status
 
-The chain is the version. Do not semver an ADR body.
+- Path: `docs/adr/NNNN-short-slug.md` in the *target* repo. Next integer,
+  four digits. Never reuse a number.
+- Status: `Proposed` → `Accepted` → `Deprecated` or `Superseded by ADR-NNNN`.
+  Also: `Rejected` (proposal died; keep the file).
+- Date is the decision date, not a "last updated" stamp.
+- Accepted body is immutable. Allowed edits on an old file: Status line,
+  typo, adding `Superseded by`. Anything else → a new ADR.
+- Never delete. Truth is the full chain.
 
-- File: `docs/adr/NNNN-short-slug.md` in the *target* repo. `NNNN` is the next
-  integer in that folder (four digits, zero-padded). Never reuse a number.
-- Status only: `Proposed` → `Accepted` → `Deprecated` or `Superseded by ADR-NNNN`.
-- Proposed until the owner accepts. Then flip Status to Accepted.
-- Accepted body is immutable. Allowed edits: Status line, typo in a name,
-  adding `Superseded by ADR-NNNN`. Anything else → a new ADR.
-- To change the call: write ADR-M that states `Supersedes: ADR-N`. Set ADR-N
-  Status to `Superseded by ADR-M`. Keep both files.
-- Never delete an ADR. Rejected stays on disk as `Rejected` so the option is
-  not rediscovered.
-- Truth is the full chain, not the latest file alone.
+Default shape is Nygard-short (Context / Decision / Consequences). Do not
+switch the library to full MADR. Optional extras, only when they earn the
+lines:
 
-Do not invent a global knowledge vault from this skill. Do not use a heavy
-consultation template. Context / Decision / Consequences is enough.
+- `## Options considered` — two or three named alternatives when the call
+  had a real fork. One line each.
+- `## Confirmation` — one line if compliance is cheap to check later
+  (a test, a path, a gate).
+
+Skip RACI frontmatter (`decision-makers` / `consulted` / `informed`).
+
+### Supersede vs deprecate
+
+Same question, new answer → **supersede**.
+Question no longer applies (system gone, concern retired) → **deprecate**.
+No replacement file for deprecate. Do not mark an ADR deprecated just
+because you dislike it; that is a supersede or a reject.
+
+**Supersede workflow** (two files, one commit after the owner accepts):
+
+1. Write ADR-M as `Proposed`. Include `Supersedes: ADR-N` and *why the old
+   call is now wrong*. Do not edit ADR-N yet.
+2. Owner accepts ADR-M.
+3. Same commit: ADR-M `Status: Accepted`. ADR-N `Status: Superseded by ADR-M`.
+   Touch only the Status line on N.
+4. If N was still `Proposed`, mark N `Rejected` instead and accept M.
+5. One-to-one is the default. If M and P both replace parts of N, both say
+   `Supersedes: ADR-N`. N lists both: `Superseded by ADR-M, ADR-P`.
+
+List candidates under **Decisions to capture** first. Write files only after
+the owner accepts.
 
 **Shape:**
 
@@ -99,19 +123,25 @@ Status: Proposed
 ## Context
 What forced the call.
 
+## Options considered
+- A — …
+- B — …
+
 ## Decision
 What we will do from now on.
 
 ## Consequences
-What this makes easier, and what it forbids.
+Easier: …
+Forbidden: …
+
+## Confirmation
+How a later pass can see this is still in force.
 
 ## Supersedes
-ADR-NNNN (omit if none)
+ADR-NNNN
 ```
 
-One decision per file. Link the path from the finding.
-List candidates under **Decisions to capture** first. Write the file only
-after the owner accepts (then Status: Accepted in the same commit).
+Omit Options / Confirmation / Supersedes when empty.
 
 ## Report shape
 
@@ -126,6 +156,7 @@ after the owner accepts (then Status: Accepted in the same commit).
 
 ## Decisions to capture
 - ADR candidate: <one-line decision> — why a later agent would miss this
+  (supersedes ADR-N / new)
 
 ## Out of scope
 - …
@@ -142,8 +173,10 @@ If there are no findings, write `No findings.` and stop.
 - An ADR per P2 nit.
 - Relitigating taste as P0.
 - Editing an Accepted ADR body instead of superseding.
-- Deleting a Rejected or Superseded ADR.
-- Dating files instead of numbering them (`20260924-foo.md` collides and does not index).
+- Deleting a Rejected, Deprecated, or Superseded ADR.
+- Dating files instead of numbering them.
+- Dumping a full MADR (RACI + per-option matrices) for a one-line call.
+- Marking Deprecated when a new answer exists — that is Superseded.
 
 ## Related
 
