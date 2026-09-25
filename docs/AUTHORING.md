@@ -15,7 +15,7 @@ description: >-
   use this when <trigger situation> — <what it gives you>
 license: MIT
 metadata:
-  portability: portable   # portable | claude-code
+  portability: portable   # portable | claude-code | cursor | codex | copilot | gemini-cli
 ---
 ```
 
