@@ -19,7 +19,7 @@ There is no `./tools/install.sh`.
 
 ## Pick a skill
 
-Match the job, not the whole library.
+Match the job, not the whole library. Literal jobs: `docs/NAMING.md`.
 
 | You want to | Skill |
 |---|---|
@@ -44,3 +44,14 @@ npx skills list
 npx skills check
 npx skills update
 ```
+
+## Be found
+
+skills.sh lists a repo only after someone runs a real `npx skills add`
+(not `--list`). `skills.sh.json` only groups the page once that happens.
+
+GitHub About and Topics are set in the repo Settings UI. Suggested About:
+
+> Operational agent skills. Flat SKILL.md playbooks. Install with npx skills add Thingscorp/skills.
+
+Suggested topics: `agent-skills`, `skills`, `skil-md`, `ralph`, `adr`.

@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Machine index for agents and crawlers
+# https://llmstxt.org

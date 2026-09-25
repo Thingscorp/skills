@@ -1,42 +1,49 @@
 # Skills, not syllabi
 
-> Operational agent skills (SKILL.md). How to do the job, not how to teach it.
-> Install: npx skills add Thingscorp/skills
+> Operational agent skills. SKILL.md playbooks for coding agents.
+> How to do the job, not how to teach it.
+
+Keywords: agent skills, SKILL.md, ralph loop, architecture decision records,
+context window, vertical tickets, grill then build, feature audit.
 
 Paste the repo. Read AGENTS.md. Load one skill. Do not ingest the library.
 
+Install: `npx skills add Thingscorp/skills --list -y`
+skills.sh indexes a repo only after real CLI install telemetry.
+This page is not the catalog listing.
+
 ## Start
 
-- [AGENTS.md](https://github.com/Thingscorp/skills/blob/main/AGENTS.md): runbook if you were handed this URL
+- [AGENTS.md](https://github.com/Thingscorp/skills/blob/main/AGENTS.md): agent runbook
 - [README.md](https://github.com/Thingscorp/skills/blob/main/README.md): install + library table
-- [QUICKSTART.md](https://github.com/Thingscorp/skills/blob/main/docs/QUICKSTART.md): human install, pick, verify, update
+- [docs/QUICKSTART.md](https://github.com/Thingscorp/skills/blob/main/docs/QUICKSTART.md): human start
 - [CLAUDE.md](https://github.com/Thingscorp/skills/blob/main/CLAUDE.md): pointer at AGENTS.md
 
 ## Skills
 
-- [learn-codebase](https://github.com/Thingscorp/skills/blob/main/skills/learn-codebase/SKILL.md): unfamiliar repo, leveled passes, prove-it
-- [grill-execute-clear](https://github.com/Thingscorp/skills/blob/main/skills/grill-execute-clear/SKILL.md): grill design, same-session execute, clear
-- [to-spec](https://github.com/Thingscorp/skills/blob/main/skills/to-spec/SKILL.md): destination spec + vertical tickets
-- [unix-compound](https://github.com/Thingscorp/skills/blob/main/skills/unix-compound/SKILL.md): one-thing modules, locked criteria, short VSR
-- [ralph-plan](https://github.com/Thingscorp/skills/blob/main/skills/ralph-plan/SKILL.md): verified plan + items before the loop
-- [ralph-loop](https://github.com/Thingscorp/skills/blob/main/skills/ralph-loop/SKILL.md): cross-session ticket queue, gate outside the worker
-- [ralph-swarm](https://github.com/Thingscorp/skills/blob/main/skills/ralph-swarm/SKILL.md): independent lanes, refs/ralph/swarm
-- [quality-loop](https://github.com/Thingscorp/skills/blob/main/skills/quality-loop/SKILL.md): feature inventory from code, test, fix, regress
-- [review](https://github.com/Thingscorp/skills/blob/main/skills/review/SKILL.md): P0/P1/P2 review; decision-grade findings become ADRs
-- [handoff](https://github.com/Thingscorp/skills/blob/main/skills/handoff/SKILL.md): phase-boundary tree
-- [compact](https://github.com/Thingscorp/skills/blob/main/skills/compact/SKILL.md): one-line-focus compact, implement→QA
-- [kill-context-bloat](https://github.com/Thingscorp/skills/blob/main/skills/kill-context-bloat/SKILL.md): measure, cut, quit, relaunch, remeasure
-- [session-hygiene](https://github.com/Thingscorp/skills/blob/main/skills/session-hygiene/SKILL.md): portable session habits
-- [claude-code-habits](https://github.com/Thingscorp/skills/blob/main/skills/claude-code-habits/SKILL.md): Claude Code commands
-- [steering-push-vs-point](https://github.com/Thingscorp/skills/blob/main/skills/steering-push-vs-point/SKILL.md): AGENTS.md vs on-demand skills
+- [learn-codebase](https://github.com/Thingscorp/skills/blob/main/skills/learn-codebase/SKILL.md): learn an unfamiliar repo from disk
+- [grill-execute-clear](https://github.com/Thingscorp/skills/blob/main/skills/grill-execute-clear/SKILL.md): grill design, then build in this session
+- [to-spec](https://github.com/Thingscorp/skills/blob/main/skills/to-spec/SKILL.md): destination spec and vertical tickets
+- [unix-compound](https://github.com/Thingscorp/skills/blob/main/skills/unix-compound/SKILL.md): split a domain into one-thing modules
+- [ralph-plan](https://github.com/Thingscorp/skills/blob/main/skills/ralph-plan/SKILL.md): plan a ticket queue
+- [ralph-loop](https://github.com/Thingscorp/skills/blob/main/skills/ralph-loop/SKILL.md): run a ticket queue across sessions
+- [ralph-swarm](https://github.com/Thingscorp/skills/blob/main/skills/ralph-swarm/SKILL.md): run independent ticket queues in parallel
+- [quality-loop](https://github.com/Thingscorp/skills/blob/main/skills/quality-loop/SKILL.md): inventory features from code, then test
+- [review](https://github.com/Thingscorp/skills/blob/main/skills/review/SKILL.md): P0/P1/P2 read; decision-grade findings become ADRs
+- [handoff](https://github.com/Thingscorp/skills/blob/main/skills/handoff/SKILL.md): choose the phase-boundary move
+- [compact](https://github.com/Thingscorp/skills/blob/main/skills/compact/SKILL.md): shrink this session with a one-line focus
+- [kill-context-bloat](https://github.com/Thingscorp/skills/blob/main/skills/kill-context-bloat/SKILL.md): shrink starting context
+- [session-hygiene](https://github.com/Thingscorp/skills/blob/main/skills/session-hygiene/SKILL.md): keep a session clean
+- [claude-code-habits](https://github.com/Thingscorp/skills/blob/main/skills/claude-code-habits/SKILL.md): Claude Code names for session-hygiene
+- [steering-push-vs-point](https://github.com/Thingscorp/skills/blob/main/skills/steering-push-vs-point/SKILL.md): always-on rules vs on-demand skills
 
 ## Docs
 
 - [QUICKSTART](https://github.com/Thingscorp/skills/blob/main/docs/QUICKSTART.md)
-- [AUTHORING](https://github.com/Thingscorp/skills/blob/main/docs/AUTHORING.md)
 - [NAMING](https://github.com/Thingscorp/skills/blob/main/docs/NAMING.md)
+- [AUTHORING](https://github.com/Thingscorp/skills/blob/main/docs/AUTHORING.md)
 - [LANDMINES](https://github.com/Thingscorp/skills/blob/main/docs/LANDMINES.md)
 - [glossary](https://github.com/Thingscorp/skills/blob/main/docs/glossary.md)
-- [ADR ledger](https://github.com/Thingscorp/skills/tree/main/docs/adr)
+- [ADRs](https://github.com/Thingscorp/skills/tree/main/docs/adr)
 - [ADR template](https://github.com/Thingscorp/skills/blob/main/skills/review/references/adr.md)
-- [CHANGELOG](https://github.com/Thingscorp/skills/blob/main/CHANGELOG.md)
+- [CONTRIBUTING](https://github.com/Thingscorp/skills/blob/main/CONTRIBUTING.md)
