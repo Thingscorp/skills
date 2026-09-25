@@ -20,6 +20,18 @@ and come back. Do not ingest the whole tree into chat.
 
 Docs describe shipped behavior. Aspirational product copy is not a row.
 
+
+## When
+
+- A shipped product needs an honest feature inventory and test pass.
+- A plan or diff needs a P0/P1/P2 read → use review instead (a shipped product
+  audit is quality-loop, not review).
+- Orientation in an unfamiliar codebase → use learn-codebase instead.
+
+## Before you start
+
+- Confirm cwd is the named product before editing. Wrong repo is a stop.
+
 ## Artifact (source of truth)
 
 One canonical spreadsheet, **outside** the product as living docs.
