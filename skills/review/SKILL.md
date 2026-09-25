@@ -36,7 +36,7 @@ Do not guess the target.
 ## Severity
 
 | Grade | Meaning | Action |
-|---|---|---|
+|---|---|
 | P0 | Breaks the stated goal, a locked invariant, security, or data integrity | Must fix before land |
 | P1 | Real defect or missing check that will bite the next session | Fix or explicitly waive |
 | P2 | Taste, naming, future work | Optional |
@@ -69,14 +69,32 @@ one-off fixes, restating a rule that already lives in the repo.
 **Incident note, not ADR:** a run failed for operational reasons (lock, quota,
 provider). One paragraph in the project progress log. No `docs/adr/` file.
 
-**Where:** `docs/adr/YYYYMMDD-<slug>.md` in the *target* repo. Code-specific
-decisions travel with the code. Do not invent a global knowledge vault from
-this skill.
+### Versioning
 
-**Shape** (short):
+The chain is the version. Do not semver an ADR body.
+
+- File: `docs/adr/NNNN-short-slug.md` in the *target* repo. `NNNN` is the next
+  integer in that folder (four digits, zero-padded). Never reuse a number.
+- Status only: `Proposed` → `Accepted` → `Deprecated` or `Superseded by ADR-NNNN`.
+- Proposed until the owner accepts. Then flip Status to Accepted.
+- Accepted body is immutable. Allowed edits: Status line, typo in a name,
+  adding `Superseded by ADR-NNNN`. Anything else → a new ADR.
+- To change the call: write ADR-M that states `Supersedes: ADR-N`. Set ADR-N
+  Status to `Superseded by ADR-M`. Keep both files.
+- Never delete an ADR. Rejected stays on disk as `Rejected` so the option is
+  not rediscovered.
+- Truth is the full chain, not the latest file alone.
+
+Do not invent a global knowledge vault from this skill. Do not use a heavy
+consultation template. Context / Decision / Consequences is enough.
+
+**Shape:**
 
 ```markdown
-# ADR-<n>: <decision in one line>
+# ADR-NNNN: <decision in one line>
+
+Date: YYYY-MM-DD
+Status: Proposed
 
 ## Context
 What forced the call.
@@ -84,18 +102,16 @@ What forced the call.
 ## Decision
 What we will do from now on.
 
-## Reason
-Why not the alternative.
-
 ## Consequences
 What this makes easier, and what it forbids.
+
+## Supersedes
+ADR-NNNN (omit if none)
 ```
 
-Append-only. Supersede with a new ADR that points at the old one. Never
-silently rewrite. One decision per file. Link the ADR path from the finding.
-
-Do not write the ADR until the owner accepts the decision. List candidates
-under **Decisions to capture** first.
+One decision per file. Link the path from the finding.
+List candidates under **Decisions to capture** first. Write the file only
+after the owner accepts (then Status: Accepted in the same commit).
 
 ## Report shape
 
@@ -125,6 +141,9 @@ If there are no findings, write `No findings.` and stop.
 - Writing findings into `artifacts/` and never capturing the decision.
 - An ADR per P2 nit.
 - Relitigating taste as P0.
+- Editing an Accepted ADR body instead of superseding.
+- Deleting a Rejected or Superseded ADR.
+- Dating files instead of numbering them (`20260924-foo.md` collides and does not index).
 
 ## Related
 

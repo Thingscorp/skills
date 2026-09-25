@@ -1,28 +1,30 @@
-# ADR template
+# ADR template (Nygard, short)
 
-Use this only when the review skill says **capture**. One decision per file.
-
-Path: `docs/adr/NNNN-short-slug.md` (next free number in that directory).
+Use from the `review` skill. One decision per file.
+Path: `docs/adr/NNNN-short-slug.md`
 
 ```markdown
-# NNNN. <decision in one line>
+# ADR-NNNN: <decision in one line>
 
-**Date** YYYY-MM-DD
-**Status** accepted | superseded by NNNN
+Date: YYYY-MM-DD
+Status: Proposed
 
 ## Context
-What problem, constraint, or fork forced a choice.
+What forced the call. Neutral. Tensions, not a pitch.
 
 ## Decision
-What we will do. One sentence if it fits.
+What we will do from now on.
 
 ## Consequences
-What becomes easier, what becomes harder, what is now out of bounds.
+Easier: …
+Forbidden: …
+
+## Supersedes
+ADR-NNNN
 ```
 
-Rules:
+Status values: `Proposed` | `Accepted` | `Rejected` | `Deprecated` | `Superseded by ADR-NNNN`.
 
-- Write it when the decision is made, not weeks later.
-- Short. If it needs a design doc, it is not an ADR.
-- Supersede with a new file. Do not edit history except to point Status at the successor.
-- Adopt/skip a library is an ADR. A missing assertion is not.
+Lifecycle: Proposed → Accepted → Deprecated or Superseded.
+Accepted body does not change. New conclusion = new numbered file that
+points at the old one. Never delete.
