@@ -3,7 +3,9 @@ name: grill-execute-clear
 description: >-
   use this when starting a coding task with an agent and you need the
   grill → same-session execute → clear loop — Brooks design-concept punch included
-portability: portable
+license: MIT
+metadata:
+  portability: portable
 ---
 # grill-execute-clear
 

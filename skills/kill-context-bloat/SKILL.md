@@ -3,7 +3,9 @@ name: kill-context-bloat
 description: >-
   use this when agent sessions feel bloated — the measure→edit→quit→remeasure
   lab with /context; named harness settings as examples not law
-portability: portable
+license: MIT
+metadata:
+  portability: portable
 ---
 # kill-context-bloat
 

@@ -3,7 +3,9 @@ name: learn-codebase
 description: >-
   use this when getting up to speed in an unfamiliar codebase — sibling
   workspace, MISSION structure, prove-it checks, not a map-only prompt
-portability: portable
+license: MIT
+metadata:
+  portability: portable
 ---
 # learn-codebase
 

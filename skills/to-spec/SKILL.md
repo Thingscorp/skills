@@ -4,7 +4,9 @@ description: >-
   use this when a feature spans multiple smart-zone sessions — grill,
   destination spec + vertical tickets in the issue tracker, archive the spec
   when code ships
-portability: portable
+license: MIT
+metadata:
+  portability: portable
 ---
 # to-spec
 
