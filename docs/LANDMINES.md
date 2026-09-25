@@ -1,10 +1,12 @@
 # Landmines — do not regress
 
 These are the sharp claims that drafts quietly invert or soften.
-Each rule must appear in at least one `skills/*/SKILL.md`. There is no
-`tools/validate.py` in this repo.
+`python3 tools/validate.py` asserts the phrases below still appear
+**verbatim** in some `skills/*/SKILL.md`. A phrase that lives only in
+this file does not count.
 
 1. **~150k dumb-zone onset** — never ~80k. The figure is a slope, not a cliff.
+   Phrase: `150k`
 2. **Archive, don't delete** specs when code ships. Code is primary; never a
    living in-repo `SPEC.md`.
 3. **A goal loop on a whole spec is a trap** — one long auto-compacting
@@ -15,6 +17,7 @@ Each rule must appear in at least one `skills/*/SKILL.md`. There is no
 5. **Deny + quit/relaunch** for bloat cuts — settings edits often change
    nothing until the harness restarts. Deny-without-relaunch is a false fix.
 6. **Kill-bloat motive is quality of attention, not min-maxing spend.**
+   Phrase: `quality of attention, not min-maxing spend`
 7. **Vertical tickets, not horizontal** — each ticket a thin end-to-end slice
    (tracer bullets); reject DB-then-API-then-UI layering.
 8. **Push vs point** — default to pointers; push only short always-true rules.
@@ -27,5 +30,6 @@ Each rule must appear in at least one `skills/*/SKILL.md`. There is no
 11. **No fake eval.** No hash embeddings. No template output labeled as model
     output. An eval that does not run the production path does not count.
 12. **Confirm cwd is the named product** before editing. Wrong repo is a stop.
-13. **Do not hand-edit the system of record.** Explicit remember vs inferred
-    capture. Do not stitch raw searches when a scoped pack already exists.
+13. **Inferred facts are candidates, not commits.** Explicit "remember" may
+    be written. Speculation, generated summaries, and low-confidence guesses
+    stay candidates until the owner accepts.
