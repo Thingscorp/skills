@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- README badges: validate CI, license, skills.sh catalog
+- GitHub issue templates (bug, skill proposal) and PR template
 
 - Validator rejects top-level `portability` and missing `license`
 - All 15 skills use `metadata.portability`

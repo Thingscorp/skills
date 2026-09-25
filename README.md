@@ -1,5 +1,9 @@
 # Skills, not syllabi
 
+[![validate](https://img.shields.io/github/actions/workflow/status/Thingscorp/skills/validate.yml?label=validate)](https://github.com/Thingscorp/skills/actions/workflows/validate.yml)
+[![license](https://img.shields.io/github/license/Thingscorp/skills)](LICENSE)
+[![skills.sh](https://img.shields.io/badge/skills.sh-catalog-blue)](https://skills.sh/Thingscorp/skills)
+
 Operational **agent skills**. Each one tells an agent how to *do* a job.
 
 Format: `skills/<name>/SKILL.md` — the [Agent Skills](https://agentskills.io/specification) standard.
