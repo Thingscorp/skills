@@ -1,8 +1,6 @@
 # Landmines — do not regress
 
 These are the sharp claims that drafts quietly invert or soften.
-`tools/validate.py` asserts the quoted figures/phrases still appear
-verbatim in the skills.
 
 1. **~150k dumb-zone onset** — never ~80k. The figure is a slope, not a cliff.
 2. **Archive, don't delete** specs when code ships. Code is primary; never a
@@ -22,3 +20,9 @@ verbatim in the skills.
    attention).
 9. **Do not manufacture findings.** Empty review is valid. Findings that
    encode a decision become ADRs — a write-once review dump is a graveyard.
+10. **Docs describe shipped behavior.** Aspirational stays in ROADMAP, marked
+    unshipped. Never claim a service, SDK, or path that is not on disk.
+11. **No fake eval.** No hash-as-embedding, no template labeled as model
+    output, no eval that does not run the production path.
+12. **Confirm cwd is the named product before editing.** Wrong-repo is a
+    stop. Do not commit workstation paths or tokens.
