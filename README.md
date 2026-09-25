@@ -30,14 +30,14 @@ npx skills add Thingscorp/skills --all
 One skill, non-interactive:
 
 ```bash
-npx skills add Thingscorp/skills --skill compact -y
+npx skills add Thingscorp/skills --skill quality-loop -y
 ```
 
 GitHub CLI (v2.90+):
 
 ```bash
 gh skill install Thingscorp/skills --all
-gh skill install Thingscorp/skills compact --agent cursor --scope user
+gh skill install Thingscorp/skills quality-loop --agent cursor --scope user
 ```
 
 Bare `npx skills add Thingscorp/skills` and `gh skill install Thingscorp/skills` are interactive pickers. Default scope is the current project. `-g` / `--scope user` writes to the user-level skills dir.
@@ -56,6 +56,7 @@ cp -R skills/<name> <skills-dir>/<name>
 | `grill-execute-clear` | Starting a feature. Grill the design, execute in the same session, clear after. |
 | `to-spec` | Work that will not fit one smart-zone session. Destination spec + vertical tickets in the tracker. |
 | `ralph-loop` | A ticket queue must be worked across sessions. One item per iteration. Gate outside the worker. |
+| `quality-loop` | Shipped product needs an honest feature inventory and test pass. Discover from code, test, fix, regress, loop. |
 | `handoff` | Phase boundary. Ordered tree: continue / clear / compact / handoff / subagent. |
 | `compact` | Same agent, same directory, need room. One-line focus. Cast-iron case: implement → QA. |
 | `kill-context-bloat` | Starting context is fat. Measure, cut, quit, relaunch, remeasure. |
