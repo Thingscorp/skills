@@ -2,7 +2,7 @@
 
 > Operational agent skills. How to do the job, not how to teach it.
 
-Library of SKILL.md playbooks for coding agents. Paste the repo. Read AGENTS.md. Load one skill.
+Paste the repo. Read AGENTS.md. Load one skill. Do not ingest the library.
 
 ## Start
 
@@ -33,3 +33,4 @@ Library of SKILL.md playbooks for coding agents. Paste the repo. Read AGENTS.md.
 - [glossary](https://github.com/Thingscorp/skills/blob/main/docs/glossary.md)
 - [LANDMINES](https://github.com/Thingscorp/skills/blob/main/docs/LANDMINES.md)
 - [AUTHORING](https://github.com/Thingscorp/skills/blob/main/docs/AUTHORING.md)
+- [ADR template](https://github.com/Thingscorp/skills/blob/main/skills/review/references/adr.md)

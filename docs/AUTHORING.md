@@ -40,6 +40,10 @@ Do not put `portability` at the top level. Agents that validate the spec will re
    - **Anti-patterns** — what not to do (if any).
    - **Related** — other skills in this library, when a workflow spans them.
 4. Check the folder name equals `name`.
+5. Add the name to: `README.md` table, `AGENTS.md` map, `llms.txt`,
+   `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`,
+   and a group in `skills.sh.json`.
+6. Run `python3 tools/validate.py`.
 
 ## Rules
 
@@ -49,3 +53,5 @@ Do not put `portability` at the top level. Agents that validate the spec will re
 - **Portability.** Doctrine stays portable. Harness command names belong in an adapter skill (`claude-code-habits`) or a harness note, not in the portable body.
 - **Docs describe shipped behavior.** Do not document a private product runtime
   (paths, MCP tool names, Compose networks) as if it were a portable skill.
+- Landmine phrases in `docs/LANDMINES.md` must appear verbatim in some
+  `skills/*/SKILL.md`. The checker is `tools/validate.py`.

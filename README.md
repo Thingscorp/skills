@@ -4,18 +4,18 @@ Operational **agent skills**. Each one tells an agent how to *do* a job.
 
 Format: `skills/<name>/SKILL.md` — the Agent Skills standard. Works in any harness that loads SKILL.md.
 
-Paste this repo into an agent and tell it to follow `AGENTS.md`.
+Paste this repo into an agent and tell it to follow [`AGENTS.md`](AGENTS.md).
 
 ## For agents
 
-1. Read [`AGENTS.md`](AGENTS.md).
+1. Read [`AGENTS.md`](AGENTS.md). That is the runbook.
 2. Install with a command below, or work from this checkout.
-3. Load one skill at a time from `skills/<name>/SKILL.md`.
-4. Use the workflow map in `AGENTS.md`. Do not load every skill.
+3. Load **one** skill from `skills/<name>/SKILL.md` using the workflow map.
+4. Do not load every skill.
 
 ## Install
 
-CLI is `skills@1.7.0` (`npx skills`). Default install is a **symlink** into each detected agent. Scope is the current project unless `-g`.
+CLI is `npx skills` (package `skills`, current line is 1.7.x). Default install is a **symlink** into each detected agent. Scope is the current project unless `-g`.
 
 ```bash
 # list what this repo exports (no install)
@@ -52,6 +52,8 @@ npx skills update
 
 skills.sh indexes a repo after real `npx skills add` telemetry. `skills.sh.json` only groups the repo page; it does not publish the catalog entry.
 
+There is no `./tools/install.sh`.
+
 ## The library
 
 | Skill | Use it when |
@@ -76,3 +78,13 @@ Harness-specific adapters (optional):
 | Skill | Use it when |
 |---|---|
 | `claude-code-habits` | Claude Code command names for the portable session-hygiene skill. |
+
+## Edit this library
+
+Read [`docs/AUTHORING.md`](docs/AUTHORING.md). After any skill change:
+
+```bash
+python3 tools/validate.py
+```
+
+Doctrine that must not regress: [`docs/LANDMINES.md`](docs/LANDMINES.md).

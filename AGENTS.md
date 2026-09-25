@@ -8,20 +8,38 @@ A library of operational **agent skills**. Each skill is `skills/<name>/SKILL.md
 with YAML frontmatter (`name`, `description`) and a short body. Load **one skill
 that matches the current job**. Do not ingest the whole library.
 
-15 skills on disk. Catalogs that must stay in lockstep: this file, `README.md`,
-`llms.txt`, `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`,
-`skills.sh.json`.
+## First 30 seconds
 
-## First moves
+1. Confirm you are in `Thingscorp/skills` (this file exists; `skills/` has one
+   folder per skill).
+2. If the user wants to **use** a workflow on some other repo: pick the first
+   matching row in the map below, read that `SKILL.md`, then follow it.
+3. If the user wants these skills **installed** in a harness:
+   `npx skills add Thingscorp/skills --list -y` then `--skill <name> -y` or `--all`.
+4. If the user wants to **change this library**: read `docs/AUTHORING.md`, edit,
+   run `python3 tools/validate.py`.
 
-1. Confirm cwd is this repo (`Thingscorp/skills`) or the user's target repo.
-   Wrong repo is a stop.
-2. If the user wants these skills on disk:
-   `npx skills add Thingscorp/skills --list -y` then `--all` or `--skill <name> -y`
-3. If they want a workflow *now*, pick the first matching row below. Read that
-   `SKILL.md` before acting.
-4. If they want to change this library, read `docs/AUTHORING.md` and run
-   `python3 tools/validate.py`.
+Do not load every SKILL.md "for context."
+
+## Layout
+
+| Path | What |
+|---|---|
+| `AGENTS.md` | This runbook |
+| `README.md` | Install commands + library table |
+| `CLAUDE.md` | Pointer at this file |
+| `llms.txt` | Machine index of skills |
+| `docs/AUTHORING.md` | How to add a skill |
+| `docs/LANDMINES.md` | Claims that must not be softened |
+| `docs/glossary.md` | Smart zone, phase tree, spec lifetime |
+| `skills/<name>/SKILL.md` | The playbook |
+| `skills/review/references/adr.md` | ADR template for `review` |
+| `tools/validate.py` | Landmine phrase check |
+| `skills.sh.json` | skills.sh groupings |
+| `.claude-plugin/` | Plugin manifests |
+
+There is no `tools/install.sh`. There is no `docs/HARNESS-MATRIX.md`.
+There is no `docs/CONFIG-SCHEMA.md`. Install is `npx skills`.
 
 ## Workflow map
 
@@ -48,7 +66,7 @@ Pick the first matching row. Stop. Read that skill.
 
 ## Doctrine that must not be softened
 
-Full list: `docs/LANDMINES.md`. `python3 tools/validate.py` checks the phrases live in skills.
+Full list: `docs/LANDMINES.md`. After edits: `python3 tools/validate.py`.
 
 - Dumb-zone onset ≈ 150k tokens. A slope, not a cliff.
 - Archive specs when code ships. Never leave a living `SPEC.md`.
@@ -68,7 +86,8 @@ Full list: `docs/LANDMINES.md`. `python3 tools/validate.py` checks the phrases l
 
 1. Read the frontmatter `description`. No match → do not load the body.
 2. Follow the steps. Honor anti-patterns.
-3. Load Related skills only at that seam.
+3. Load Related skills only at that seam. `review` ADR details live in
+   `skills/review/references/adr.md`.
 4. Do not copy skill text into AGENTS.md.
 
 ## Do not
@@ -77,4 +96,4 @@ Full list: `docs/LANDMINES.md`. `python3 tools/validate.py` checks the phrases l
 - Commit handoff docs or living specs into a target repo.
 - Invent a conductor on top of these files.
 - Add attribution footers.
-- Copy Mininja / Pi / Devin product adapters into this pack.
+- Follow paths this file says do not exist.

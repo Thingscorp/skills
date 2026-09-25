@@ -2,8 +2,8 @@
 
 Core skills are self-contained (they install standalone), so each one restates
 the figures it needs. This file is the **canonical definition** those
-restatements must match. `tools/validate.py` checks core skills against it —
-if you change a figure here, update every core skill that quotes it.
+restatements must match. Landmine phrases are checked by `tools/validate.py`.
+If you change a figure here, update every skill that quotes it.
 
 ## Smart zone / dumb zone
 
@@ -43,8 +43,9 @@ to auto-compaction — mid-phase auto-compact is dangerous.
 - **Archive, don't delete** specs when code ships. Code is primary; dense
   outdated specs drift and agents trust them over code.
 
-## Install namespacing
+## Install
 
 Skill directories use plain names (`compact`, `handoff`, …). When installing
 into a harness, namespace them only if the dest already has a collision.
 The default install is `npx skills add Thingscorp/skills`.
+There is no `tools/install.sh`.
