@@ -3,13 +3,12 @@
 Operational **agent skills**. Each one tells an agent how to *do* a job.
 
 Format: `skills/<name>/SKILL.md` — the [Agent Skills](https://agentskills.io/specification) standard.
-Works in Cursor, Claude Code, Codex, and any harness that loads SKILL.md.
+Works in Cursor, Claude Code, Codex, Copilot, Gemini CLI, and any harness that loads SKILL.md.
 
-Keywords: agent skills, SKILL.md, npx skills, ralph-loop, coding agents, AGENTS.md,
-progressive disclosure, vertical tickets, grill then execute.
+Keywords: agent skills, SKILL.md, npx skills, ralph-loop, coding agents, AGENTS.md.
 
 Paste this repo into an agent and tell it to follow [`AGENTS.md`](AGENTS.md).
-People: start at [`docs/QUICKSTART.md`](docs/QUICKSTART.md).
+People: [`docs/QUICKSTART.md`](docs/QUICKSTART.md).
 Catalog: [skills.sh/Thingscorp/skills](https://skills.sh/Thingscorp/skills).
 
 ## For agents
@@ -21,7 +20,7 @@ Catalog: [skills.sh/Thingscorp/skills](https://skills.sh/Thingscorp/skills).
 
 ## Install
 
-CLI is `npx skills` (package `skills`, current line is 1.7.x). Default install is a **symlink** into each detected agent. Scope is the current project unless `-g`.
+CLI is `npx skills` (package `skills`). Default install is a **symlink** into each detected agent. Scope is the current project unless `-g`.
 
 ```bash
 # list what this repo exports (no install)
@@ -57,6 +56,23 @@ npx skills update
 `--list` cannot be combined with `--json`. Use `--list -y` to print names non-interactively.
 
 There is no `./tools/install.sh`.
+
+## You want to
+
+| Job | Skill |
+|---|---|
+| Learn a strange repo | `learn-codebase` |
+| Start a feature | `grill-execute-clear` |
+| Work that will span sessions | `to-spec` |
+| Review a plan or diff | `review` |
+| Run a ticket queue | `ralph-plan` then `ralph-loop` |
+| Run independent queues in parallel | `ralph-swarm` |
+| Inventory a shipped product | `quality-loop` |
+| Hit a phase boundary | `handoff` |
+| Need room in this session | `compact` |
+| Starting context is fat | `kill-context-bloat` |
+
+Full map: [`AGENTS.md`](AGENTS.md). Names: [`docs/NAMING.md`](docs/NAMING.md).
 
 ## The library
 

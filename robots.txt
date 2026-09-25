@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-# Machine index for agents and crawlers
-# https://llmstxt.org
+# Machine index for agents and crawlers (llmstxt.org)
+# https://github.com/Thingscorp/skills/blob/main/llms.txt

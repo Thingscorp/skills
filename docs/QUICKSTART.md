@@ -30,6 +30,7 @@ Match the job, not the whole library. Literal jobs: `docs/NAMING.md`.
 | Inventory a shipped product | `quality-loop` |
 
 Full map: `AGENTS.md`.
+Catalog: https://skills.sh/Thingscorp/skills
 
 ## Check the library itself
 
@@ -44,14 +45,3 @@ npx skills list
 npx skills check
 npx skills update
 ```
-
-## Be found
-
-skills.sh lists a repo only after someone runs a real `npx skills add`
-(not `--list`). `skills.sh.json` only groups the page once that happens.
-
-GitHub About and Topics are set in the repo Settings UI. Suggested About:
-
-> Operational agent skills. Flat SKILL.md playbooks. Install with npx skills add Thingscorp/skills.
-
-Suggested topics: `agent-skills`, `skills`, `skil-md`, `ralph`, `adr`.
