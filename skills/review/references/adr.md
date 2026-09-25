@@ -1,7 +1,7 @@
 # ADR template (Nygard-short)
 
 Use from the `review` skill. One decision per file.
-Path: `docs/adr/NNNN-short-slug.md` in the *target* repo. Git is the log.
+Path: `docs/adr/NNNN-short-slug.md` in the **target git repo**.
 
 ```markdown
 # ADR-NNNN: <decision in one line>
@@ -16,7 +16,7 @@ What forced the call. Neutral. Tensions, not a pitch.
 - Constraint any winner must meet (not praise for the chosen option)
 
 ## Options considered
-- A — why it lost or won against the drivers
+- A — why it lost or won
 - B — …
 
 ## Decision
@@ -38,41 +38,31 @@ If there is only one option, skip the ADR — that is an implementation.
 
 Status: `Proposed` | `Accepted` | `Rejected` | `Deprecated` | `Superseded by ADR-NNNN`.
 
-## Drivers
+## Drivers (MADR sense)
 
-MADR Decision Drivers are forces that exist **before** a winner is picked.
-Test: you can use the bullet to reject an option without naming the winner.
+A driver is a **force that can knock an option out** before anyone picks a
+winner. Test: you could score every option against it without knowing the
+choice. Good: `p95 < 200ms`, `no new vendor`, `keep the current schema`.
+Bad: `better DX`, `Postgres is the best fit`, restating the Decision.
+Two to four. If you need a matrix, the ADR is too big — split or cut.
+Drivers that later flip the call are a new ADR, not an edit.
 
-Good: `must stay on the current schema`, `no new runtime`, `p99 under 10ms`.
-Bad: `Postgres is battle-tested` (that is an argument for an option).
+## Git is the version control
 
-2–4 bullets. If Context already names the forces, omit this section.
-Do not write a driver×option matrix.
-
-## Version control
-
-- ADRs live next to the code they bind. Not a wiki, not `artifacts/`.
-- `Proposed` = open change (PR). Merge to the default branch = `Accepted`.
-- Number is assigned when the file is created, not when it merges.
-- Git history is the audit. Date is the decision date, never "last updated."
-- Do not rebase, force-push, or amend an Accepted body. Status-line commits only.
-- Supersede is two files in one commit after the owner accepts.
-- Do not vendor an `adr` CLI from this skill.
+- One markdown file per ADR, committed next to the code they bind.
+- `Proposed` may iterate on a branch / PR. Merge of an Accepted ADR is
+  the acceptance event. Git history is the audit. No `last updated` stamp.
+- After Accepted: do not amend, rebase, or force-push that file's body.
+  Status-line commits only.
+- Supersede = two-file commit (new Accepted + old Status line). Do not
+  squash away the Status change.
+- Do not store the only copy in a wiki.
 
 ## Supersedes
 
 Field on the **new** file. Status change on the **old** file.
 Only an **Accepted** ADR that answered the **same question** and has a
-**lower number**. No self-link. No hop over an already-superseded ADR
-(supersede the current head of the chain). Related-but-different →
-Context, not this field. Proposed drafts are edited or Rejected, not
-superseded.
+**lower number**. No self-link. No hop over an already-superseded ADR.
+Related-but-different → Context. Proposed drafts are edited or Rejected.
 
-Same question, new answer → supersede.
-Question gone → deprecate.
-
-Two-file commit after owner accepts:
-1. ADR-M Accepted, `Supersedes: ADR-N`.
-2. ADR-N Status line only → `Superseded by ADR-M`.
-
-Accepted body does not change. Never delete.
+Same question, new answer → supersede. Question gone → deprecate.

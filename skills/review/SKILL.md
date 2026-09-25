@@ -80,12 +80,23 @@ provider). One paragraph in the project progress log. No `docs/adr/` file.
   typo, adding `Superseded by`. Anything else → a new ADR.
 - Never delete. Truth is the full chain.
 
+Git is the ledger:
+
+- One markdown file per ADR, next to the code it binds.
+- `Proposed` may iterate on a branch. Merge of Accepted is the acceptance.
+- After Accepted: no amend / rebase / force-push of that body. Status-line
+  commits only.
+- Supersede is a two-file commit. Do not squash away the Status change.
+- Do not keep the only copy in a wiki.
+
 Default shape is Nygard-short (Context / Decision / Consequences).
 Optional extras, only when they earn the lines:
 
-- `## Drivers` — two to four **constraints that judge the options**
-  (latency cap, no new vendor, must keep current schema). Not a pitch
-  for the winner. Drivers exist before the choice.
+- `## Drivers` — two to four **forces that can knock an option out**
+  before anyone picks (`p95 < 200ms`, `no new vendor`, `keep current
+  schema`). Test: you could score every option against it without knowing
+  the winner. Not `better DX`. Not praise for the choice. If the force set
+  later flips the call, that is a new ADR.
 - `## Options considered` — two or three named alternatives when the
   call had a real fork. One line each. If there is only one option, you
   are documenting an implementation, not a decision — skip the ADR.
@@ -194,6 +205,7 @@ If there are no findings, write `No findings.` and stop.
 - An ADR per P2 nit.
 - Relitigating taste as P0.
 - Editing an Accepted ADR body instead of superseding.
+- Amending or force-pushing an Accepted ADR.
 - Deleting a Rejected, Deprecated, or Superseded ADR.
 - Dating files instead of numbering them.
 - Dumping a full MADR (RACI + per-option matrices) for a one-line call.
