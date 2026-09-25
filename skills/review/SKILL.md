@@ -1,86 +1,92 @@
 ---
 name: review
 description: >-
-  use this when a plan or diff needs a severity-graded review before
-  it lands — P0/P1/P2, do not manufacture findings, BLOCKED when
-  scope is ambiguous, decisions become ADRs
+  use this when a plan or diff needs a severity-graded review before it
+  lands — P0/P1/P2, do not manufacture findings, BLOCKED if scope is
+  ambiguous, reviewer does not dispatch workers
 license: MIT
 metadata:
   portability: portable
 ---
 # review
 
-Grade a plan or a diff. One process. Do not dispatch workers. Do not
-rewrite the work under review.
-
-This is not quality-loop (inventory a shipped product) and not ralph-loop
-(drain a ticket queue).
+Grade a plan or a diff before it lands. One process. Do not dispatch a swarm.
+Do not invent issues to look thorough.
 
 ## When
 
-- A plan is about to be executed.
-- A diff is about to land on a topic branch.
-- An adopt/skip verdict on a library needs a recorded reason.
+- A change is about to merge or a plan is about to become tickets.
+- You need severity, not a vibe.
+- Scope is stated (files, intent, invariants). If it is not, stop.
 
-Stop and ask if the scope is ambiguous. Do not guess a target.
+Not for: draining a ticket queue (ralph-loop), inventorying a shipped product
+(quality-loop), or composing a domain (unix-compound).
+
+## Preconditions
+
+- Named subject: plan path, PR, or `git diff` range.
+- Stated intent and allowed scope.
+- If either is missing or contradictory → **BLOCKED**. Ask one clarifying
+  question. Do not review a guess.
 
 ## Severity
 
-| Grade | Meaning | Action |
+| Grade | Meaning | Gate |
 |---|---|---|
-| P0 | Breaks correctness, security, data, or the locked goal | Must fix before land |
-| P1 | Real defect or missing check; not an emergency | Fix or explicitly waive |
-| P2 | Smell, inconsistency, missing test that is not load-bearing | Note; do not block |
+| **P0** | Breaks correctness, safety, data, or a locked invariant. | Must fix before land. |
+| **P1** | The change fails its own intent or leaves the slice unproven. | Should fix in this change. |
+| **P2** | Real, optional. Style, naming, later cleanup. | Record. Do not block. |
 
-No other grades. If it is not a finding, do not write it.
+No other grades. No "P0.5". No nit dressed as P0.
 
 ## How
 
-1. Name the artifact (plan path, diff range, or commit).
-2. If scope is unclear — which files, which goal, which branch — emit
-   `BLOCKED` and the question. Stop.
-3. Read the artifact and the surrounding contract (`allowed_paths`,
-   locked criteria, tests). Do not review files outside that scope.
-4. List findings. Each one: grade, location, what is wrong, what would
-   make it pass. Evidence from the artifact, not from taste.
-5. Do **not** manufacture findings. Empty is a valid review: `No P0/P1`.
-6. Distill decision-grade findings (adopt/skip, invariant, lesson) into
-   an ADR or atomic note next to the project docs. Typos and one-off
-   defects stay in the review. A write-only artifacts dump is a graveyard.
-7. Hand the report back. Do not commit, push, or start the next ticket.
+1. Read the stated intent and scope first. Do not browse the whole repo.
+2. Review only what is in scope plus its immediate callers/callees.
+3. Every finding cites a path (and line or symbol) and the behavior that fails.
+   No citation → not a finding. Delete it.
+4. Assign exactly one grade. If two grades fit, take the higher only when the
+   higher invariant is actually at risk.
+5. Decision-grade findings (a tradeoff, an adopt/skip, a lesson that should
+   bind later work) become an ADR stub in the project's decision dir — not a
+   note in a write-once artifacts folder. Typos stay in the review.
+6. Stop. Do not fix in this skill unless the owner asked for fix-forward and
+   there are no P0s left unstated.
 
-## Report shape
+## Output
 
 ```markdown
 ### review
-**Target** …
+**Subject** …
 **Scope** …
 **Verdict** land / fix-P0 / fix-P1 / BLOCKED
 
-| Grade | Location | Finding | Passes when |
+| ID | Grade | Finding | Evidence |
 |---|---|---|---|
-| P0 | … | … | … |
+| R-1 | P0 | … | path:symbol |
 
-**Decisions to record** … or none
-**Out of scope** …
+**Decisions to record** ADR stubs, or none.
+**Out of scope** noted, not graded.
 ```
+
+Verdict `land` only when there are zero P0s and the owner accepts leftover P1s.
 
 ## Rules
 
-- One reviewer process. Swarm and review stay separate.
-- Do not invent issues to look thorough.
-- Do not fix the diff in the same pass unless the owner asked for a
-  review-and-patch and there is no P0 ambiguity.
-- Never land with an open P0.
+- Do not manufacture findings. Empty review is valid.
+- Reviewer does not spawn workers, lanes, or a second agent to "go deeper."
+- Do not re-open files the subject did not touch unless a P0 invariant requires it.
+- Artifacts folders that nobody reads are a graveyard. Decisions go to ADRs.
 
 ## Anti-patterns
 
-- Reviewing the whole repo because the diff felt related.
-- P2 style nits dressed up as P0.
-- Writing findings to a dump directory that nothing reads.
-- Dispatching workers from the review.
-- Approving by vibe when tests or the locked goal were not checked.
+- Reviewing the whole repo because the diff was small.
+- Padding the list so the review "looks complete."
+- Embedding swarm/dispatch in the reviewer.
+- Filing a typo as P0.
+- Writing findings into a directory that is never read again.
+- Fixing while reviewing without stating the P0s first.
 
 ## Related
 
-ralph-loop · quality-loop · to-spec · handoff · unix-compound
+ralph-loop · quality-loop · handoff · to-spec · grill-execute-clear
