@@ -1,5 +1,17 @@
 {
   "name": "skills",
   "description": "Operational agent skills for coding agents.",
-  "version": "1.0.0"
+  "version": "1.0.0",
+  "skills": [
+    "./skills/learn-codebase",
+    "./skills/grill-execute-clear",
+    "./skills/to-spec",
+    "./skills/ralph-loop",
+    "./skills/handoff",
+    "./skills/compact",
+    "./skills/kill-context-bloat",
+    "./skills/session-hygiene",
+    "./skills/steering-push-vs-point",
+    "./skills/claude-code-habits"
+  ]
 }
