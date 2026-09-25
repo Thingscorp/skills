@@ -12,7 +12,7 @@ metadata:
 Shrink always-on payload so more of the window stays in the **smart zone**. Motive is **quality of attention**, not min-maxing spend.
 
 ## Lab loop (do not skip remeasure)
-1. Fresh session. Measure starting context (Claude Code: `/context`; or a request logger).
+1. Fresh session. Measure starting context (your harness's slash command — see `<harness>-habits`; or a request logger).
 2. Trivial Hello; record baseline tokens (demos often start ~**68k** — shockingly high).
 3. Edit harness settings. First **locate the settings file** for your harness and **back it up**. **Named flags below are examples for one harness/version — not universal law**:
    - disable unused connectors/integrations — demo drop ~68k→~47k

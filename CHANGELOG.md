@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- Harness-neutral adapters: `cursor-habits`, `codex-habits`, `copilot-habits`, `gemini-cli-habits` (ADR-0007 supersedes ADR-0002; no default harness)
 - README badges: validate CI, license, skills.sh catalog
 - GitHub issue templates (bug, skill proposal) and PR template
 

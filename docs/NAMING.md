@@ -30,6 +30,10 @@ A name is the job. If an agent cannot tell what the file does from the path, ren
 | session-hygiene | portable session habits | `session-habits` |
 | steering-push-vs-point | always-on rules vs on-demand skills | `always-on-vs-on-demand` |
 | claude-code-habits | Claude Code command names | `claude-code-commands` |
+| cursor-habits | Cursor command names | `cursor-commands` |
+| codex-habits | Codex command names | `codex-commands` |
+| copilot-habits | Copilot CLI command names | `copilot-commands` |
+| gemini-cli-habits | Gemini CLI command names | `gemini-commands` |
 
 Do not rename in place without updating README, AGENTS.md, llms.txt, plugin.json, marketplace.json, skills.sh.json, and Related lines.
 

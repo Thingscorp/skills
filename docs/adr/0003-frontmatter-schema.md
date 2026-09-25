@@ -20,7 +20,7 @@ description: >-
   use this when …
 license: MIT
 metadata:
-  portability: portable   # or claude-code
+  portability: portable   # portable | claude-code | cursor | codex | copilot | gemini-cli
 ```
 
 `python3 tools/validate.py` rejects drift.

@@ -17,6 +17,10 @@
     "./skills/kill-context-bloat",
     "./skills/session-hygiene",
     "./skills/steering-push-vs-point",
-    "./skills/claude-code-habits"
+    "./skills/claude-code-habits",
+    "./skills/cursor-habits",
+    "./skills/codex-habits",
+    "./skills/copilot-habits",
+    "./skills/gemini-cli-habits"
   ]
 }

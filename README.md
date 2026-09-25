@@ -102,6 +102,10 @@ Harness-specific adapters (optional):
 | Skill | Use it when |
 |---|---|
 | `claude-code-habits` | Claude Code command names for the portable session-hygiene skill. |
+| `cursor-habits` | Cursor command names for the portable session-hygiene skill. |
+| `codex-habits` | Codex command names for the portable session-hygiene skill. |
+| `copilot-habits` | Copilot CLI command names for the portable session-hygiene skill. |
+| `gemini-cli-habits` | Gemini CLI command names for the portable session-hygiene skill. |
 
 This `ralph-loop` is a portable ticket-queue contract (gate outside the worker,
 `.ralph/` state). It is not the mikeyobrien / clawdbot / eliteai runner CLIs.
