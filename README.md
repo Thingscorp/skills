@@ -2,9 +2,13 @@
 
 Operational **agent skills**. Each one tells an agent how to *do* a job.
 
-Format: `skills/<name>/SKILL.md` — the Agent Skills standard. Works in any harness that loads SKILL.md.
+Format: `skills/<name>/SKILL.md` — the [Agent Skills](https://agentskills.io/specification) standard.
+Works in Cursor, Claude Code, Codex, and any harness that loads SKILL.md.
+
+Keywords: agent skills, SKILL.md, npx skills, ralph-loop, coding agents, AGENTS.md.
 
 Paste this repo into an agent and tell it to follow [`AGENTS.md`](AGENTS.md).
+People: start at [`docs/QUICKSTART.md`](docs/QUICKSTART.md).
 
 ## For agents
 
@@ -50,7 +54,9 @@ npx skills update
 
 `--list` cannot be combined with `--json`. Use `--list -y` to print names non-interactively.
 
-skills.sh indexes a repo after real `npx skills add` telemetry. `skills.sh.json` only groups the repo page; it does not publish the catalog entry.
+[skills.sh](https://skills.sh) indexes a repo after a real `npx skills add Thingscorp/skills`
+(not `--list`). `skills.sh.json` only groups the page once that telemetry exists.
+Until then `https://skills.sh/Thingscorp/skills` is 404. That is expected.
 
 There is no `./tools/install.sh`.
 
@@ -79,6 +85,9 @@ Harness-specific adapters (optional):
 |---|---|
 | `claude-code-habits` | Claude Code command names for the portable session-hygiene skill. |
 
+This `ralph-loop` is a portable ticket-queue contract (gate outside the worker,
+`.ralph/` state). It is not the mikeyobrien / clawdbot / eliteai runner CLIs.
+
 ## Edit this library
 
 Read [`docs/AUTHORING.md`](docs/AUTHORING.md). After any skill change:
@@ -88,3 +97,11 @@ python3 tools/validate.py
 ```
 
 Doctrine that must not regress: [`docs/LANDMINES.md`](docs/LANDMINES.md).
+
+## Public surface
+
+Set these on the GitHub About panel (files cannot):
+
+- Description: `Operational agent skills. Flat SKILL.md playbooks. npx skills add Thingscorp/skills`
+- Topics: `agent-skills`, `skill-md`, `agents-md`, `ralph-loop`, `coding-agents`
+- Website: `https://skills.sh/Thingscorp/skills` after the first real install indexes it
