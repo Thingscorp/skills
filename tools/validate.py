@@ -1,10 +1,8 @@
 #!/usr/bin/env python3
-"""Fail if landmine phrases or catalog maps drift from skills/."""
+"""Fail if landmine phrases or catalogs drift."""
 from __future__ import annotations
 
 import json
-import re
-import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -26,60 +24,79 @@ PHRASES = [
     "Inferred facts are candidates, not commits",
 ]
 
-CATALOGS = [
-    ROOT / "AGENTS.md",
-    ROOT / "README.md",
-    ROOT / "llms.txt",
-]
 
-
-def skill_dirs() -> list[str]:
-    return sorted(p.name for p in SKILLS.iterdir() if (p / "SKILL.md").is_file())
+def disk_skills() -> list[str]:
+    names = []
+    for path in sorted(SKILLS.glob("*/SKILL.md")):
+        names.append(path.parent.name)
+    return names
 
 
 def skill_text() -> str:
-    parts = []
-    for name in skill_dirs():
-        parts.append((SKILLS / name / "SKILL.md").read_text(encoding="utf-8"))
-    return "\n".join(parts)
+    return "\n".join(
+        (SKILLS / name / "SKILL.md").read_text(encoding="utf-8")
+        for name in disk_skills()
+    )
 
 
-def plugin_skills() -> list[str]:
-    path = ROOT / ".claude-plugin" / "plugin.json"
-    data = json.loads(path.read_text(encoding="utf-8"))
-    out = []
-    for raw in data.get("skills", []):
-        m = re.search(r"skills/([^/]+)\s*$", raw.replace("\\", "/"))
-        if m:
-            out.append(m.group(1))
-    return sorted(out)
+def check_phrases(blob: str) -> list[str]:
+    return [p for p in PHRASES if p not in blob]
+
+
+def check_catalogs(names: list[str]) -> list[str]:
+    errors = []
+    plugin = json.loads((ROOT / ".claude-plugin" / "plugin.json").read_text())
+    plugin_names = [p.rsplit("/", 1)[-1] for p in plugin.get("skills", [])]
+    if sorted(plugin_names) != names:
+        errors.append(f"plugin.json skills != disk: {sorted(plugin_names)} vs {names}")
+
+    market_path = ROOT / ".claude-plugin" / "marketplace.json"
+    if market_path.exists():
+        market = json.loads(market_path.read_text())
+        listed = []
+        for plug in market.get("plugins", []):
+            listed.extend(p.rsplit("/", 1)[-1] for p in plug.get("skills", []))
+        if listed and sorted(listed) != names:
+            errors.append(f"marketplace.json skills != disk: {sorted(listed)} vs {names}")
+
+    grouped = []
+    sh = json.loads((ROOT / "skills.sh.json").read_text())
+    for group in sh.get("groupings", []):
+        grouped.extend(group.get("skills", []))
+    if sorted(grouped) != names:
+        errors.append(f"skills.sh.json groupings != disk: {sorted(grouped)} vs {names}")
+
+    agents = (ROOT / "AGENTS.md").read_text(encoding="utf-8")
+    readme = (ROOT / "README.md").read_text(encoding="utf-8")
+    for name in names:
+        if name == "claude-code-habits":
+            continue
+        needle = f"skills/{name}/SKILL.md"
+        if needle not in agents:
+            errors.append(f"AGENTS.md missing {needle}")
+        if f"`{name}`" not in readme:
+            errors.append(f"README.md missing `{name}`")
+    return errors
 
 
 def main() -> int:
-    names = skill_dirs()
-    blob = skill_text()
-    errors: list[str] = []
-
-    missing = [p for p in PHRASES if p not in blob]
+    names = disk_skills()
+    missing = check_phrases(skill_text())
+    catalog = check_catalogs(names)
+    failed = False
     if missing:
-        errors.append("landmine phrases missing from skills/")
-        errors.extend(f"  - {p}" for p in missing)
-
-    plugin = plugin_skills()
-    if plugin != names:
-        errors.append(f"plugin.json skills {plugin} != disk {names}")
-
-    for catalog in CATALOGS:
-        text = catalog.read_text(encoding="utf-8")
-        absent = [n for n in names if n not in text]
-        if absent:
-            errors.append(f"{catalog.name} missing: {', '.join(absent)}")
-
-    if errors:
-        print("validate failed:")
-        print("\n".join(errors))
+        failed = True
+        print("landmine phrases missing from skills/:")
+        for p in missing:
+            print(f"  - {p}")
+    if catalog:
+        failed = True
+        print("catalog drift:")
+        for e in catalog:
+            print(f"  - {e}")
+    if failed:
         return 1
-    print(f"ok: {len(PHRASES)} phrases, {len(names)} skills, catalogs in lockstep")
+    print(f"ok: {len(PHRASES)} phrases, {len(names)} skills, catalogs match")
     return 0
 
 
