@@ -1,10 +1,11 @@
 ---
 name: handoff
 description: >-
-  use this at a session phase boundary to choose
-  continue/clear/compact/handoff/subagent the right way, or to write a
-  review-grade handoff doc
-portability: portable
+  use this when a session hits a phase boundary — choose
+  continue/clear/compact/handoff/subagent, or write a review-grade handoff doc
+license: MIT
+metadata:
+  portability: portable
 ---
 # handoff
 
