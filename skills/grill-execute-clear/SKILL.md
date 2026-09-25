@@ -35,6 +35,14 @@ Frederick Brooks (*The Design of Design*): a **design concept is not an asset**.
 - **Clear (or new session) before execute** — throws away the grilled primary context; defeats the loop.
 - Starting implementation while open grill branches remain.
 - Treating the mini-spec document as the valuable artifact.
+- Answering one question out of a full grill round and calling the design done — finish the frontier before execute.
+- Trusting an unverified claim about your own codebase — hallucination is the default failure mode; verify with real checks.
+- Letting the mini-spec become a living repo doc — it stays a confirmation note.
+- Running a multi-session feature through this loop — hand the mini-spec to to-spec for a destination spec + vertical tickets.
+- Starting an unrelated task in the same session after the feature is done and committed — Clear first.
+- Answering grill questions one-liners instead of a whole round per dictation/paragraph.
+- Re-reading the generated mini-spec as if it were the plan — the shared understanding already lives in the primary session if you answered the grill honestly.
+- Blocking on codebase exploration while the grill runs — exploration happens in the background, non-blocking.
 
 ## Execute
 Stay in the **same session** so grilled shared understanding stays primary. Smallest vertical slice that proves the decisions. Verify with real checks — **hallucination** (fluent wrongness) is the default failure mode; never trust an unverified claim about your own codebase.
