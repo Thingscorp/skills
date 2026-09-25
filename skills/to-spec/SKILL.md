@@ -1,9 +1,9 @@
 ---
 name: to-spec
 description: >-
-  use this when a feature spans multiple smart-zone sessions — grill,
-  destination spec + vertical tickets in the issue tracker, archive the spec
-  when code ships
+  use this when a feature spans multiple smart-zone sessions — grill, write the
+  destination spec, cut vertical-slice tickets in the issue tracker, archive the
+  spec when code ships
 license: MIT
 metadata:
   portability: portable
@@ -13,6 +13,12 @@ metadata:
 Turn a grilled conversation into a **destination spec** and **vertical-slice tickets** that each fit one smart-zone session (~150,000-token working budget).
 
 A goal loop on a whole spec is a trap. Vertical tickets, not horizontal.
+
+## When
+
+- A feature will take more than one session (or survive an auto-compact).
+- A grilled conversation needs to become a durable plan.
+- Tempted to point a goal loop at the whole spec in one long window.
 
 ## Pipeline
 1. **Grill** (shared understanding; say **"zoom out"** when questions drown in jargon)
@@ -35,8 +41,11 @@ Problem (user), solution (user), stories, implementation decisions, testing seam
 - **When the last ticket is live:** **Archive, don't delete** — close/archive in the tracker so it's findable for legacy, not a living source of truth. **Closed/archived ≠ deleted; "leave open as living team docs" is the failure mode.**
 - Agents prefer dense outdated specs over code (**drift**). **Code is primary.**
 
-## Reroute
-If the destination changes: update the spec, then remaining tickets — do not point a goal/auto-compact loop at the whole spec in one long window.
+## Anti-patterns
+- A goal loop pointed at the whole spec in one long window (reroute: update the spec, then remaining tickets).
+- Leaving the spec open as living team docs after the last ticket ships.
+- Horizontal layering: "schema now, API later, UI last."
+- Committing a living `SPEC.md` into the codebase.
 
 ## Related
 grill-execute-clear · handoff · ralph-loop
