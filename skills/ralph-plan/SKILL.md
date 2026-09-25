@@ -14,6 +14,12 @@ Turn a goal into durable Ralph state. The planner writes `.ralph/` only.
 The engine (or you) commits the plan after a gate. Do not start
 `ralph-loop` until this file set exists and the worktree is clean.
 
+## When
+
+- A goal must become a Ralph plan before the loop runs.
+- The loop cannot start until the four `.ralph/` files exist and the
+  worktree is clean.
+
 ## Preconditions
 
 - Branch matches `ralph/<topic>`. Never plan on the default branch.
@@ -44,6 +50,21 @@ Each item in `items.json`:
 - `allowed_paths` — exact files, or directory prefixes ending in `/`
 - `description`, concrete `steps`, `regression_notes`
 - small enough that the repo gate can verify it alone
+
+Example item (documented fields only):
+
+```json
+{
+  "id": "wire-checkout-button",
+  "category": "ui",
+  "passes": false,
+  "blocked": false,
+  "allowed_paths": ["src/checkout/"],
+  "description": "Wire the checkout button to the cart total.",
+  "steps": ["Add the click handler", "Run the gate"],
+  "regression_notes": "Re-run if the cart total changes."
+}
+```
 
 `runtime_contract` stays this shape:
 
