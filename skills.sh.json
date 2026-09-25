@@ -4,7 +4,7 @@
   "groupings": [
     {
       "title": "Session",
-      "description": "How to start, steer, and keep a coding-agent session in the smart zone.",
+      "description": "Start, steer, and keep a coding-agent session in the smart zone.",
       "skills": [
         "learn-codebase",
         "session-hygiene",
@@ -15,7 +15,7 @@
     },
     {
       "title": "Ship",
-      "description": "Grill, spec, and hand work across a phase boundary.",
+      "description": "Grill a feature, spec the rest, hand off at a phase boundary.",
       "skills": [
         "grill-execute-clear",
         "to-spec",
@@ -25,9 +25,19 @@
     },
     {
       "title": "Loop",
-      "description": "Work a ticket queue across sessions with the gate outside the worker.",
+      "description": "Plan, drain, or parallelize a verified work queue.",
       "skills": [
-        "ralph-loop"
+        "ralph-plan",
+        "ralph-loop",
+        "ralph-swarm",
+        "quality-loop"
+      ]
+    },
+    {
+      "title": "Compose",
+      "description": "Turn a domain into compounding one-thing modules.",
+      "skills": [
+        "unix-compound"
       ]
     }
   ]
