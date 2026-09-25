@@ -2,14 +2,22 @@
 name: steering-push-vs-point
 description: >-
   use this when deciding what belongs in always-on AGENTS.md versus on-demand
-  skills/docs — include prune examples and auto-compact danger
+  skills or docs — push-vs-point rule, prune tests, pointer discipline,
+  auto-compact danger
 license: MIT
 metadata:
   portability: portable
 ---
 # steering push-vs-point
 
-Steer agents across sessions without overloading the context window. Default: **point**; push only what must apply every turn.
+Steer agents across sessions without overloading the context window.
+Default: **point**; push only what must apply every turn.
+
+## When
+
+- Writing or pruning a repo's AGENTS.md / CLAUDE.md.
+- A rule fires on the wrong tasks, or a needed rule never fires.
+- Asking whether something must be always-on or reachable on demand.
 
 ## Context load (two costs)
 Anything loaded up front is resent on **every model provider request**. You pay (1) tokens and (2) **attention** — extra rules quiet every other rule and nudge toward the dumb zone.
@@ -34,6 +42,8 @@ Anything loaded up front is resent on **every model provider request**. You pay 
 - Novel essays in AGENTS.md
 - Duplicate rules in three places
 - Secrets in steering files
+- A pointer that names no discoverable target
+- Pushing rules the model already knows (assumed-knowledge no-ops)
 
 ## User vs project
 Personal taste (tone, formatting, pet habits) belongs in **user-level** skills, loaded everywhere. Team conventions (repo norms, stack rules) belong in **project skills**, committed in the repo.
