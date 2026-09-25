@@ -35,5 +35,13 @@ Do not outsource mid-phase boundaries to auto-compaction.
 
 Compaction stays inside one agent/directory; handoff crosses those boundaries.
 
+## Anti-patterns
+- Handing off mid-feature while you still need the primary grilled/implementation context — tree step 1 is Continue for exactly this; handoff early throws away primary context.
+- "Just continuing" at ≥~150k mid-feature — the tree outranks any skill's default; compact or handoff instead.
+- Outsourcing mid-phase boundaries to auto-compaction.
+- Answering compact-vs-subagent without asking which of the three "review" cases you mean.
+- Committing a handoff doc into the repo (temp dir only).
+- Seeding the next session with the old transcript instead of the handoff doc after clear.
+
 ## Related
 compact · grill-execute-clear · to-spec
