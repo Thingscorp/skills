@@ -15,23 +15,38 @@ Paste this repo into an agent and tell it to follow `AGENTS.md`.
 
 ## Install
 
-```bash
-npx skills add Thingscorp/skills
-```
+List first:
 
 ```bash
-gh skill install Thingscorp/skills
+npx skills add Thingscorp/skills --list
 ```
 
-That copies the SKILL.md folders into whichever agents are on the machine.
-
-From a checkout:
+Install all detected skills into agents on this machine:
 
 ```bash
-./tools/install.sh --dest <skills-dir>
+npx skills add Thingscorp/skills --all
 ```
 
-`<skills-dir>` is harness-specific (`.agents/skills`, `.cursor/skills`, `~/.claude/skills`, …). See `docs/HARNESS-MATRIX.md` when that file is present.
+One skill, non-interactive:
+
+```bash
+npx skills add Thingscorp/skills --skill compact -y
+```
+
+GitHub CLI (v2.90+):
+
+```bash
+gh skill install Thingscorp/skills --all
+gh skill install Thingscorp/skills compact --agent cursor --scope user
+```
+
+Bare `npx skills add Thingscorp/skills` and `gh skill install Thingscorp/skills` are interactive pickers. Default scope is the current project. `-g` / `--scope user` writes to the user-level skills dir.
+
+Copy from a checkout if you want a dest the CLIs do not cover:
+
+```bash
+cp -R skills/<name> <skills-dir>/<name>
+```
 
 ## The library
 
@@ -57,26 +72,24 @@ Harness-specific adapters (optional):
 
 ```
 AGENTS.md            runbook for agents handed this URL
-CLAUDE.md            pointer at AGENTS.md (Claude Code looks here)
+CLAUDE.md            pointer at AGENTS.md
 llms.txt             sitemap
-skills/              one directory per skill, SKILL.md inside
-docs/                authoring, config, harness matrix, landmines, glossary
-harness/             per-harness command adapters
-tools/               install.sh, validate.py, config.py
-examples/            annotated .skills-config.yaml
+skills/<name>/       one skill folder, SKILL.md inside
+docs/                authoring, landmines, glossary
+.claude-plugin/      Claude marketplace adapter
 ```
 
-## Configure
+## Frontmatter
 
-Repo differences live in config, never in forked skill bodies.
+Each `SKILL.md` starts with YAML. Spec fields ([agentskills.io](https://agentskills.io/specification)):
 
-```bash
-cp examples/skills-config.yaml <repo>/.skills-config.yaml
-python3 tools/config.py validate --repo <repo>
-```
+| Field | Required | Notes |
+|---|---|---|
+| `name` | yes | kebab-case, matches folder, max 64 |
+| `description` | yes | what it does and when to use it, max 1024 chars |
+| `license` | no | |
+| `compatibility` | no | environment requirements |
+| `metadata` | no | string map |
+| `allowed-tools` | no | experimental |
 
-## Validate
-
-```bash
-python3 tools/validate.py
-```
+This library also sets `portability: portable` or `portability: claude-code`. That is a house field. Spec-compliant runtimes ignore unknown keys.
