@@ -2,8 +2,9 @@
 
 Core skills are self-contained (they install standalone), so each one restates
 the figures it needs. This file is the **canonical definition** those
-restatements must match. Landmine phrases are checked by `tools/validate.py`.
-If you change a figure here, update every skill that quotes it.
+restatements must match. If you change a figure here, update every skill that
+quotes it. `tools/validate.py` greps landmine phrases in `skills/`; it does
+not parse this file.
 
 ## Smart zone / dumb zone
 
@@ -32,9 +33,10 @@ If you change a figure here, update every skill that quotes it.
 5. Else → **compact** with a one-sentence focus (residual default;
    implement→QA is the cast-iron case).
 
-"Review" walks the tree: same-agent QA → compact; AFK automated review →
-subagent; cross-agent/person → handoff. Never outsource mid-phase boundaries
-to auto-compaction — mid-phase auto-compact is dangerous.
+A *plan/diff review* is the `review` skill (P0/P1/P2). A *phase-boundary
+"should I review next"* walks this tree: same-agent QA → compact; AFK
+automated review → subagent; cross-agent/person → handoff. Never outsource
+mid-phase boundaries to auto-compaction — mid-phase auto-compact is dangerous.
 
 ## Spec lifetime
 
@@ -43,9 +45,8 @@ to auto-compaction — mid-phase auto-compact is dangerous.
 - **Archive, don't delete** specs when code ships. Code is primary; dense
   outdated specs drift and agents trust them over code.
 
-## Install
+## Install namespacing
 
 Skill directories use plain names (`compact`, `handoff`, …). When installing
 into a harness, namespace them only if the dest already has a collision.
 The default install is `npx skills add Thingscorp/skills`.
-There is no `tools/install.sh`.
