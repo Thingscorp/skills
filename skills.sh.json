@@ -34,6 +34,13 @@
       ]
     },
     {
+      "title": "Review",
+      "description": "Severity-graded read of a plan or diff before it lands.",
+      "skills": [
+        "review"
+      ]
+    },
+    {
       "title": "Compose",
       "description": "Turn a domain into compounding one-thing modules.",
       "skills": [

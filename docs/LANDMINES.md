@@ -20,3 +20,5 @@ verbatim in the skills.
 8. **Push vs point** — default to pointers; push only short always-true rules.
    Every always-on token is resent on every provider request (tokens *and*
    attention).
+9. **Do not manufacture findings.** Empty review is valid. Findings that
+   encode a decision become ADRs — a write-once review dump is a graveyard.
