@@ -1,30 +1,34 @@
 {
-  "name": "thingscorp-skills",
-  "owner": {
-    "name": "Thingscorp"
-  },
-  "plugins": [
-    {
-      "name": "skills",
-      "source": "./",
-      "description": "Operational agent skills in SKILL.md form.",
-      "skills": [
-        "./skills/learn-codebase",
-        "./skills/grill-execute-clear",
-        "./skills/to-spec",
-        "./skills/unix-compound",
-        "./skills/ralph-plan",
-        "./skills/ralph-loop",
-        "./skills/ralph-swarm",
-        "./skills/quality-loop",
-        "./skills/review",
-        "./skills/handoff",
-        "./skills/compact",
-        "./skills/kill-context-bloat",
-        "./skills/session-hygiene",
-        "./skills/steering-push-vs-point",
-        "./skills/claude-code-habits"
-      ]
-    }
-  ]
+ "name": "thingscorp-skills",
+ "owner": {
+  "name": "Thingscorp"
+ },
+ "plugins": [
+  {
+   "name": "skills",
+   "source": "./",
+   "description": "Operational agent skills in SKILL.md form.",
+   "skills": [
+    "./skills/learn-codebase",
+    "./skills/grill-execute-clear",
+    "./skills/to-spec",
+    "./skills/unix-compound",
+    "./skills/ralph-plan",
+    "./skills/ralph-loop",
+    "./skills/ralph-swarm",
+    "./skills/quality-loop",
+    "./skills/review",
+    "./skills/handoff",
+    "./skills/compact",
+    "./skills/kill-context-bloat",
+    "./skills/session-hygiene",
+    "./skills/steering-push-vs-point",
+    "./skills/claude-code-habits",
+    "./skills/cursor-habits",
+    "./skills/codex-habits",
+    "./skills/copilot-habits",
+    "./skills/gemini-cli-habits"
+   ]
+  }
+ ]
 }
