@@ -3,7 +3,9 @@ name: compact
 description: >-
   use this when you need a one-line-focus compact — especially
   implement→QA — without clearing or handing off; know when NOT to compact
-portability: portable
+license: MIT
+metadata:
+  portability: portable
 ---
 # compact
 
@@ -14,7 +16,7 @@ Squeeze a session that already holds work into a **secondary source**, then cont
 - **Secondary source** = the summary after compact (or a handoff doc) — a **lossy historian**. Useful for maneuverability; always drops some *why*.
 - Trade-off: continue = full info + noise + limited room; compact = less noise + more room + information loss.
 
-Harness command names differ. Canonical action is compact-with-focus. See `docs/HARNESS-MATRIX.md` when that file is present.
+Harness command names differ. Canonical action is compact-with-focus. There is no `docs/HARNESS-MATRIX.md`.
 
 ## When (same agent / same directory still owns the work)
 - Need smart-zone room without a full clear (working budget ~150k — see handoff for the full phase-boundary tree).
