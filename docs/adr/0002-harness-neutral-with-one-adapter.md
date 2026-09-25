@@ -1,7 +1,7 @@
 # ADR-0002: Harness-neutral core, one named adapter
 
 Date: 2026-09-24
-Status: Accepted
+Status: Superseded by ADR-0007
 
 ## Context
 README claims any harness that loads SKILL.md. A Claude-first public description and missing harness-matrix files contradicted that.
