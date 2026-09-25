@@ -47,14 +47,6 @@ settings and the skills directory before labs that reset harness config.
 Settings-file confusion (which file is active), skills confusion (which
 skill actually fired), auto-update breakages.
 
-## Anti-patterns
-
-- Editing in the wrong product repo. Wrong repo is a stop.
-- Cleaning unrelated dirty files.
-- Treating a settings edit as live without relaunching the harness.
-- Blanket-allowing destructive commands.
-- Copying skill text into the product `AGENTS.md`.
-
 ## Related
 
-claude-code-habits · kill-context-bloat · compact
+claude-code-habits · kill-context-bloat · compact · steering-push-vs-point
