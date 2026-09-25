@@ -1,51 +1,53 @@
 ---
-name: cursor-habits
+name: copilot-habits
 description: >-
-  use this when starting a Cursor session, after a bad run you want
-  to rewind, or before changing Agent settings — /rewind, /summarize,
-  skill paths, CLI config
+  use this when starting a Copilot CLI session, after a bad run you want
+  to rewind, or before changing permissions — /context, /compact,
+  /undo, /permissions
 license: MIT
 metadata:
-  portability: cursor
+  portability: copilot
 ---
-# cursor-habits
+# copilot-habits
 
-Cursor instance of **session-hygiene** — read that skill first for the
-portable doctrine. This skill is only Cursor mechanics.
+Copilot instance of **session-hygiene** — read that skill first for the
+portable doctrine. This skill is only Copilot CLI mechanics.
 
-Sources: [cursor.com/docs/cli/reference/slash-commands](https://cursor.com/docs/cli/reference/slash-commands),
-[cursor.com/docs/context/skills](https://cursor.com/docs/context/skills),
-[cursor.com/docs/cli/reference/configuration](https://cursor.com/docs/cli/reference/configuration).
+Sources: [docs.github.com Copilot CLI command reference](https://docs.github.com/en/copilot/reference/copilot-cli-reference/cli-command-reference),
+[docs.github.com Copilot CLI skills](https://docs.github.com/copilot/how-tos/copilot-cli/customize-copilot/create-skills).
 
 ## When
-- Starting a Cursor Agent or CLI session.
-- After a bad run — `/rewind` or a fresh chat.
-- Before changing what the agent may run — CLI permissions in `cli-config.json`.
+- Starting a Copilot CLI session — check `/context` early.
+- After a bad run — `/undo` or `/clear`.
+- Before changing what the agent may run — `/permissions`.
 
 ## Session checks
-There is no `/context` slash. Context cost for skills is the **Skills** category
-on the context ring next to the prompt. Watch that, not a invented command.
+- `/context` — context-window usage (system prompt, tools, messages, free space).
+- `/usage` — session stats and token totals.
 
 ## Rewind options (escalating)
-1. **Cancel mid-run** in the Agent input.
-2. **`/rewind`** — jump back to a previous message (CLI; enable `rewind` in `cli-config.json` if it is off).
-3. **`/clear`** (`/new`, `/new-chat`, `/newchat`) — new chat. **`/resume`** — reopen a recent one. **`/fork`** — copy this chat.
-4. **`/summarize`** (`/compress`) — shrink this thread without clearing.
-5. **`git` recovery** — last resort. Git is the ground truth.
+1. **Cancel mid-run** — stop the current turn.
+2. **`/undo`** (`/rewind` alias) — rewind picker; conversation only, or conversation + files.
+3. **`/compact`** — summarize history to free context.
+4. **`/clear`** (`/new`) — start a new conversation.
+5. **`git` recovery** — last resort.
 
 ## Slash commands worth knowing
 - `/model` — pick the model.
-- `/plan` — Plan mode.
-- `/ask` — read-only Ask mode.
-- `/update-cli-config` — edit `~/.cursor/cli-config.json`.
-- `/update-cursor-settings` — find the Cursor / VS Code setting to change.
+- `/skills list` — available skills. `/skills info` — one skill's path.
+- `/skills` — enable or disable a skill. `/skills add` — extra skills directory.
+- `/skills reload` — pick up skills added this session.
+- `/settings` (`/config` alias) — user settings dialog.
+- `/permissions` — mode (`default`, `assisted`, `allow-all`, `show`).
+  `/allow-all` and `/yolo` alias `/permissions allow-all`.
+- `/sandbox` — local sandbox.
+- `/resume` — previous session.
 
-## Skills and settings
-Project: `.cursor/skills/`, `.agents/skills/`.
-User: `~/.cursor/skills/`, `~/.agents/skills/`.
-CLI config: `~/.cursor/cli-config.json` (Windows: `%USERPROFILE%\.cursor\cli-config.json`).
-Permissions live under `permissions.allow` / `permissions.deny` in that file.
-Agent UI: Settings → Agents (Cmd/Ctrl+Shift+J).
+## Settings backup
+Back up `~/.copilot/settings.json` (override dir with `COPILOT_HOME`)
+and the repo `.github/copilot/settings.json` before labs that reset
+harness config. `~/.copilot/config.json` is the legacy settings location
+(migrated to `settings.json` on startup) — do not edit settings there.
 
 ## Related
 session-hygiene
