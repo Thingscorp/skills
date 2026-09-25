@@ -15,7 +15,7 @@
     },
     {
       "title": "Ship",
-      "description": "Grill a feature, spec the rest, hand off at a phase boundary.",
+      "description": "Grill a feature, spec work that will not fit one session, hand off.",
       "skills": [
         "grill-execute-clear",
         "to-spec",
@@ -25,7 +25,7 @@
     },
     {
       "title": "Loop",
-      "description": "Plan, drain, or parallelize a verified work queue.",
+      "description": "Plan, run, or parallelize a verified ticket queue. Inventory a shipped product.",
       "skills": [
         "ralph-plan",
         "ralph-loop",

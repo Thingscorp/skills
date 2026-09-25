@@ -45,7 +45,7 @@ Do not skip this step.
 Hierarchical decomposition into single-purpose modules. Apply the locked
 constraints immediately. Prefer fewer modules. Cluster duplicates. Mark
 multi-purpose items for throwaway. New capability = new module. Never
-fatten an existing one.
+// fatten an existing one.
 
 ### 3. sequence
 
@@ -54,10 +54,25 @@ independent. Early classifier / router modules are expected blockers.
 
 ### 4. build
 
-Implement the next unblocked module in its simplest viable form.
-Inside build, run a short VSR: 2–4 variants → score → retain one.
-Score: goal-fit, one-thing-well, simplicity. Keep a one-line lineage.
-Do not implement two modules at once.
+Implement the next unblocked module in its simplest viable form. One module only.
+
+Short VSR — vary, score, retain. Not an engine.
+
+1. Draft 2–4 structurally different variants. Pick axes from:
+   - `constraint_first` — lead with the locked criteria
+   - `minimal_essential` — one job, one text-stream interface
+   - `failure_mode_guards` — block the known ways this module fails
+   - `measurable_outcomes` — name the check that will lock it
+   Word swaps are not variants.
+2. Score each 0–1 on **goal-fit**, **one-thing-well**, **simplicity**,
+   **constraint-honor**.
+   - Hard cull: two jobs, missing interface, or a locked-constraint miss.
+   - Never keep a variant with goal-fit below 0.7 because it is shorter.
+   - Tie-break equal scores: fewer parts.
+3. Retain one. Write a one-line lineage: strategy that won, and why.
+   Lineage is a trait, not a copy of the winner.
+4. Compare that winner to a one-shot of the same module. Keep the one-shot
+   if it already meets the module's check.
 
 A high score is a rubric. It is not domain-ready. Hand-merge real
 anti-patterns before locking anything an agent will run.
@@ -112,6 +127,7 @@ When the list exceeds ~8, show active + last 3 completed + goal progress.
 - Expanding a module instead of creating a new one.
 - Building two modules in one step.
 - Treating the sidecar as optional.
+- Scoring word-swaps as if they were structural variants.
 - Continuing after two low-impact cycles at ≥ 90%.
 - Keeping a clever modular design when a one-shot already meets the locked goal.
 - Shipping a high-fitness draft without hand-merging real anti-patterns.
