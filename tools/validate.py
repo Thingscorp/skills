@@ -4,6 +4,7 @@
 Not a product test framework. Checks that:
 - every skills/<name>/SKILL.md exists and name matches the folder
 - catalogs list the same names as the folders
+- frontmatter uses name + description + license + metadata.portability
 - landmine phrases still appear in some SKILL.md
 """
 from __future__ import annotations
@@ -39,6 +40,9 @@ MUST_EXIST = [
     "docs/AUTHORING.md",
     "docs/LANDMINES.md",
     "docs/glossary.md",
+    "docs/QUICKSTART.md",
+    "docs/NAMING.md",
+    "docs/adr/0001-flat-operational-skills.md",
     "skills.sh.json",
     ".claude-plugin/plugin.json",
     ".claude-plugin/marketplace.json",
@@ -113,8 +117,16 @@ def main() -> int:
             errors.append(f"{name}: frontmatter name={fm!r} != folder")
         if not body.lstrip().startswith("---"):
             errors.append(f"{name}: missing YAML frontmatter")
+            continue
+        head = body.split("---", 2)[1]
         if "use this when" not in body[:800].lower():
             errors.append(f"{name}: description should start with 'use this when'")
+        if re.search(r"(?m)^portability:", head):
+            errors.append(f"{name}: portability must live under metadata")
+        if not re.search(r"(?m)^license:\s*\S+", head):
+            errors.append(f"{name}: missing license")
+        if not re.search(r"(?m)^\s+portability:\s+(portable|claude-code)\s*$", head):
+            errors.append(f"{name}: metadata.portability must be portable|claude-code")
 
     plugin = plugin_names()
     grouped = skills_sh_names()

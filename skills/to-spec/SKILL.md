@@ -12,6 +12,8 @@ metadata:
 
 Turn a grilled conversation into a **destination spec** and **vertical-slice tickets** that each fit one smart-zone session (~150,000-token working budget).
 
+A goal loop on a whole spec is a trap. Vertical tickets, not horizontal.
+
 ## Pipeline
 1. **Grill** (shared understanding; say **"zoom out"** when questions drown in jargon)
 2. Write the **destination spec** — run the grill mechanics from **grill-execute-clear** first; grilling produces the shared understanding the spec records. The destination spec is cross-session shared truth (binding until archived); the grill mini-spec is in-session confirmation (disposable).

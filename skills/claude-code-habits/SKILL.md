@@ -4,7 +4,9 @@ description: >-
   use this when starting a Claude Code session, after a bad run you want
   to rewind, or before changing what the agent may run — /context checks,
   rewind options, bash modes, permission hygiene
-portability: claude-code
+license: MIT
+metadata:
+  portability: claude-code
 ---
 # claude-code-habits
 
