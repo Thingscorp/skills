@@ -7,12 +7,17 @@
     {
       "name": "skills",
       "source": "./",
-      "description": "Operational agent skills in SKILL.md form. Compact, handoff, grill-execute-clear, ralph-loop, to-spec, session hygiene.",
+      "description": "Operational agent skills in SKILL.md form.",
       "skills": [
         "./skills/learn-codebase",
         "./skills/grill-execute-clear",
         "./skills/to-spec",
+        "./skills/unix-compound",
+        "./skills/ralph-plan",
         "./skills/ralph-loop",
+        "./skills/ralph-swarm",
+        "./skills/quality-loop",
+        "./skills/review",
         "./skills/handoff",
         "./skills/compact",
         "./skills/kill-context-bloat",

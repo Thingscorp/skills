@@ -14,8 +14,13 @@ Library of SKILL.md playbooks for coding agents. Paste the repo. Read AGENTS.md.
 
 - [learn-codebase](https://github.com/Thingscorp/skills/blob/main/skills/learn-codebase/SKILL.md): unfamiliar repo, leveled passes, prove-it
 - [grill-execute-clear](https://github.com/Thingscorp/skills/blob/main/skills/grill-execute-clear/SKILL.md): grill design, same-session execute, clear
-- [to-spec](https://github.com/Thingscorp/skills/blob/main/skills/to-spec/SKILL.md): destination spec + vertical tickets in the tracker
+- [to-spec](https://github.com/Thingscorp/skills/blob/main/skills/to-spec/SKILL.md): destination spec + vertical tickets
+- [unix-compound](https://github.com/Thingscorp/skills/blob/main/skills/unix-compound/SKILL.md): one-thing modules, locked criteria, short VSR
+- [ralph-plan](https://github.com/Thingscorp/skills/blob/main/skills/ralph-plan/SKILL.md): verified plan + items before the loop
 - [ralph-loop](https://github.com/Thingscorp/skills/blob/main/skills/ralph-loop/SKILL.md): cross-session ticket queue, gate outside the worker
+- [ralph-swarm](https://github.com/Thingscorp/skills/blob/main/skills/ralph-swarm/SKILL.md): independent lanes, refs/ralph/swarm
+- [quality-loop](https://github.com/Thingscorp/skills/blob/main/skills/quality-loop/SKILL.md): feature inventory from code, test, fix, regress
+- [review](https://github.com/Thingscorp/skills/blob/main/skills/review/SKILL.md): P0/P1/P2 review; decision-grade findings become ADRs
 - [handoff](https://github.com/Thingscorp/skills/blob/main/skills/handoff/SKILL.md): phase-boundary tree
 - [compact](https://github.com/Thingscorp/skills/blob/main/skills/compact/SKILL.md): one-line-focus compact, implement→QA
 - [kill-context-bloat](https://github.com/Thingscorp/skills/blob/main/skills/kill-context-bloat/SKILL.md): measure, cut, quit, relaunch, remeasure
@@ -25,8 +30,6 @@ Library of SKILL.md playbooks for coding agents. Paste the repo. Read AGENTS.md.
 
 ## Docs
 
-- [glossary](https://github.com/Thingscorp/skills/blob/main/docs/glossary.md): smart zone, dumb zone, phase tree
-- [LANDMINES](https://github.com/Thingscorp/skills/blob/main/docs/LANDMINES.md): claims that must not regress
-- [AUTHORING](https://github.com/Thingscorp/skills/blob/main/docs/AUTHORING.md): add a skill
-- [CONFIG-SCHEMA](https://github.com/Thingscorp/skills/blob/main/docs/CONFIG-SCHEMA.md): per-repo config
-- [HARNESS-MATRIX](https://github.com/Thingscorp/skills/blob/main/docs/HARNESS-MATRIX.md): action → harness command
+- [glossary](https://github.com/Thingscorp/skills/blob/main/docs/glossary.md)
+- [LANDMINES](https://github.com/Thingscorp/skills/blob/main/docs/LANDMINES.md)
+- [AUTHORING](https://github.com/Thingscorp/skills/blob/main/docs/AUTHORING.md)

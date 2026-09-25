@@ -49,29 +49,53 @@ No other grades. If it is not a finding, it is not in the report.
 - Cite the file, line, or plan section. No vibes.
 - Do not rewrite the artifact. Review is read + report.
 - Do not start a swarm, a loop, or a second agent from this skill.
-- Do not commit, push, or merge.
+- Do not commit, push, or merge the reviewed work.
 
 ## ADR capture
 
-A review dump that nobody reads is a graveyard. Capture at decision time.
-Template: `references/adr.md`.
+A review dump that nobody reads is a graveyard. Findings that encode a
+decision become ADRs.
 
-**Write an ADR** when the finding is expensive to reverse, constrains future
-work, picks one option over another that someone will ask about, adopts or
-drops a dependency, or supersedes an earlier ADR.
+**Capture test** — write an ADR only when all of these are true:
 
-**Leave it in the report** when it is a typo, lint, missing test on this
-change, taste/P2, or reversible this session.
+1. The finding changes a future call (architecture, adopt/skip, invariant,
+   process), not just this diff.
+2. A later agent could make the opposite call without this note.
+3. It is not already in `AGENTS.md` or an existing ADR.
 
-**Incident note, not ADR** when it is swarm/loop closeout provenance
-(what ran, what failed, what to try next).
+**Stay in the report (no ADR):** typos, missing tests, off-by-ones, P2 taste,
+one-off fixes, restating a rule that already lives in the repo.
 
-Shape: Status (accepted | superseded) · Context · Decision · Consequences.
-Append-only. New file supersedes the old. Do not silently rewrite.
-Lives in the project (`docs/adr/NNNN-slug.md`), not in a write-only dump.
+**Incident note, not ADR:** a run failed for operational reasons (lock, quota,
+provider). One paragraph in the project progress log. No `docs/adr/` file.
 
-If the project already has the same decision and it has not changed, link it.
-Do not mint a duplicate.
+**Where:** `docs/adr/YYYYMMDD-<slug>.md` in the *target* repo. Code-specific
+decisions travel with the code. Do not invent a global knowledge vault from
+this skill.
+
+**Shape** (short):
+
+```markdown
+# ADR-<n>: <decision in one line>
+
+## Context
+What forced the call.
+
+## Decision
+What we will do from now on.
+
+## Reason
+Why not the alternative.
+
+## Consequences
+What this makes easier, and what it forbids.
+```
+
+Append-only. Supersede with a new ADR that points at the old one. Never
+silently rewrite. One decision per file. Link the ADR path from the finding.
+
+Do not write the ADR until the owner accepts the decision. List candidates
+under **Decisions to capture** first.
 
 ## Report shape
 
@@ -85,8 +109,7 @@ Do not mint a duplicate.
 - P1 `path` — …
 
 ## Decisions to capture
-- ADR `docs/adr/NNNN-slug.md` — …
-- skip — typo / one-off / already recorded
+- ADR candidate: <one-line decision> — why a later agent would miss this
 
 ## Out of scope
 - …
@@ -99,10 +122,10 @@ If there are no findings, write `No findings.` and stop.
 - Inventing nits so the review looks thorough.
 - Reviewing two diffs because they were "nearby."
 - Embedding worker dispatch in the reviewer.
-- Writing every nit into `docs/adr/`.
-- Leaving a real decision only in a dated dump nobody will open.
+- Writing findings into `artifacts/` and never capturing the decision.
+- An ADR per P2 nit.
 - Relitigating taste as P0.
 
 ## Related
 
-quality-loop · ralph-loop · ralph-swarm · to-spec · handoff
+quality-loop · ralph-loop · ralph-swarm · to-spec · handoff · steering-push-vs-point
