@@ -8,12 +8,20 @@ A library of operational **agent skills**. Each skill is `skills/<name>/SKILL.md
 with YAML frontmatter (`name`, `description`) and a short body. Load **one skill
 that matches the current job**. Do not ingest the whole library.
 
+15 skills on disk. Catalogs that must stay in lockstep: this file, `README.md`,
+`llms.txt`, `.claude-plugin/plugin.json`, `.claude-plugin/marketplace.json`,
+`skills.sh.json`.
+
 ## First moves
 
-1. Install if the user wants these on disk:
+1. Confirm cwd is this repo (`Thingscorp/skills`) or the user's target repo.
+   Wrong repo is a stop.
+2. If the user wants these skills on disk:
    `npx skills add Thingscorp/skills --list -y` then `--all` or `--skill <name> -y`
-2. To *use* a workflow now, pick from the map and read that SKILL.md first.
-3. To change this library, read `docs/AUTHORING.md`.
+3. If they want a workflow *now*, pick the first matching row below. Read that
+   `SKILL.md` before acting.
+4. If they want to change this library, read `docs/AUTHORING.md` and run
+   `python3 tools/validate.py`.
 
 ## Workflow map
 
@@ -40,7 +48,7 @@ Pick the first matching row. Stop. Read that skill.
 
 ## Doctrine that must not be softened
 
-Full list: `docs/LANDMINES.md`.
+Full list: `docs/LANDMINES.md`. `python3 tools/validate.py` checks the phrases live in skills.
 
 - Dumb-zone onset ≈ 150k tokens. A slope, not a cliff.
 - Archive specs when code ships. Never leave a living `SPEC.md`.
@@ -51,6 +59,10 @@ Full list: `docs/LANDMINES.md`.
 - Tickets are vertical slices, not layers.
 - Default to pointers.
 - Do not manufacture findings. Findings that encode a decision become ADRs.
+- Docs describe shipped behavior.
+- No fake eval.
+- Confirm cwd is the named product before editing.
+- Inferred facts are candidates, not commits.
 
 ## How to use a skill
 
@@ -65,3 +77,4 @@ Full list: `docs/LANDMINES.md`.
 - Commit handoff docs or living specs into a target repo.
 - Invent a conductor on top of these files.
 - Add attribution footers.
+- Copy Mininja / Pi / Devin product adapters into this pack.
