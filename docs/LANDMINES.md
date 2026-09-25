@@ -1,8 +1,8 @@
 # Landmines — do not regress
 
 These are the sharp claims that drafts quietly invert or soften.
-`tools/validate.py` asserts the quoted figures/phrases still appear
-verbatim in the skills.
+Each rule must appear in at least one `skills/*/SKILL.md`. There is no
+`tools/validate.py` in this repo.
 
 1. **~150k dumb-zone onset** — never ~80k. The figure is a slope, not a cliff.
 2. **Archive, don't delete** specs when code ships. Code is primary; never a
@@ -27,3 +27,5 @@ verbatim in the skills.
 11. **No fake eval.** No hash embeddings. No template output labeled as model
     output. An eval that does not run the production path does not count.
 12. **Confirm cwd is the named product** before editing. Wrong repo is a stop.
+13. **Do not hand-edit the system of record.** Explicit remember vs inferred
+    capture. Do not stitch raw searches when a scoped pack already exists.
