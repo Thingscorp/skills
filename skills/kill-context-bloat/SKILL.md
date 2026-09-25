@@ -32,11 +32,17 @@ Unused MCP/connectors, workflows, bundled skills, artifacts, always-on essay ins
 - **Turns vs provider requests** — a *turn* (your message → final reply) can hide many *provider requests* (tool rounds, retries). Point a request logger at your agent and look at the actual graph instead of guessing.
 - **Prefix-cache nuance** — providers cache matching prompt prefixes (cached input often ~10× cheaper than base). The first hit may be a **cache write**; the later reads are the win. Subscriptions usually beat surprise API burn; **process > penny-pinching**.
 
-## Starting-context paranoia
-Before labs that reset harness config, back up your settings file and skills directory so you can restore them.
+## Before you start
+Back up your settings file and skills directory before labs that reset harness config, so you can restore them.
 
 ## Success
 Same task with less preamble and a visibly lower starting token floor — more room for smart-zone work.
+
+## Anti-patterns
+- Denying a tool and calling it fixed without quit/relaunch — edits often change nothing until restart.
+- Cutting for spend instead of attention — the motive is quality of attention, not min-maxing spend.
+- Guessing which requests are expensive; point a request logger at the graph instead.
+- Editing harness config with no backup before the lab.
 
 ## Related
 session-hygiene · steering-push-vs-point
