@@ -3,90 +3,121 @@ name: ralph-loop
 description: >-
   use this when a ticket queue must be worked across sessions — run the
   self-verifying Ralph loop: one item per iteration, gate outside the
-  worker, optional judgment gates for the small calls, commit only gate-passing work
-portability: portable
+  worker, commit only from a verified tree on a topic branch
+license: MIT
+metadata:
+  portability: portable
 ---
 # ralph-loop
 
 Execute a queue of vertical tickets across sessions with a self-verifying
-loop. Live agent context is disposable; durable state lives in the station's
-`.ralph/` directory (plan, items, prompt, loop state, progress log). One
-iteration completes exactly one ticket. Resolve `station_dir` from config,
-never hardcode it.
+loop. Live agent context is disposable. Durable state lives in `.ralph/`
+(plan, items, prompt, loop state, progress log). One iteration completes
+exactly one item.
 
 ## When
 
 - A to-spec ticket queue (or any discrete item list) must be worked to done
   across sessions without losing state.
-- Each ticket needs independent verification before it lands.
+- Each item needs independent verification before it lands.
 - When a grill-execute-clear feature outgrows one session, graduate its
   mini-spec to to-spec, then run the resulting tickets here.
+
+## Durable files
+
+| File | Owns |
+|---|---|
+| `.ralph/plan.md` | objective + invariants |
+| `.ralph/items.json` | ordered items + `runtime_contract` |
+| `.ralph/prompt.md` | worker contract for each fresh agent |
+| `.ralph/loop.md` | run state — **engine only** |
+| `.ralph/progress.md` | append-only evidence |
+
+`runtime_contract` must declare: `verification_gates`, `branch` (topic),
+`protected_paths`, `require_one_item_per_iteration`, `require_commit`,
+`require_progress_append`, `never_push_without_owner_ok`.
+Each item declares `allowed_paths`, `passes`, `blocked`.
+
+Plan first: replacing the plan and items **resets** `loop.md` and
+`progress.md`. Do not start a loop against a stale plan.
 
 ## The loop (engine protocol)
 
 The assistant is the engine. A fresh subagent is the worker for each item.
-Never let the worker verify its own work.
+Never let the worker verify its own work. Re-read all durable state before
+every iteration.
 
-1. Read the station state: `.ralph/loop.md`, `.ralph/items.json`,
-   `.ralph/plan.md`, `.ralph/prompt.md`, `.ralph/progress.md`.
-2. Optionally run a work-select gate: pick the best next item and reorder
-   the queue. Review means the engine picks. Gate error means FIFO order stands.
-3. Take the next item: take the lock, mark the item running, print the brief.
-   Stop if no actionable items remain.
-4. Spawn ONE fresh subagent for that item only, with the brief and the full
-   prompt contract: one item, its `allowed_paths` plus one progress entry,
-   run the gate command and require exit 0 with final line `ALL GATES PASS`,
-   never set `passes: true`, never commit or push, `blocked: true` only for
-   a real external blocker.
-5. When the worker returns, verify outside the worker before committing:
-   does the diff implement the item's intent?
-   - auto-pass: re-run the gate itself, scope-check the diff against
-     `allowed_paths`, reject `protected_paths`, commit, set
-     `passes: true`, append an engine progress entry, release the lock.
-   - fail-iteration: do not commit. Record the outcome, release the lock,
-     report and move on.
-   - review: read the diff with the frontier model and decide.
-   - If the worker or the gate failed instead of returning work, triage:
-     auto-retry means respawn the worker with the hint; auto-skip already
-     requeued the item; escalate means stop and tell the owner; review means
-     deliberate with the frontier model.
-6. If the worker claims a real external blocker, judge the claim before
-   blocking the item. Send-back means respawn with the hint.
-7. After each iteration decide continue vs stop. Thrashing → escalate to the
-   owner. Repeat from step 2.
+1. Read `.ralph/loop.md`, `items.json`, `plan.md`, `prompt.md`, `progress.md`.
+2. Confirm you are on the contract topic branch. If not, stop. Never touch
+   the default branch.
+3. Optionally run a work-select gate. Review means the engine picks. Gate
+   error means FIFO (`passes:false`, `blocked:false`) stands.
+4. Take the lock (`.git/ralph.lock`). Do **not** auto-reclaim a stale lock —
+   inspect and remove it only after the recorded process has stopped.
+   Mark the item running. Stop if nothing actionable remains.
+5. Spawn ONE fresh worker for that item only, with the worker contract below.
+6. When the worker returns:
+   - Save the candidate as an **immutable Git tree**.
+   - Run the saved baseline gate and the **current** gate **outside** the
+     worker, in a detached worktree of that exact tree.
+   - Scope-check the diff against `allowed_paths`. Reject `protected_paths`.
+   - Acceptance: exit 0 **and** final line `ALL GATES PASS`.
+   - On pass: commit **hook-free** from that same verified tree (Git plumbing,
+     not `git commit` that hooks can rewrite). Set `passes: true`. Append an
+     engine progress entry. Release the lock.
+   - On fail or stop: write `refs/ralph/recovery/<item>-<timestamp>`, restore
+     the last verified branch state, record the stop reason, release the lock.
+     Do not leave a dirty default branch behind.
+7. If the worker claims `blocked: true`, judge the claim before honoring it.
+   Send-back means respawn with a hint. Owner-only access → stop and report.
+8. After each iteration decide continue vs stop. Thrashing → escalate.
+
+## Worker contract
+
+Hand the worker these rules. The engine also enforces them after the fact.
+
+- Complete exactly one selected item.
+- Change only that item's `allowed_paths` plus one progress append.
+- Work only on `runtime_contract.branch`.
+- Run the gate. Require exit 0 and final line `ALL GATES PASS`.
+- Never set `passes: true`. The engine sets it after both gates pass.
+- `blocked: true` only for a real external blocker.
+- Append exactly one timestamped progress entry (item id, summary, gate
+  result, `Outcome: PASS` or `Outcome: BLOCKED`).
+- Do not commit, switch branches, merge, rebase, reset, or push.
+- Do not edit `.ralph/loop.md`.
+- No AI / generated-by attribution in code or commits.
+- Never commit secrets, tokens, or `.env` files.
+
+Kill the whole worker process group when the iteration ends or times out
+(SIGTERM, then SIGKILL). Do not leave orphaned children.
 
 ## Optional judgment gates
 
 Small semantic questions (select, verify, triage, blocker, continue) can be
 asked by a judgment helper so the frontier model doesn't have to. Code owns
-the workflow; the helper only supplies judgments. Question text, criteria,
-and probability thresholds live in one human-reviewable config file next to
-the driver. Gate exits: 0 acted, 1 review (engine decides), 2 escalate to
-the owner, 3 gate error — on error each gate falls back to the pre-helper
-behavior and says so. Reword a question and re-run representative cases when
-a gate's answers feel off; keep uncalibrated sets advisory until proven on
-real cases. Batch questions that share state. Branch only on typed answers,
-never on free-form text.
+the workflow; the helper only supplies judgments. Gate exits: 0 acted,
+1 review (engine decides), 2 escalate to the owner, 3 gate error — on error
+fall back to the pre-helper behavior and say so. Branch only on typed
+answers, never on free-form text.
 
 ## Rules
 
 - One item per iteration. No batching, no drive-bys.
-- The gate runs outside the worker; acceptance is exit 0 plus the exact
-  final line `ALL GATES PASS`.
-- The engine commits; the worker never commits, pushes, merges, or rebases.
-- Never push or merge without the owner's explicit go-ahead for that action.
-- Never commit secrets, tokens, passwords, or `.env` files.
-- A failed verification is a failed iteration: leave the tree as the worker
-  left it, record the outcome, release the lock, and report.
+- Two gates: baseline + current. Both outside the worker.
+- Commit only from the verified tree, hook-free.
+- Never push, merge, force-push, or change the default branch.
+- Failed verification is a failed iteration plus a recovery ref.
 
 ## Anti-patterns
 
-- Letting the worker verify its own work — taking a builder's "success"
-  report at face value without re-running the checks on the actual output.
-- Committing a diff the engine has not gate-verified itself.
-- Treating a typed gate answer as free-form text to interpret loosely.
+- Letting the worker verify its own work.
+- `git commit` on a dirty index so hooks can rewrite the tree you gated.
+- Auto-deleting `.git/ralph.lock` because it "looks stale."
+- Linked worktrees that share a Git dir with another lane.
 - Starting the next iteration while the lock is still held.
+- Touching `main` / `master` because the topic branch "is almost done."
 
 ## Related
 
-to-spec · grill-execute-clear · handoff · compact
+to-spec · ralph-swarm · grill-execute-clear · handoff · compact · quality-loop
