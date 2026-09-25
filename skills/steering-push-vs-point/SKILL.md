@@ -3,7 +3,9 @@ name: steering-push-vs-point
 description: >-
   use this when deciding what belongs in always-on AGENTS.md versus on-demand
   skills/docs — include prune examples and auto-compact danger
-portability: portable
+license: MIT
+metadata:
+  portability: portable
 ---
 # steering push-vs-point
 
