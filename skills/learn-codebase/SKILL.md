@@ -9,7 +9,7 @@ metadata:
 ---
 # learn-codebase
 
-Get productive in an unfamiliar codebase with a structured, disk-backed workflow — not a one-off "draw me a map" prompt.
+Get productive in an unfamiliar codebase with a structured, disk-backed workflow — not a one-off "draw me a map" prompt. Orientation only: for an honest feature inventory and test pass on a shipped product, use quality-loop.
 
 ## Setup
 1. Leave the app repo; create a **sibling workspace** for learning notes. If you're already inside the app repo with a map-only prompt, stop — relocate. A directory map is not understanding.
@@ -35,3 +35,14 @@ Get productive in an unfamiliar codebase with a structured, disk-backed workflow
 
 ## Done when
 Real files identified, disk-backed MISSION/NOTES/RESOURCES/lessons/records in place, and at least one prove-it check run — not a chat-only architecture sketch.
+
+## Anti-patterns
+- Running a map-only prompt inside the app repo instead of relocating to a sibling workspace.
+- Overclaiming experience — breaks depth calibration; underclaiming wastes a level.
+- Calling a directory map or repo tree "understanding"; they are not C4 Context/Container.
+- Hand-drawing Code diagrams.
+- A chat-only architecture sketch with no prove-it check.
+
+## Related
+quality-loop (owns the inventory/test pass on shipped products) ·
+session-hygiene · compact
