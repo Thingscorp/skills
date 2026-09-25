@@ -56,6 +56,8 @@ MUST_NOT_EXIST = [
     "docs/CONFIG-SCHEMA.md",
 ]
 
+PORTABILITY = "portable|claude-code|cursor|codex|copilot|gemini-cli"
+
 
 def folders() -> list[str]:
     names = []
@@ -125,8 +127,8 @@ def main() -> int:
             errors.append(f"{name}: portability must live under metadata")
         if not re.search(r"(?m)^license:\s*\S+", head):
             errors.append(f"{name}: missing license")
-        if not re.search(r"(?m)^\s+portability:\s+(portable|claude-code)\s*$", head):
-            errors.append(f"{name}: metadata.portability must be portable|claude-code")
+        if not re.search(rf"(?m)^\s+portability:\s+({PORTABILITY})\s*$", head):
+            errors.append(f"{name}: metadata.portability must be {PORTABILITY}")
 
     plugin = plugin_names()
     grouped = skills_sh_names()
