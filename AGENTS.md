@@ -23,7 +23,7 @@ Follow this order. Do not skip a step.
 2. **Use a workflow** — go to the workflow map. First matching row wins. Open
    that `SKILL.md`. Read only the YAML `description`. If it does not match the
    ask, go to the next row. On a match, read the body and stop walking the map.
-   If no row matches, stop. Do not invent a 16th skill.
+   If no row matches, stop. Do not invent another skill.
 3. **Install** — run the commands in `README.md`. Do not invent `install.sh`.
 4. **Edit this library** — `docs/AUTHORING.md`, then `python3 tools/validate.py`.
 5. **Review a plan/diff** — `skills/review/SKILL.md`. A shipped product audit is
@@ -86,7 +86,9 @@ Pick the first matching row. Stop. Read that skill.
 | What belongs in AGENTS.md | steering-push-vs-point | skills/steering-push-vs-point/SKILL.md |
 | Fix a one-file bug / write a test / rename a symbol | — | no skill; do the task |
 
-`claude-code-habits` is an optional adapter over `session-hygiene` — only if this session is Claude Code.
+`claude-code-habits`, `cursor-habits`, `codex-habits`, `copilot-habits`, and
+`gemini-cli-habits` are optional adapters over `session-hygiene` — load only the
+one matching this session's harness.
 
 ## Doctrine that must not be softened
 

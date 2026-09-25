@@ -36,6 +36,10 @@ Catalog: https://skills.sh/Thingscorp/skills
 - [kill-context-bloat](https://github.com/Thingscorp/skills/blob/main/skills/kill-context-bloat/SKILL.md): shrink starting context
 - [session-hygiene](https://github.com/Thingscorp/skills/blob/main/skills/session-hygiene/SKILL.md): keep a session clean
 - [claude-code-habits](https://github.com/Thingscorp/skills/blob/main/skills/claude-code-habits/SKILL.md): Claude Code names for session-hygiene
+- [cursor-habits](https://github.com/Thingscorp/skills/blob/main/skills/cursor-habits/SKILL.md): Cursor names for session-hygiene
+- [codex-habits](https://github.com/Thingscorp/skills/blob/main/skills/codex-habits/SKILL.md): Codex names for session-hygiene
+- [copilot-habits](https://github.com/Thingscorp/skills/blob/main/skills/copilot-habits/SKILL.md): Copilot CLI names for session-hygiene
+- [gemini-cli-habits](https://github.com/Thingscorp/skills/blob/main/skills/gemini-cli-habits/SKILL.md): Gemini CLI names for session-hygiene
 - [steering-push-vs-point](https://github.com/Thingscorp/skills/blob/main/skills/steering-push-vs-point/SKILL.md): always-on rules vs on-demand skills
 
 ## Docs

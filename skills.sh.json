@@ -10,7 +10,11 @@
         "session-hygiene",
         "kill-context-bloat",
         "steering-push-vs-point",
-        "claude-code-habits"
+        "claude-code-habits",
+        "cursor-habits",
+        "codex-habits",
+        "copilot-habits",
+        "gemini-cli-habits"
       ]
     },
     {
