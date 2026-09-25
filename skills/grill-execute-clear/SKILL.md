@@ -9,6 +9,8 @@ portability: portable
 
 Loop for agent-assisted feature work: **grill until the design frontier is empty → execute in the same session → clear (or compact/handoff/subagent) at the phase boundary**.
 
+Same-session execute after grilling. Never clear-before-execute.
+
 ## When
 Non-trivial feature where explore→implement with no alignment wastes the smart zone. Prefer this over raw plan mode.
 
