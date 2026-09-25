@@ -15,38 +15,42 @@ Paste this repo into an agent and tell it to follow `AGENTS.md`.
 
 ## Install
 
-List first:
+CLI is `skills@1.7.0` (`npx skills`). Default install is a **symlink** into each detected agent. Scope is the current project unless `-g`.
 
 ```bash
-npx skills add Thingscorp/skills --list
-```
+# list what this repo exports (no install)
+npx skills add Thingscorp/skills --list -y
 
-Install all detected skills into agents on this machine:
+# one skill, current project
+npx skills add Thingscorp/skills --skill unix-compound -y
 
-```bash
+# every skill, every detected agent
 npx skills add Thingscorp/skills --all
+
+# try a skill without installing it
+npx skills use Thingscorp/skills@unix-compound
+
+# search the public catalog
+npx skills find ralph-loop
+npx skills find --owner Thingscorp
 ```
-
-One skill, non-interactive:
-
-```bash
-npx skills add Thingscorp/skills --skill quality-loop -y
-```
-
-GitHub CLI (v2.90+):
 
 ```bash
 gh skill install Thingscorp/skills --all
-gh skill install Thingscorp/skills quality-loop --agent cursor --scope user
+gh skill install Thingscorp/skills unix-compound --agent cursor --scope user
 ```
 
-Bare `npx skills add Thingscorp/skills` and `gh skill install Thingscorp/skills` are interactive pickers. Default scope is the current project. `-g` / `--scope user` writes to the user-level skills dir.
-
-Copy from a checkout if you want a dest the CLIs do not cover:
+Day-2:
 
 ```bash
-cp -R skills/<name> <skills-dir>/<name>
+npx skills list
+npx skills check
+npx skills update
 ```
+
+`--list` cannot be combined with `--json`. Use `--list -y` to print names non-interactively.
+
+skills.sh indexes a repo after real `npx skills add` telemetry. `skills.sh.json` only groups the repo page; it does not publish the catalog entry.
 
 ## The library
 
@@ -54,11 +58,14 @@ cp -R skills/<name> <skills-dir>/<name>
 |---|---|
 | `learn-codebase` | Unfamiliar repo. Sibling workspace, leveled passes, prove-it checks. |
 | `grill-execute-clear` | Starting a feature. Grill the design, execute in the same session, clear after. |
-| `to-spec` | Work that will not fit one smart-zone session. Destination spec + vertical tickets in the tracker. |
-| `ralph-loop` | A ticket queue must be worked across sessions. One item per iteration. Gate outside the worker. |
-| `quality-loop` | Shipped product needs an honest feature inventory and test pass. Discover from code, test, fix, regress, loop. |
-| `handoff` | Phase boundary. Ordered tree: continue / clear / compact / handoff / subagent. |
-| `compact` | Same agent, same directory, need room. One-line focus. Cast-iron case: implement → QA. |
+| `to-spec` | Work that will not fit one smart-zone session. Destination spec + vertical tickets. |
+| `unix-compound` | A domain must become compounding one-thing modules. Lock criteria, short VSR, stop. |
+| `ralph-plan` | A Ralph topic needs a verified plan and item queue before the loop runs. |
+| `ralph-loop` | A ticket queue must be worked across sessions. Gate outside the worker. |
+| `ralph-swarm` | Independent Ralph lanes in parallel. Results under `refs/ralph/swarm`. |
+| `quality-loop` | Shipped product needs an honest feature inventory and test pass. |
+| `handoff` | Phase boundary. continue / clear / compact / handoff / subagent. |
+| `compact` | Same agent, same directory, need room. Cast-iron case: implement → QA. |
 | `kill-context-bloat` | Starting context is fat. Measure, cut, quit, relaunch, remeasure. |
 | `session-hygiene` | Portable session habits. Floor checks, rewind, permissions. |
 | `steering-push-vs-point` | What belongs in always-on AGENTS.md vs an on-demand skill. |
@@ -68,29 +75,3 @@ Harness-specific adapters (optional):
 | Skill | Use it when |
 |---|---|
 | `claude-code-habits` | Claude Code command names for the portable session-hygiene skill. |
-
-## Layout
-
-```
-AGENTS.md            runbook for agents handed this URL
-CLAUDE.md            pointer at AGENTS.md
-llms.txt             sitemap
-skills/<name>/       one skill folder, SKILL.md inside
-docs/                authoring, landmines, glossary
-.claude-plugin/      Claude marketplace adapter
-```
-
-## Frontmatter
-
-Each `SKILL.md` starts with YAML. Spec fields ([agentskills.io](https://agentskills.io/specification)):
-
-| Field | Required | Notes |
-|---|---|---|
-| `name` | yes | kebab-case, matches folder, max 64 |
-| `description` | yes | what it does and when to use it, max 1024 chars |
-| `license` | no | |
-| `compatibility` | no | environment requirements |
-| `metadata` | no | string map |
-| `allowed-tools` | no | experimental |
-
-This library also sets `portability: portable` or `portability: claude-code`. That is a house field. Spec-compliant runtimes ignore unknown keys.
