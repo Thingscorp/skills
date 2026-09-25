@@ -5,10 +5,12 @@ Operational **agent skills**. Each one tells an agent how to *do* a job.
 Format: `skills/<name>/SKILL.md` — the [Agent Skills](https://agentskills.io/specification) standard.
 Works in Cursor, Claude Code, Codex, and any harness that loads SKILL.md.
 
-Keywords: agent skills, SKILL.md, npx skills, ralph-loop, coding agents, AGENTS.md.
+Keywords: agent skills, SKILL.md, npx skills, ralph-loop, coding agents, AGENTS.md,
+progressive disclosure, vertical tickets, grill then execute.
 
 Paste this repo into an agent and tell it to follow [`AGENTS.md`](AGENTS.md).
 People: start at [`docs/QUICKSTART.md`](docs/QUICKSTART.md).
+Catalog: [skills.sh/Thingscorp/skills](https://skills.sh/Thingscorp/skills).
 
 ## For agents
 
@@ -54,10 +56,6 @@ npx skills update
 
 `--list` cannot be combined with `--json`. Use `--list -y` to print names non-interactively.
 
-[skills.sh](https://skills.sh) indexes a repo after a real `npx skills add Thingscorp/skills`
-(not `--list`). `skills.sh.json` only groups the page once that telemetry exists.
-Until then `https://skills.sh/Thingscorp/skills` is 404. That is expected.
-
 There is no `./tools/install.sh`.
 
 ## The library
@@ -97,11 +95,3 @@ python3 tools/validate.py
 ```
 
 Doctrine that must not regress: [`docs/LANDMINES.md`](docs/LANDMINES.md).
-
-## Public surface
-
-Set these on the GitHub About panel (files cannot):
-
-- Description: `Operational agent skills. Flat SKILL.md playbooks. npx skills add Thingscorp/skills`
-- Topics: `agent-skills`, `skill-md`, `agents-md`, `ralph-loop`, `coding-agents`
-- Website: `https://skills.sh/Thingscorp/skills` after the first real install indexes it
