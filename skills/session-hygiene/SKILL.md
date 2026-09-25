@@ -10,19 +10,20 @@ metadata:
 ---
 # session-hygiene
 
-Harness-agnostic habits for a clean agent session. Claude Code command names
-live in `claude-code-habits`. There is no `docs/HARNESS-MATRIX.md`.
+Harness-agnostic habits for a clean agent session. Command names live in the
+matching `*-habits` adapter. There is no `docs/HARNESS-MATRIX.md`.
 
 ## Session checks
 Check your context floor after big operations; watch for silent jumps.
-(Claude Code: `/context`.)
+Use your harness's floor command (see the matching `*-habits` skill).
 
 Confirm cwd is the named product before editing. `pwd` and `git remote -v`.
 Wrong repo is a stop. Do not clean unrelated dirty files.
 
 ## Rewind options (escalating)
 1. **Cancel mid-run / undo** — rewind a few messages.
-2. **Conversation rewind** — back to a chosen point. (Claude Code: `/rewind`.)
+2. **Conversation rewind** — back to a chosen point. Use your harness's rewind
+   command (see the matching `*-habits` skill).
 3. **Fresh scoped session** — start clean for a bounded task.
 4. **Git recovery** — `git diff`, `git stash`, `git reset` as the last resort. Git is the ground truth.
 
@@ -52,4 +53,4 @@ until the harness relaunches.
 - Copying skill text into the product `AGENTS.md`.
 
 ## Related
-claude-code-habits · kill-context-bloat · compact
+kill-context-bloat · compact · cursor-habits · codex-habits · copilot-habits · gemini-cli-habits · claude-code-habits
