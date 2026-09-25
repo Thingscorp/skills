@@ -1,6 +1,7 @@
 # Skills, not syllabi
 
-> Operational agent skills. How to do the job, not how to teach it.
+> Operational agent skills (SKILL.md). How to do the job, not how to teach it.
+> Install: npx skills add Thingscorp/skills
 
 Paste the repo. Read AGENTS.md. Load one skill. Do not ingest the library.
 
@@ -8,6 +9,7 @@ Paste the repo. Read AGENTS.md. Load one skill. Do not ingest the library.
 
 - [AGENTS.md](https://github.com/Thingscorp/skills/blob/main/AGENTS.md): runbook if you were handed this URL
 - [README.md](https://github.com/Thingscorp/skills/blob/main/README.md): install + library table
+- [QUICKSTART.md](https://github.com/Thingscorp/skills/blob/main/docs/QUICKSTART.md): human install, pick, verify, update
 - [CLAUDE.md](https://github.com/Thingscorp/skills/blob/main/CLAUDE.md): pointer at AGENTS.md
 
 ## Skills
@@ -30,7 +32,11 @@ Paste the repo. Read AGENTS.md. Load one skill. Do not ingest the library.
 
 ## Docs
 
-- [glossary](https://github.com/Thingscorp/skills/blob/main/docs/glossary.md)
-- [LANDMINES](https://github.com/Thingscorp/skills/blob/main/docs/LANDMINES.md)
+- [QUICKSTART](https://github.com/Thingscorp/skills/blob/main/docs/QUICKSTART.md)
 - [AUTHORING](https://github.com/Thingscorp/skills/blob/main/docs/AUTHORING.md)
+- [NAMING](https://github.com/Thingscorp/skills/blob/main/docs/NAMING.md)
+- [LANDMINES](https://github.com/Thingscorp/skills/blob/main/docs/LANDMINES.md)
+- [glossary](https://github.com/Thingscorp/skills/blob/main/docs/glossary.md)
+- [ADR ledger](https://github.com/Thingscorp/skills/tree/main/docs/adr)
 - [ADR template](https://github.com/Thingscorp/skills/blob/main/skills/review/references/adr.md)
+- [CHANGELOG](https://github.com/Thingscorp/skills/blob/main/CHANGELOG.md)
