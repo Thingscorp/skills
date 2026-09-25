@@ -1,0 +1,5 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Install help
+    url: https://github.com/Thingscorp/skills/blob/main/docs/QUICKSTART.md
+    about: Humans start here
