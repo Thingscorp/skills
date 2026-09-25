@@ -47,3 +47,5 @@ Do not put `portability` at the top level. Agents that validate the spec will re
 - **One job per skill.** If it needs a second trigger sentence, split it.
 - **Self-contained.** Cross-link with a `## Related` H2. Never assume another skill is loaded.
 - **Portability.** Doctrine stays portable. Harness command names belong in an adapter skill (`claude-code-habits`) or a harness note, not in the portable body.
+- **Docs describe shipped behavior.** Do not document a private product runtime
+  (paths, MCP tool names, Compose networks) as if it were a portable skill.

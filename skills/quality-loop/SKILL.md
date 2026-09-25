@@ -18,6 +18,8 @@ not from docs or memory.
 This loop will not fit one smart-zone session. Write the sheet to disk
 and come back. Do not ingest the whole tree into chat.
 
+Docs describe shipped behavior. Aspirational product copy is not a row.
+
 ## Artifact (source of truth)
 
 One canonical spreadsheet, **outside** the product as living docs.
@@ -86,6 +88,10 @@ Run every case. On failure record immediately:
 Bump Defect Count and Severity on the feature row. Status = `failing`
 or `tested`. Last Tested Date = today.
 
+No fake eval. No hash embeddings. No template output labeled as model
+output. An eval that does not run the production path does not count.
+Generated-but-unrun cases stay `tests-written`, not `tested`.
+
 Exit: every case executed, every defect documented. Do not skip a
 case because the fix "looks obvious."
 
@@ -143,6 +149,7 @@ confidence score with open highs is a lie — fix the sheet first.
 - Fixing without a Defect ID on the sheet.
 - Running the whole loop as one `/goal` on the sheet — that is the spec trap.
   Work one phase, or one surface, per session.
+- Counting an unrun generated case as evidence.
 
 ## Related
 

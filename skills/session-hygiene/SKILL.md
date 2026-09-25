@@ -16,6 +16,9 @@ commands see `docs/HARNESS-MATRIX.md` and the `harness/` adapters
 Check your context floor after big operations; watch for silent jumps.
 (Claude Code: `/context`.)
 
+Confirm cwd is the named product before editing. `pwd` and `git remote -v`.
+Wrong repo is a stop. Do not clean unrelated dirty files.
+
 ## Rewind options (escalating)
 1. **Cancel mid-run / undo** — rewind a few messages.
 2. **Conversation rewind** — back to a chosen point. (Claude Code: `/rewind`.)
