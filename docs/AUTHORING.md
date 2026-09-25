@@ -37,7 +37,7 @@ Do not put `portability` at the top level. Agents that validate the spec will re
 3. Body: keep it short. One H1, a few H2 sections, bullets over prose.
    - **When** — the trigger situation.
    - **Steps / rules** — the operational content.
-   - **Anti-patterns** — what not to do (if any).
+   - **Anti-patterns** — what not to do (if any). Do not restate the section above.
    - **Related** — other skills in this library, when a workflow spans them.
 4. Check the folder name equals `name`.
 5. Wire every catalog so a discovering agent still finds it:
@@ -58,3 +58,5 @@ Do not put `portability` at the top level. Agents that validate the spec will re
 - **Docs describe shipped behavior.** Do not document a private product runtime
   (paths, MCP tool names, Compose networks) as if it were a portable skill.
 - Do not point at files that are not in this repo (`docs/HARNESS-MATRIX.md`, `harness/`, `./tools/install.sh`).
+- **Progressive disclosure.** Agents load `name` + `description` first. Keep `SKILL.md` under 500 lines. Put rare detail in `references/` and name the trigger that loads it (review already does this for ADRs).
+- **No orchestration runtime.** LangGraph, CrewAI, AutoGen, Swarm SDKs, and Temporal stay outside this library. Parallel work is `ralph-swarm`. A ticket queue is `ralph-loop`. Do not add a conductor skill.
