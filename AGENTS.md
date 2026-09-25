@@ -8,18 +8,30 @@ A library of operational **agent skills**. Each skill is `skills/<name>/SKILL.md
 with YAML frontmatter (`name`, `description`) and a short body. Load **one skill
 that matches the current job**. Do not ingest the whole library.
 
-## First 30 seconds
+## Navigation
 
-1. Confirm you are in `Thingscorp/skills` (this file exists; `skills/` has one
-   folder per skill).
-2. If the user wants to **use** a workflow on some other repo: pick the first
-   matching row in the map below, read that `SKILL.md`, then follow it.
-3. If the user wants these skills **installed** in a harness:
-   `npx skills add Thingscorp/skills --list -y` then `--skill <name> -y` or `--all`.
-4. If the user wants to **change this library**: read `docs/AUTHORING.md`, edit,
-   run `python3 tools/validate.py`.
+Follow this order. Do not skip a step.
 
-Do not load every SKILL.md "for context."
+1. Confirm cwd is this repo (`AGENTS.md` at the root, `skills/` next to it).
+2. Classify the user ask as exactly one of: **use a workflow**, **install**,
+   **edit this library**, **review a plan/diff**. If two apply, pick the first.
+3. **Use a workflow** — go to the workflow map. First matching row wins. Open
+   that `SKILL.md`. Read only the YAML `description`. If it does not match the
+   ask, go to the next row. On a match, read the body and stop walking the map.
+4. **Install** — run the commands in `README.md`. Do not invent `install.sh`.
+5. **Edit this library** — `docs/AUTHORING.md`, then `python3 tools/validate.py`.
+6. **Review a plan/diff** — `skills/review/SKILL.md`. ADR file shape is
+   `skills/review/references/adr.md`.
+7. Load a Related skill only when the body you are following hits that seam.
+   Never open two skills "to compare."
+
+## First 30 seconds (use a workflow on another repo)
+
+1. Confirm you are in `Thingscorp/skills`.
+2. Pick the first matching row in the map.
+3. Read that `SKILL.md` frontmatter. No match → next row.
+4. Follow the body on the *target* repo. Confirm cwd is that product before editing.
+5. Do not copy skill text into the target `AGENTS.md`.
 
 ## Layout
 
@@ -34,7 +46,8 @@ Do not load every SKILL.md "for context."
 | `docs/glossary.md` | Smart zone, phase tree, spec lifetime |
 | `skills/<name>/SKILL.md` | The playbook |
 | `skills/review/references/adr.md` | ADR template for `review` |
-| `tools/validate.py` | Landmine phrase check |
+| `tools/validate.py` | Catalog + landmine check |
+| `.github/workflows/validate.yml` | Runs the checker on push |
 | `skills.sh.json` | skills.sh groupings |
 | `.claude-plugin/` | Plugin manifests |
 
