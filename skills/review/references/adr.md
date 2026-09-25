@@ -11,6 +11,8 @@ Status: Proposed
 
 ## Context
 What forced the call. Neutral. Tensions, not a pitch.
+If this call moves a runtime or deployable boundary, name the C4 level
+(system / container / component). Code-level is the diff, not an ADR.
 
 ## Drivers
 - Constraint any winner must meet (not praise for the chosen option)
@@ -21,6 +23,7 @@ What forced the call. Neutral. Tensions, not a pitch.
 
 ## Decision
 What we will do from now on.
+(Y-statement is allowed as this one sentence, not as the whole file.)
 
 ## Consequences
 Easier: …
@@ -37,6 +40,24 @@ Omit Drivers / Options / Confirmation / Supersedes when empty.
 If there is only one option, skip the ADR — that is an implementation.
 
 Status: `Proposed` | `Accepted` | `Rejected` | `Deprecated` | `Superseded by ADR-NNNN`.
+
+## Which template
+
+| Format | Use |
+|---|---|
+| Nygard-short (default) | Context / Decision / Consequences + Status |
+| MADR garnish | Drivers, Options, Confirmation — only when they earn the lines |
+| Y-statement | One sentence inside Decision. Not a second file format |
+
+Skip Tyree/Akerman, ISO 42010 companions, and full MADR matrices.
+
+## C4 is not an ADR
+
+C4 (Context / Container / Component / Code) describes **what exists**.
+An ADR records **why a boundary changed**. Do not paste diagrams or
+Structurizr DSL into the ADR. Point at a diagram path if one already
+lives in the repo. Hand-drawn Code-level diagrams go stale — generate
+them or skip them.
 
 ## Drivers (MADR sense)
 
