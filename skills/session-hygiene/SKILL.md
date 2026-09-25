@@ -45,8 +45,11 @@ settings and the skills directory before labs that reset harness config.
 
 ## Watch
 Settings-file confusion (which file is active), skills confusion (which
-skill actually fired), auto-update breakages.
+skill actually fired), auto-update breakages. A settings edit is not live
+until the harness relaunches.
+
+## Anti-patterns
+- Copying skill text into the product `AGENTS.md`.
 
 ## Related
-
-claude-code-habits · kill-context-bloat · compact · steering-push-vs-point
+claude-code-habits · kill-context-bloat · compact
