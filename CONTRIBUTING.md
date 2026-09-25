@@ -5,6 +5,7 @@ and `kill-context-bloat` — not a fresh syllabus pass.
 
 Material changes land through a pull request. CI runs `python3 tools/validate.py`.
 Direct-to-main is only for typos, dead-link fixes, and validator-green metadata.
+Default merge method is squash (ADR-0006).
 
 1. Read `docs/AUTHORING.md` and `docs/NAMING.md`.
 2. Edit one skill or one doc cluster.
@@ -13,4 +14,4 @@ Direct-to-main is only for typos, dead-link fixes, and validator-green metadata.
 5. Open a PR. Review uses `skills/review/SKILL.md`.
 6. Do not add an Anti-patterns list that only restates the section above it.
 
-See ADR-0004.
+See ADR-0004 and ADR-0006.
