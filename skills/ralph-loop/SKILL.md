@@ -19,6 +19,7 @@ exactly one item.
 
 - A to-spec ticket queue (or any discrete item list) must be worked to done
   across sessions without losing state.
+- ralph-plan produced the verified plan and items; this loop executes them.
 - Each item needs independent verification before it lands.
 - When a grill-execute-clear feature outgrows one session, graduate its
   mini-spec to to-spec, then run the resulting tickets here.
@@ -43,7 +44,7 @@ Plan first: replacing the plan and items **resets** `loop.md` and
 
 ## The loop (engine protocol)
 
-The assistant is the engine. A fresh subagent is the worker for each item.
+You are the engine. A fresh subagent is the worker for each item.
 Never let the worker verify its own work. Re-read all durable state before
 every iteration.
 
@@ -86,7 +87,7 @@ Hand the worker these rules. The engine also enforces them after the fact.
   result, `Outcome: PASS` or `Outcome: BLOCKED`).
 - Do not commit, switch branches, merge, rebase, reset, or push.
 - Do not edit `.ralph/loop.md`.
-- No AI / generated-by attribution in code or commits.
+- No generated-by attribution in code or commits.
 - Never commit secrets, tokens, or `.env` files.
 
 Kill the whole worker process group when the iteration ends or times out
@@ -112,6 +113,8 @@ answers, never on free-form text.
 ## Anti-patterns
 
 - Letting the worker verify its own work.
+- Committing the worker's output without the engine-side gate rerun — the engine re-runs baseline + current gates outside the worker before any commit.
+- Spawning a worker without handing it the worker contract.
 - `git commit` on a dirty index so hooks can rewrite the tree you gated.
 - Auto-deleting `.git/ralph.lock` because it "looks stale."
 - Linked worktrees that share a Git dir with another lane.
@@ -120,4 +123,4 @@ answers, never on free-form text.
 
 ## Related
 
-to-spec · ralph-swarm · grill-execute-clear · handoff · compact · quality-loop
+ralph-plan (verified plans + items, the upstream) · to-spec · ralph-swarm · grill-execute-clear · handoff · compact · quality-loop
