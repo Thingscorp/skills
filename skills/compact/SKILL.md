@@ -44,5 +44,12 @@ The harness squeezed without your one-line focus. Recover, don't re-explore:
 4. Ask: did the focus survive? If yes, continue. If no, compact again with a one-line focus, or write a handoff doc and clear.
 5. Set the next boundary explicitly (see handoff) so the following squeeze is yours, not the harness's.
 
+## Anti-patterns
+- Compacting mid-grill / mid-implement while you still need primary context and are still well under ~150k — pays loss for nothing; Continue there.
+- Compacting when the context is irrelevant to what's next — Clear is cheaper and gives more room.
+- Compacting to seed another agent / directory / person — compaction can't seed another product; write a handoff.
+- Bare compact with no one-sentence focus — the summarizer is an LLM; it will guess.
+- Letting auto-compact own your boundaries — prefer explicit boundaries; recover with a re-anchor, don't re-explore.
+
 ## Related
 handoff (ordered tree + "review" disambiguation) · grill-execute-clear
