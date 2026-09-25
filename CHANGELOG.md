@@ -8,11 +8,7 @@
 - Living quality sheet removed from this tree
 - Human start: `docs/QUICKSTART.md`
 - Naming table: `docs/NAMING.md`
-- ADR ledger: `docs/adr/0001`–`0005`
+- ADR ledger: `docs/adr/0001`–`0006`
+- Default merge method: squash (ADR-0006)
 - CI: `.github/workflows/validate.yml`
-
-Owner still must:
-
-1. Settings → General → Description: `Operational agent skills. Flat SKILL.md playbooks. npx skills add Thingscorp/skills`
-2. Topics: `agent-skills` `skill-md` `agents-md` `ralph-loop` `coding-agents`
-3. Once, from a real machine: `npx skills add Thingscorp/skills --all`
+- GitHub About + topics set; skills.sh page is live
