@@ -1,48 +1,51 @@
 ---
-name: kill-context-bloat
+name: cursor-habits
 description: >-
-  use this when agent sessions feel bloated — the measure→edit→quit→remeasure
-  lab with /context; named harness settings as examples not law
+  use this when starting a Cursor session, after a bad run you want
+  to rewind, or before changing CLI permissions — /rewind, /summarize,
+  /config
 license: MIT
 metadata:
-  portability: portable
+  portability: cursor
 ---
-# kill-context-bloat
+# cursor-habits
 
-Shrink always-on payload so more of the window stays in the **smart zone**. Motive is **quality of attention**, not min-maxing spend.
+Cursor instance of **session-hygiene** — read that skill first for the
+portable doctrine. This skill is only Cursor CLI mechanics.
 
-## Lab loop (do not skip remeasure)
-1. Fresh session. Measure starting context (your harness's slash command — see `<harness>-habits`; or a request logger).
-2. Trivial Hello; record baseline tokens (demos often start ~**68k** — shockingly high).
-3. Edit harness settings. First **locate the settings file** for your harness and **back it up**. **Named flags below are examples for one harness/version — not universal law**:
-   - disable unused connectors/integrations — demo drop ~68k→~47k
-   - disable unused workflows — further toward ~39k
-   - disable bundled skills you don't use — toward ~37k (also disables those skills entirely)
-   - disable artifacts/media generation when unused
-   - **deny unused tools** — denied tools drop **definitions** from the system prompt, not just runtime blocks
+Sources: [cursor.com/docs/cli/reference/slash-commands](https://cursor.com/docs/cli/reference/slash-commands),
+[cursor.com/docs/cli/reference/configuration](https://cursor.com/docs/cli/reference/configuration).
 
-   "Unused" test: if nothing in your last ~20 sessions referenced it, it's unused. When unsure, disable one thing at a time and remeasure.
-4. **[human step — the agent cannot do this]** Fully quit and relaunch — edits often change nothing until restart (**deny without relaunch** is a common false "fix").
-5. Hello → measure → **remeasure**. Repeat until the floor is honest (demos often land near ~**20k** after cuts).
+## When
+- Starting a Cursor Agent CLI session.
+- After a bad run — `/rewind` or `/clear`.
+- Before changing what the agent may run — `/config` and the permissions lists.
 
-## Cut categories
-Unused MCP/connectors, workflows, bundled skills, artifacts, always-on essay instructions (move behind pointers/skills), unused tools via deny lists.
+## Session checks
+No official `/context` on the published CLI slash list.
+- `/summarize` (`/compress` alias) — shrink the conversation.
 
-## See the real cost
-- **Turns vs provider requests** — a *turn* (your message → final reply) can hide many *provider requests* (tool rounds, retries). Point a request logger at your agent and look at the actual graph instead of guessing.
-- **Prefix-cache nuance** — providers cache matching prompt prefixes (cached input often ~10× cheaper than base). The first hit may be a **cache write**; the later reads are the win. Subscriptions usually beat surprise API burn; **process > penny-pinching**.
+## Rewind options (escalating)
+1. **Cancel mid-run** — stop the current turn.
+2. **`/rewind`** — jump back to a previous message (enable the `rewind` flag in
+   `cli-config.json` if it is off).
+3. **`/clear`** (`/new`, `/new-chat`, `/newchat`) — start a new chat.
+4. **`/fork`** — copy this chat into a new session.
+5. **`git` recovery** — last resort.
 
-## Before you start
-Back up your settings file and skills directory before labs that reset harness config, so you can restore them.
+## Slash commands worth knowing
+- `/model` — pick the model.
+- `/plan` — Plan mode.
+- `/ask` — read-only Ask mode.
+- `/config` — interactive CLI settings.
+- `/sandbox` — sandbox and network access.
+- `/resume` — open recent chats.
 
-## Success
-Same task with less preamble and a visibly lower starting token floor — more room for smart-zone work.
-
-## Anti-patterns
-- Denying a tool and calling it fixed without quit/relaunch — edits often change nothing until restart.
-- Cutting for spend instead of attention — the motive is quality of attention, not min-maxing spend.
-- Guessing which requests are expensive; point a request logger at the graph instead.
-- Editing harness config with no backup before the lab.
+## Settings backup
+Back up `~/.cursor/cli-config.json` (Windows: `%USERPROFILE%\.cursor\cli-config.json`)
+and the project `.cursor/cli.json` before labs that reset harness config.
+Permissions live under `permissions.allow` / `permissions.deny` in those files.
+Skills live in `.cursor/skills/` and `~/.cursor/skills/`.
 
 ## Related
-session-hygiene · steering-push-vs-point
+session-hygiene
