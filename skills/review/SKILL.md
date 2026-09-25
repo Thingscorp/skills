@@ -51,18 +51,27 @@ No other grades. If it is not a finding, it is not in the report.
 - Do not start a swarm, a loop, or a second agent from this skill.
 - Do not commit, push, or merge.
 
-## Decision memory
+## ADR capture
 
-A review dump that nobody reads is a graveyard.
+A review dump that nobody reads is a graveyard. Capture at decision time.
+Template: `references/adr.md`.
 
-- Typo, missing test, off-by-one → stays in the report.
-- A finding that encodes a **decision or lesson** → distill one ADR (or
-  atomic note) and link it from the finding. Adopt/skip verdicts are ADRs.
-  Swarm/loop closeout provenance is an incident note.
-- Findings that encode a decision become ADRs.
+**Write an ADR** when the finding is expensive to reverse, constrains future
+work, picks one option over another that someone will ask about, adopts or
+drops a dependency, or supersedes an earlier ADR.
 
-ADR is short: context, decision, reason, consequences. Append-only.
-Supersede; do not silently rewrite.
+**Leave it in the report** when it is a typo, lint, missing test on this
+change, taste/P2, or reversible this session.
+
+**Incident note, not ADR** when it is swarm/loop closeout provenance
+(what ran, what failed, what to try next).
+
+Shape: Status (accepted | superseded) · Context · Decision · Consequences.
+Append-only. New file supersedes the old. Do not silently rewrite.
+Lives in the project (`docs/adr/NNNN-slug.md`), not in a write-only dump.
+
+If the project already has the same decision and it has not changed, link it.
+Do not mint a duplicate.
 
 ## Report shape
 
@@ -76,7 +85,8 @@ Supersede; do not silently rewrite.
 - P1 `path` — …
 
 ## Decisions to capture
-- ADR: …
+- ADR `docs/adr/NNNN-slug.md` — …
+- skip — typo / one-off / already recorded
 
 ## Out of scope
 - …
@@ -89,7 +99,8 @@ If there are no findings, write `No findings.` and stop.
 - Inventing nits so the review looks thorough.
 - Reviewing two diffs because they were "nearby."
 - Embedding worker dispatch in the reviewer.
-- Writing findings into `artifacts/` and never capturing the decision.
+- Writing every nit into `docs/adr/`.
+- Leaving a real decision only in a dated dump nobody will open.
 - Relitigating taste as P0.
 
 ## Related
