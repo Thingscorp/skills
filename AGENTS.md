@@ -53,6 +53,7 @@ Follow this order. Do not skip a step.
 | `docs/LANDMINES.md` | Claims that must not be softened |
 | `docs/glossary.md` | Smart zone, phase tree, spec lifetime |
 | `docs/adr/` | Decisions that bind this library |
+| `docs/quality/` | Feature sheets live outside the product, never as a checked-in sheet |
 | `skills/<name>/SKILL.md` | The playbook |
 | `skills/review/references/adr.md` | ADR template for `review` |
 | `tools/validate.py` | Catalog + landmine check |
@@ -68,7 +69,7 @@ There is no `docs/CONFIG-SCHEMA.md`. Install is `npx skills`.
 Pick the first matching row. Stop. Read that skill.
 
 | Situation | Skill | Path |
-|---|---|---|
+|---|---|
 | Plan or diff needs a P0/P1/P2 read | review | skills/review/SKILL.md |
 | Shipped product needs an honest test pass | quality-loop | skills/quality-loop/SKILL.md |
 | Unfamiliar codebase (orientation only) | learn-codebase | skills/learn-codebase/SKILL.md |
@@ -96,7 +97,7 @@ Full list: `docs/LANDMINES.md`. After edits: `python3 tools/validate.py`.
 - A goal loop on a whole spec is a trap. Spec + vertical tickets.
 - Grill then execute in the same session.
 - Settings edits often need quit/relaunch.
-- Kill bloat for quality of attention, not spend min-maxing.
+- Kill bloat for quality of attention, not min-maxing.
 - Tickets are vertical slices, not layers.
 - Default to pointers.
 - Do not manufacture findings. Findings that encode a decision become ADRs.
@@ -117,6 +118,7 @@ Full list: `docs/LANDMINES.md`. After edits: `python3 tools/validate.py`.
 
 - Load every SKILL.md "for context."
 - Commit handoff docs or living specs into a target repo.
+- Commit living feature sheets into this tree (`docs/quality/`).
 - Invent a conductor on top of these files.
 - Add attribution footers.
 - Follow paths this file says do not exist.
