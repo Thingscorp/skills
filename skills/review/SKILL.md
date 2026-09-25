@@ -80,37 +80,55 @@ provider). One paragraph in the project progress log. No `docs/adr/` file.
   typo, adding `Superseded by`. Anything else → a new ADR.
 - Never delete. Truth is the full chain.
 
-Default shape is Nygard-short (Context / Decision / Consequences). Do not
-switch the library to full MADR. Optional extras, only when they earn the
-lines:
+Default shape is Nygard-short (Context / Decision / Consequences).
+Optional extras, only when they earn the lines:
 
-- `## Options considered` — two or three named alternatives when the call
-  had a real fork. One line each.
-- `## Confirmation` — one line if compliance is cheap to check later
-  (a test, a path, a gate).
+- `## Drivers` — two to four **constraints that judge the options**
+  (latency cap, no new vendor, must keep current schema). Not a pitch
+  for the winner. Drivers exist before the choice.
+- `## Options considered` — two or three named alternatives when the
+  call had a real fork. One line each. If there is only one option, you
+  are documenting an implementation, not a decision — skip the ADR.
+- `## Confirmation` — one line if compliance is cheap to check later.
 
-Skip RACI frontmatter (`decision-makers` / `consulted` / `informed`).
+Skip RACI frontmatter. Skip driver×option matrices.
 
-### Supersede vs deprecate
+### Supersedes rules
 
-Same question, new answer → **supersede**.
-Question no longer applies (system gone, concern retired) → **deprecate**.
-No replacement file for deprecate. Do not mark an ADR deprecated just
-because you dislike it; that is a supersede or a reject.
+`## Supersedes` lives on the **new** file. `Status: Superseded by ADR-M`
+lives on the **old** file. Do not stuff both meanings into one field.
 
-**Supersede workflow** (two files, one commit after the owner accepts):
+You may supersede **only**:
 
-1. Write ADR-M as `Proposed`. Include `Supersedes: ADR-N` and *why the old
-   call is now wrong*. Do not edit ADR-N yet.
-2. Owner accepts ADR-M.
-3. Same commit: ADR-M `Status: Accepted`. ADR-N `Status: Superseded by ADR-M`.
-   Touch only the Status line on N.
-4. If N was still `Proposed`, mark N `Rejected` instead and accept M.
-5. One-to-one is the default. If M and P both replace parts of N, both say
-   `Supersedes: ADR-N`. N lists both: `Superseded by ADR-M, ADR-P`.
+- An **Accepted** ADR
+- That answered the **same question**
+- With a **lower number** than the new file
 
-List candidates under **Decisions to capture** first. Write files only after
-the owner accepts.
+You may not:
+
+- Supersede yourself
+- Supersede `Rejected` or `Deprecated` (those are terminal)
+- Supersede an ADR that is already `Superseded by ADR-X` — the next call
+  supersedes X, not the original. The chain stays linear at each hop.
+- Use `Supersedes` for a related-but-different question. Link that in
+  Context instead.
+- Edit a `Proposed` ADR by "superseding" it. Either revise the draft or
+  mark it `Rejected` and write a new number.
+
+Same question, new answer → supersede.
+Question gone → deprecate (no replacement file).
+Do not mark Deprecated because you dislike the answer.
+
+**Workflow** (two files, one commit after the owner accepts):
+
+1. Write ADR-M `Proposed` with `Supersedes: ADR-N` and why the old call
+   is now wrong. Do not touch N yet.
+2. Owner accepts M.
+3. Same commit: M `Accepted`. N Status line only → `Superseded by ADR-M`.
+4. Split replacements: M and P both `Supersedes: ADR-N`. N lists both.
+
+List candidates under **Decisions to capture** first. Write files only
+after the owner accepts.
 
 **Shape:**
 
@@ -122,6 +140,9 @@ Status: Proposed
 
 ## Context
 What forced the call.
+
+## Drivers
+- Constraint that any winner must meet
 
 ## Options considered
 - A — …
@@ -141,7 +162,7 @@ How a later pass can see this is still in force.
 ADR-NNNN
 ```
 
-Omit Options / Confirmation / Supersedes when empty.
+Omit Drivers / Options / Confirmation / Supersedes when empty.
 
 ## Report shape
 
@@ -177,6 +198,8 @@ If there are no findings, write `No findings.` and stop.
 - Dating files instead of numbering them.
 - Dumping a full MADR (RACI + per-option matrices) for a one-line call.
 - Marking Deprecated when a new answer exists — that is Superseded.
+- `Supersedes` on a different question.
+- Drivers that are just praise for the winner.
 
 ## Related
 
