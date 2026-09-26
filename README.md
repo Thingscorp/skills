@@ -6,6 +6,9 @@
 
 Playbooks in [`SKILL.md`](https://agentskills.io/specification) form. One job per skill. Not a course and not a runtime.
 
+A `SKILL.md` is one job. Agents load `name` + `description` first, then the body when the job matches.
+`AGENTS.md` is always-on context for a repo ([agents.md](https://agents.md/)). This library's `AGENTS.md` is the map — do not copy skill text into a product `AGENTS.md`.
+
 Works in Cursor, Claude Code, Codex, Copilot, Gemini CLI, and any harness that loads SKILL.md.
 
 Agents: follow [`AGENTS.md`](AGENTS.md).
