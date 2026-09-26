@@ -1,17 +1,16 @@
-# Skills, not syllabi
+# Agent skills
 
 [![validate](https://img.shields.io/github/actions/workflow/status/Thingscorp/skills/validate.yml?label=validate)](https://github.com/Thingscorp/skills/actions/workflows/validate.yml)
 [![license](https://img.shields.io/github/license/Thingscorp/skills)](LICENSE)
 [![skills.sh](https://img.shields.io/badge/skills.sh-catalog-blue)](https://skills.sh/Thingscorp/skills)
 
-Operational **agent skills**. Each one tells an agent how to *do* a job.
+Playbooks in [`SKILL.md`](https://agentskills.io/specification) form. One job per skill. Not a course and not a runtime.
 
-Format: `skills/<name>/SKILL.md` — the [Agent Skills](https://agentskills.io/specification) standard.
+[`AGENTS.md`](AGENTS.md) is the always-on runbook for this library. A `SKILL.md` is one job, loaded when its description matches.
+
 Works in Cursor, Claude Code, Codex, Copilot, Gemini CLI, and any harness that loads SKILL.md.
 
-Keywords: agent skills, SKILL.md, npx skills, ralph-loop, coding agents, AGENTS.md.
-
-Paste this repo into an agent and tell it to follow [`AGENTS.md`](AGENTS.md).
+Agents: follow [`AGENTS.md`](AGENTS.md).
 People: [`docs/QUICKSTART.md`](docs/QUICKSTART.md).
 Catalog: [skills.sh/Thingscorp/skills](https://skills.sh/Thingscorp/skills).
 
@@ -49,7 +48,7 @@ gh skill install Thingscorp/skills --all
 gh skill install Thingscorp/skills review --agent cursor --scope user
 ```
 
-Day-2:
+After install:
 
 ```bash
 npx skills list
@@ -60,23 +59,6 @@ npx skills update
 `--list` cannot be combined with `--json`. Use `--list -y` to print names non-interactively.
 
 There is no `./tools/install.sh`.
-
-## You want to
-
-| Job | Skill |
-|---|---|
-| Learn a strange repo | `learn-codebase` |
-| Start a feature | `grill-execute-clear` |
-| Work that will span sessions | `to-spec` |
-| Review a plan or diff | `review` |
-| Run a ticket queue | `ralph-plan` then `ralph-loop` |
-| Run independent queues in parallel | `ralph-swarm` |
-| Inventory a shipped product | `quality-loop` |
-| Hit a phase boundary | `handoff` |
-| Need room in this session | `compact` |
-| Starting context is fat | `kill-context-bloat` |
-
-Full map: [`AGENTS.md`](AGENTS.md). Names: [`docs/NAMING.md`](docs/NAMING.md).
 
 ## The library
 
@@ -97,15 +79,17 @@ Full map: [`AGENTS.md`](AGENTS.md). Names: [`docs/NAMING.md`](docs/NAMING.md).
 | `session-hygiene` | Portable session habits. Floor checks, rewind, permissions. |
 | `steering-push-vs-point` | What belongs in always-on AGENTS.md vs an on-demand skill. |
 
-Harness-specific adapters (optional):
+Harness-specific adapters (optional). Load only the one that matches this session:
 
 | Skill | Use it when |
 |---|---|
-| `claude-code-habits` | Claude Code command names for the portable session-hygiene skill. |
-| `cursor-habits` | Cursor command names for the portable session-hygiene skill. |
-| `codex-habits` | Codex command names for the portable session-hygiene skill. |
-| `copilot-habits` | Copilot CLI command names for the portable session-hygiene skill. |
-| `gemini-cli-habits` | Gemini CLI command names for the portable session-hygiene skill. |
+| `claude-code-habits` | Claude Code command names for session-hygiene. |
+| `cursor-habits` | Cursor command names for session-hygiene. |
+| `codex-habits` | Codex command names for session-hygiene. |
+| `copilot-habits` | Copilot CLI command names for session-hygiene. |
+| `gemini-cli-habits` | Gemini CLI command names for session-hygiene. |
+
+Full map: [`AGENTS.md`](AGENTS.md). Names: [`docs/NAMING.md`](docs/NAMING.md).
 
 This `ralph-loop` is a portable ticket-queue contract (gate outside the worker,
 `.ralph/` state). It is not the mikeyobrien / clawdbot / eliteai runner CLIs.

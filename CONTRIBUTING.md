@@ -1,7 +1,7 @@
 # Contributing
 
 This repo is a product of its own skills. Edit it with `review`, `steering-push-vs-point`,
-and `kill-context-bloat` — not a fresh syllabus pass.
+and `kill-context-bloat` — not a fresh rewrite of the doctrine.
 
 Material changes land through a pull request. CI runs `python3 tools/validate.py`.
 Direct-to-main is only for typos, dead-link fixes, and validator-green metadata.
