@@ -2,10 +2,13 @@
 
 For people. Agents should read `AGENTS.md` instead.
 
-A skill is a folder with a `SKILL.md`: YAML `name` + `description`, then the playbook.
-Agents read the description first and load the body only when it matches the job.
+A skill is a folder with `SKILL.md` — YAML `name` + `description`, then the playbook.
+Agents load the description first and the body only when the job matches
+([Agent Skills spec](https://agentskills.io/specification)).
 
-`AGENTS.md` is different — always-on rules for *this* repo. Do not copy skill text into a product `AGENTS.md`.
+`AGENTS.md` is the always-on handbook for a repo ([agents.md](https://agents.md/)).
+This library's `AGENTS.md` is the map. A product repo gets its own. Do not copy
+skill text into a product `AGENTS.md`.
 
 ## Install
 
