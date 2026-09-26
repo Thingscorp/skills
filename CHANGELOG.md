@@ -1,6 +1,7 @@
 # Changelog
 
 ## Unreleased
+- AUTHORING: adapter example lists all five `*-habits` skills; no default harness
 - Title: `Agent skills` (was `Skills, not syllabi`)
 - README / QUICKSTART / llms.txt: one job statement, no keyword stuffing
 - Harness-neutral adapters: `cursor-habits`, `codex-habits`, `copilot-habits`, `gemini-cli-habits` (ADR-0007 supersedes ADR-0002; no default harness)
