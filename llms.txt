@@ -1,10 +1,6 @@
-# Skills, not syllabi
+# Agent skills
 
-> Operational agent skills. SKILL.md playbooks for coding agents.
-> How to do the job, not how to teach it.
-
-Keywords: agent skills, SKILL.md, npx skills, ralph loop, architecture decision records,
-context window, vertical tickets, grill then build, feature audit, AGENTS.md.
+> Playbooks in SKILL.md form. One job per skill. Not a course and not a runtime.
 
 Paste the repo. Read AGENTS.md. Load one skill. Do not ingest the library.
 

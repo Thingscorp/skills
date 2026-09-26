@@ -1,11 +1,8 @@
 # Contributing
 
-This repo is a product of its own skills. Edit it with `review`, `steering-push-vs-point`,
-and `kill-context-bloat` — not a fresh syllabus pass.
+This repo is a product of its own skills. Edit it with `review`, `steering-push-vs-point`, and `kill-context-bloat`.
 
-Material changes land through a pull request. CI runs `python3 tools/validate.py`.
-Direct-to-main is only for typos, dead-link fixes, and validator-green metadata.
-Default merge method is squash (ADR-0006).
+Material changes land through a pull request. CI runs `python3 tools/validate.py`. Direct-to-main is only for typos, dead-link fixes, and validator-green metadata. Default merge method is squash (ADR-0006).
 
 1. Read `docs/AUTHORING.md` and `docs/NAMING.md`.
 2. Edit one skill or one doc cluster.

@@ -2,6 +2,8 @@
 
 For people. Agents should read `AGENTS.md` instead.
 
+A skill is a short playbook at `skills/<name>/SKILL.md`. Match the job. Load one. Do not ingest the library.
+
 ## Install
 
 ```bash
@@ -19,7 +21,7 @@ There is no `./tools/install.sh`.
 
 ## Pick a skill
 
-Match the job, not the whole library. Literal jobs: `docs/NAMING.md`.
+Literal jobs: `docs/NAMING.md`.
 
 | You want to | Skill |
 |---|---|
