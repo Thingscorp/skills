@@ -1,8 +1,8 @@
 # Changelog
 
 ## Unreleased
-- Title: `Agent skills`. Lead: playbooks in SKILL.md form. One job per skill.
-- Dropped slogan H1 and README keyword stuffing
+- Title: `Agent skills` (was `Skills, not syllabi`)
+- README / QUICKSTART / llms.txt: one job statement, no keyword stuffing
 - Harness-neutral adapters: `cursor-habits`, `codex-habits`, `copilot-habits`, `gemini-cli-habits` (ADR-0007 supersedes ADR-0002; no default harness)
 - README badges: validate CI, license, skills.sh catalog
 - GitHub issue templates (bug, skill proposal) and PR template

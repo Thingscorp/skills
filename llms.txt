@@ -1,6 +1,7 @@
 # Agent skills
 
-> Playbooks in SKILL.md form. One job per skill. Not a course and not a runtime.
+> Playbooks in SKILL.md form. One job per skill.
+> Not a course and not a runtime.
 
 Paste the repo. Read AGENTS.md. Load one skill. Do not ingest the library.
 
