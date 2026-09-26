@@ -2,8 +2,10 @@
 
 For people. Agents should read `AGENTS.md` instead.
 
-A skill is a short playbook (`skills/<name>/SKILL.md`) that tells an agent how
-to do one job. Install the ones you need. Do not load the whole library.
+A skill is a folder with a `SKILL.md`: YAML `name` + `description`, then the playbook.
+Agents read the description first and load the body only when it matches the job.
+
+`AGENTS.md` is different — always-on rules for *this* repo. Do not copy skill text into a product `AGENTS.md`.
 
 ## Install
 
