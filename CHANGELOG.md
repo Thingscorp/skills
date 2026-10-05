@@ -1,6 +1,5 @@
 # Changelog
 
-
 ## Unreleased
 - Loading doctrine: measured skill-loading ranking from 2,602 native Jev simulations — per-task-lazy wins the razor; front-load and inject-and-drop banned
 - Harness adapters preferred over the raw skill when the session's harness matches
@@ -10,7 +9,6 @@
 - Harness-neutral adapters: `cursor-habits`, `codex-habits`, `copilot-habits`, `gemini-cli-habits` (ADR-0007 supersedes ADR-0002; no default harness)
 - README badges: validate CI, license, skills.sh catalog
 - GitHub issue templates (bug, skill proposal) and PR template
-
 
 - Validator rejects top-level `portability` and missing `license`
 - All skills use `metadata.portability`
@@ -22,4 +20,3 @@
 - Default merge method: squash (ADR-0006)
 - CI: `.github/workflows/validate.yml`
 - GitHub About + topics set; skills.sh page is live
-
