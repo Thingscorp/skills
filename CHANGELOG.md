@@ -1,6 +1,8 @@
 # Changelog
 
 ## Unreleased
+- Loading doctrine: measured skill-loading ranking from 2,602 native Jev simulations — per-task-lazy wins the razor; front-load and inject-and-drop banned
+- Harness adapters preferred over the raw skill when the session's harness matches
 - AUTHORING: adapter example lists all five `*-habits` skills; no default harness
 - Title: `Agent skills` (was `Skills, not syllabi`)
 - README / QUICKSTART / llms.txt: one job statement, no keyword stuffing
