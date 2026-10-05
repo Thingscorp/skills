@@ -127,7 +127,7 @@ Full list: `docs/LANDMINES.md`. After edits: `python3 tools/validate.py`.
 ## Do not
 
 
-## Do not- Load every SKILL.md "for context."
+- Load every SKILL.md "for context."
 - Commit handoff docs or living specs into a target repo.
 - Commit living feature sheets into this tree (`docs/quality/`).
 - Invent a conductor on top of these files.
