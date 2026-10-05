@@ -69,7 +69,7 @@ There is no `docs/CONFIG-SCHEMA.md`. Install is `npx skills`.
 Pick the first matching row. Stop. Read that skill.
 
 | Situation | Skill | Path |
-|---|---|
+|---|---|---|
 | Plan or diff needs a P0/P1/P2 read | review | skills/review/SKILL.md |
 | Shipped product needs an honest test pass | quality-loop | skills/quality-loop/SKILL.md |
 | Unfamiliar codebase (orientation only) | learn-codebase | skills/learn-codebase/SKILL.md |
@@ -115,14 +115,31 @@ Full list: `docs/LANDMINES.md`. After edits: `python3 tools/validate.py`.
 3. Load Related skills only at that seam. `review` ADR details live in
    `skills/review/references/adr.md`.
 4. Do not copy skill text into AGENTS.md.
-5.
-6.   ## Loading doctrine (measured 2026-10-05)
-7.
-8. 2,602 native Jev simulations over this library's decisions ranked ten loading strategies by effectiveness (0-3) and minimality (P: no simpler loading would do as well). Evidence report lives in the analysis workspace, not this repo.
-9.
-10.   1. **Per-task lazy wins the razor.** Load a skill when the task matches its `description` trigger; unload it when the task closes. Nothing preloaded. Effectiveness 2.23, highest minimality 0.47 — the strategy least often replaceable by something simpler.
-      2.  2. **Harness adapter over raw skill.** When the session's harness matches one of the five adapter skills, load the adapter — highest raw effectiveness measured (2.39). The adapters are the preferred path, not a fallback. 3. **Progressive disclosure as fallback.** Workflow map above: first matching row wins, read the description before the body. Never: - **Front-load the library.** Loading every skill before any task is known measured 1.00 effectiveness — baseline noise — with minimality 0.19: a simpler loading suffices 81% of the time. "Load every SKILL.md for context" is the most wasteful strategy tested. - **Inject-and-drop.** Injecting skill text at a decision point then dropping it measured 0.47, the worst strategy tested. Keep the skill resident for the task it was loaded for.
-          3. 
+## Loading doctrine (measured 2026-10-05)
+
+2,602 native Jev simulations over this library's decisions ranked ten loading
+strategies by effectiveness (0-3) and minimality (P: no simpler loading would
+do as well). Evidence report lives in the analysis workspace, not this repo.
+
+1. **Per-task lazy wins the razor.** Load a skill when the task matches its
+   `description` trigger; unload it when the task closes. Nothing preloaded.
+   Effectiveness 2.23, highest minimality 0.47 — the strategy least often
+   replaceable by something simpler.
+2. **Harness adapter over raw skill.** When the session's harness matches one
+   of the five adapter skills, load the adapter — highest raw effectiveness
+   measured (2.39). The adapters are the preferred path, not a fallback.
+3. **Progressive disclosure as fallback.** Workflow map above: first matching
+   row wins, read the description before the body.
+
+Never:
+
+- **Front-load the library.** Loading every skill before any task is known
+  measured 1.00 effectiveness — baseline noise — with minimality 0.19: a
+  simpler loading suffices 81% of the time. "Load every SKILL.md for context"
+  is the most wasteful strategy tested.
+- **Inject-and-drop.** Injecting skill text at a decision point then dropping
+  it measured 0.47, the worst strategy tested. Keep the skill resident for the
+  task it was loaded for.
 
 ## Do not
 
