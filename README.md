@@ -4,7 +4,7 @@
 [![license](https://img.shields.io/github/license/Thingscorp/skills)](LICENSE)
 [![skills.sh](https://img.shields.io/badge/skills.sh-catalog-blue)](https://skills.sh/Thingscorp/skills)
 
-Playbooks in [`SKILL.md`](https://agentskills.io/specification) form. One job per skill. Not a course and not a runtime.
+Flat **SKILL.md playbooks** — one job per skill. Not a course and not a runtime.
 
 [`AGENTS.md`](AGENTS.md) is the always-on runbook for this library. A `SKILL.md` is one job, loaded when its description matches.
 
@@ -14,12 +14,15 @@ Agents: follow [`AGENTS.md`](AGENTS.md).
 People: [`docs/QUICKSTART.md`](docs/QUICKSTART.md).
 Catalog: [skills.sh/Thingscorp/skills](https://skills.sh/Thingscorp/skills).
 
-## For agents
+## Quickstart
 
-1. Read [`AGENTS.md`](AGENTS.md). That is the runbook.
-2. Install with a command below, or work from this checkout.
-3. Load **one** skill from `skills/<name>/SKILL.md` using the workflow map.
-4. Do not load every skill.
+```bash
+# try a skill without installing it
+npx skills use Thingscorp/skills@review
+
+# install one skill into the current project
+npx skills add Thingscorp/skills --skill review -y
+```
 
 ## Install
 
@@ -60,7 +63,9 @@ npx skills update
 
 There is no `./tools/install.sh`.
 
-## The library
+## Usage
+
+Load **one** skill per job from `skills/<name>/SKILL.md` using the workflow map — never all of them. Descriptions are the trigger text; match the job, load the file.
 
 | Skill | Use it when |
 |---|---|
@@ -94,12 +99,17 @@ Full map: [`AGENTS.md`](AGENTS.md). Names: [`docs/NAMING.md`](docs/NAMING.md).
 This `ralph-loop` is a portable ticket-queue contract (gate outside the worker,
 `.ralph/` state). It is not the mikeyobrien / clawdbot / eliteai runner CLIs.
 
-## Edit this library
+## For agents
 
-Read [`docs/AUTHORING.md`](docs/AUTHORING.md). After any skill change:
+1. Read [`AGENTS.md`](AGENTS.md). That is the runbook.
+2. Install with a command from `## Install` above, or work from this checkout.
+3. Load **one** skill from `skills/<name>/SKILL.md` using the workflow map.
+4. Do not load every skill.
 
-```bash
-python3 tools/validate.py
-```
+## Contributing
 
-Doctrine that must not regress: [`docs/LANDMINES.md`](docs/LANDMINES.md).
+See [`CONTRIBUTING.md`](CONTRIBUTING.md). Read [`docs/AUTHORING.md`](docs/AUTHORING.md) before editing a skill, and run `python3 tools/validate.py` after any skill change. Doctrine that must not regress: [`docs/LANDMINES.md`](docs/LANDMINES.md).
+
+## License
+
+MIT. See [`LICENSE`](LICENSE).
