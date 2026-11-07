@@ -79,6 +79,7 @@ Pick the first matching row. Stop. Read that skill.
 | Need a verified Ralph plan + items | ralph-plan | skills/ralph-plan/SKILL.md |
 | Ticket queue must run across sessions | ralph-loop | skills/ralph-loop/SKILL.md |
 | Independent Ralph lanes in parallel | ralph-swarm | skills/ralph-swarm/SKILL.md |
+| Loop or graph must produce verifiable progress | ltl-verified-loop | skills/ltl-verified-loop/SKILL.md |
 | Phase boundary (done? QA? switch?) | handoff | skills/handoff/SKILL.md |
 | Same session, need room | compact | skills/compact/SKILL.md |
 | Starting context is bloated | kill-context-bloat | skills/kill-context-bloat/SKILL.md |

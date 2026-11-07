@@ -77,6 +77,7 @@ Load **one** skill per job from `skills/<name>/SKILL.md` using the workflow map 
 | `ralph-loop` | A ticket queue must be worked across sessions. Gate outside the worker. |
 | `ralph-swarm` | Independent Ralph lanes in parallel. Results under `refs/ralph/swarm`. |
 | `quality-loop` | Shipped product needs an honest feature inventory and test pass. |
+| `ltl-verified-loop` | A loop or graph must produce verifiable progress. Ground the stop condition in LTL and require a runtime monitor. |
 | `review` | A plan or diff needs a P0/P1/P2 read before it lands. Empty report is valid. |
 | `handoff` | Phase boundary. continue / clear / compact / handoff / subagent. |
 | `compact` | Same agent, same directory, need room. Cast-iron case: implement → QA. |
