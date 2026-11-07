@@ -17,6 +17,7 @@
     "./skills/ralph-loop",
     "./skills/ralph-swarm",
     "./skills/quality-loop",
+    "./skills/ltl-verified-loop",
     "./skills/review",
     "./skills/handoff",
     "./skills/compact",

@@ -29,12 +29,13 @@
     },
     {
       "title": "Loop",
-      "description": "Plan, run, or parallelize a verified ticket queue. Inventory a shipped product.",
+      "description": "Plan, run, or parallelize a verified ticket queue. Inventory a shipped product. Verify loop progress with an LTL monitor.",
       "skills": [
         "ralph-plan",
         "ralph-loop",
         "ralph-swarm",
-        "quality-loop"
+        "quality-loop",
+        "ltl-verified-loop"
       ]
     },
     {

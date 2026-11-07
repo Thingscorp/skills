@@ -23,6 +23,7 @@ A name is the job. If an agent cannot tell what the file does from the path, ren
 | ralph-loop | run that ticket queue across sessions | keep |
 | ralph-swarm | run independent ticket lanes | keep |
 | quality-loop | inventory features from code and test them | `feature-audit` |
+| ltl-verified-loop | verify a loop or graph with an LTL runtime monitor | keep |
 | review | P0/P1/P2 read of a plan or diff | keep |
 | handoff | choose the phase-boundary action | keep |
 | compact | shrink this session with one-line focus | `shrink-session` |

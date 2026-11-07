@@ -27,6 +27,7 @@ Catalog: https://skills.sh/Thingscorp/skills
 - [ralph-loop](https://github.com/Thingscorp/skills/blob/main/skills/ralph-loop/SKILL.md): run a ticket queue across sessions
 - [ralph-swarm](https://github.com/Thingscorp/skills/blob/main/skills/ralph-swarm/SKILL.md): run independent ticket queues in parallel
 - [quality-loop](https://github.com/Thingscorp/skills/blob/main/skills/quality-loop/SKILL.md): inventory features from code, then test
+- [ltl-verified-loop](https://github.com/Thingscorp/skills/blob/main/skills/ltl-verified-loop/SKILL.md): ground a loop stop condition in LTL and monitor every cycle
 - [review](https://github.com/Thingscorp/skills/blob/main/skills/review/SKILL.md): P0/P1/P2 read; decision-grade findings become ADRs
 - [handoff](https://github.com/Thingscorp/skills/blob/main/skills/handoff/SKILL.md): choose the phase-boundary move
 - [compact](https://github.com/Thingscorp/skills/blob/main/skills/compact/SKILL.md): shrink this session with a one-line focus
