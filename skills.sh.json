@@ -24,7 +24,9 @@
         "grill-execute-clear",
         "to-spec",
         "handoff",
-        "compact"
+        "compact",
+        "writing-plans",
+        "executing-plans"
       ]
     },
     {
@@ -34,14 +36,19 @@
         "ralph-plan",
         "ralph-loop",
         "ralph-swarm",
-        "quality-loop"
+        "quality-loop",
+        "ralph-status",
+        "ralph-stop",
+        "ltl-verified-loop"
       ]
     },
     {
       "title": "Review",
-      "description": "Severity-graded read of a plan or diff before it lands.",
+      "description": "Severity-graded reads, root-cause debugging, and evidence before completion claims.",
       "skills": [
-        "review"
+        "review",
+        "systematic-debugging",
+        "verification-before-completion"
       ]
     },
     {
@@ -49,6 +56,13 @@
       "description": "Turn a domain into compounding one-thing modules.",
       "skills": [
         "unix-compound"
+      ]
+    },
+    {
+      "title": "Design",
+      "description": "Group and organize a user interface before styling: cards, skeleton, placement.",
+      "skills": [
+        "zettelkasten-skeleton-ui"
       ]
     }
   ]

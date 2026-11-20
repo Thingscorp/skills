@@ -72,12 +72,20 @@ Load **one** skill per job from `skills/<name>/SKILL.md` using the workflow map 
 | `learn-codebase` | Unfamiliar repo. Sibling workspace, leveled passes, prove-it checks. |
 | `grill-execute-clear` | Starting a feature. Grill the design, execute in the same session, clear after. |
 | `to-spec` | Work that will not fit one smart-zone session. Destination spec + vertical tickets. |
+| `writing-plans` | A spec is settled. Bite-sized tasks with exact files, interfaces, tests, expected output. |
+| `executing-plans` | A written plan, worked in this session. Task by task in order, a check at each step, a ledger throughout. |
 | `unix-compound` | A domain must become compounding one-thing modules. Lock criteria, short VSR, stop. |
+| `zettelkasten-skeleton-ui` | A UI must be grouped and organized before styling. Cards with typed links, a one-line skeleton, one home per field. |
 | `ralph-plan` | A Ralph topic needs a verified plan and item queue before the loop runs. |
 | `ralph-loop` | A ticket queue must be worked across sessions. Gate outside the worker. |
+| `ralph-status` | The current state of a Ralph loop. Branch, run state, item counts, next eligible item. |
+| `ralph-stop` | A Ralph loop must halt. Run state to stopped, item queue untouched, confirmed on read-back. |
 | `ralph-swarm` | Independent Ralph lanes in parallel. Results under `refs/ralph/swarm`. |
 | `quality-loop` | Shipped product needs an honest feature inventory and test pass. |
+| `ltl-verified-loop` | A loop or graph needs a verifiable stop condition. LTL formulas, Spot/LTL3BA monitor on every trace. |
 | `review` | A plan or diff needs a P0/P1/P2 read before it lands. Empty report is valid. |
+| `systematic-debugging` | A bug or failure resists the first fix. Root cause with evidence before any fix. |
+| `verification-before-completion` | About to claim done, fixed, passing, or ready. Run the proving command fresh, read the output, then claim. |
 | `handoff` | Phase boundary. continue / clear / compact / handoff / subagent. |
 | `compact` | Same agent, same directory, need room. Cast-iron case: implement → QA. |
 | `kill-context-bloat` | Starting context is fat. Measure, cut, quit, relaunch, remeasure. |
