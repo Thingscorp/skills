@@ -1,0 +1,21 @@
+HCT Color Kit
+Copyright (c) 2026 Thingscorp
+
+This project is not affiliated with, endorsed by, or sponsored by Google LLC.
+Material Design and Material You are trademarks of Google LLC. Names are used
+here only to identify the published design system whose concepts this project
+implements and explains.
+
+The color engine is @material/material-color-utilities (Google LLC),
+licensed under the Apache License, Version 2.0. It is consumed as an npm
+dependency and is not vendored into this repository. Its license:
+https://github.com/material-foundation/material-color-utilities/blob/main/LICENSE
+
+The rule sets in references/legacy-rule-sets.md are original summaries of
+publicly published specifications (Material Design 1 and 2 documentation,
+Android Palette API AOSP source constants), written for interoperability and
+education. Numerical constants (overlay percentages, target bands, alpha
+values) are facts of those specifications.
+
+Adobe Leonardo is referenced as prior art for contrast-ratio-based palette
+generation; no Leonardo code is included.
