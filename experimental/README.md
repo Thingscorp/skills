@@ -17,3 +17,4 @@ archived, not left here to rot.
 | Skill | Use it when | State |
 |---|---|---|
 | `zettelkasten-skeleton-ui` | A user interface must be grouped and organized before styling: atomic cards with typed links settle grouping, a one-line skeleton settles order and data placement. | Under test. Four recursive test rounds run 2026-11-20 (mechanical, adversarial, dry run, consistency audit); 26 merged fixes shipped into the skill. Re-tests on fresh surfaces are the open gate. |
+| `occams-razor-ui` | A screen, card, form, or flow needs an audit, trim, or rearrangement: every element earns its place, keep, tuck, or cut, stopping at the discoverability floor. | Added 2026-11-26 from the owner's skill package, as authored. |
