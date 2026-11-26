@@ -76,6 +76,7 @@ Pick the first matching row. Stop. Read that skill.
 | Starting a non-trivial feature | grill-execute-clear | skills/grill-execute-clear/SKILL.md |
 | Feature will span sessions | to-spec | skills/to-spec/SKILL.md |
 | Domain must become one-thing modules | unix-compound | skills/unix-compound/SKILL.md |
+| UI color must be chosen, generated, fixed, or judged | material-color-system | skills/material-color-system/SKILL.md |
 | Need a verified Ralph plan + items | ralph-plan | skills/ralph-plan/SKILL.md |
 | Ticket queue must run across sessions | ralph-loop | skills/ralph-loop/SKILL.md |
 | Independent Ralph lanes in parallel | ralph-swarm | skills/ralph-swarm/SKILL.md |

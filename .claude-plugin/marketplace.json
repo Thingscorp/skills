@@ -27,7 +27,8 @@
     "./skills/cursor-habits",
     "./skills/codex-habits",
     "./skills/copilot-habits",
-    "./skills/gemini-cli-habits"
+    "./skills/gemini-cli-habits",
+    "./skills/material-color-system"
    ]
   }
  ]

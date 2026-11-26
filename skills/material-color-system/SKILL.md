@@ -6,6 +6,8 @@ description: >-
   failure. Generates the whole system from one source in HCT and measures
   every designed pair.
 license: MIT
+metadata:
+  portability: portable
 ---
 
 # Material Color System

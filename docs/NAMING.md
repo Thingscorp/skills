@@ -47,6 +47,15 @@ A name is the job. If an agent cannot tell what the file does from the path, ren
 
 Do not rename in place without updating README, AGENTS.md, llms.txt, plugin.json, marketplace.json, skills.sh.json, and Related lines.
 
+Panel audit, 2026-11-26 (five judges, all 23 names, votes only): the set is
+sound with its recorded exceptions (3-2, mean 0.652); the future names stay
+deferred (4-1); the experimental method names keep (5-0); the section name
+experimental keeps (5-0); material-color-system keeps its name and gets its
+catalog wiring fixed (3-2). Worst name in the library, diagnostic only:
+steering-push-vs-point (3 of 5). The adapter family split the panel (rename
+to -commands at the next edit, all five together, 3 votes; rename now, 2
+votes, higher mean), so no adapter rename is mandated.
+
 ## Files in this repo
 
 | Kind | Pattern |
