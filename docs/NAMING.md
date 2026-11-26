@@ -10,6 +10,12 @@ A name is the job. If an agent cannot tell what the file does from the path, ren
 - one job per name
 - no product or person names
 - established search terms may stay (`ralph-loop`) if find/install already use them
+- a method or principle name that is itself the established search term may
+  stay on the same rule (`occams-razor-ui`, `zettelkasten-skeleton-ui`,
+  `reverse-pyramid-writing`). Record its literal job in the table below so
+  the name is a decision, not an accident.
+- experimental skills follow these same rules. The name is re-checked at
+  graduation, before the skill moves to `skills/` and enters the catalogs.
 
 ## Preferred future names
 
@@ -34,6 +40,10 @@ A name is the job. If an agent cannot tell what the file does from the path, ren
 | codex-habits | Codex command names | `codex-commands` |
 | copilot-habits | Copilot CLI command names | `copilot-commands` |
 | gemini-cli-habits | Gemini CLI command names | `gemini-commands` |
+| material-color-system | generate measured color kits (MCU/HCT) for a UI | `generate-color-kit` |
+| zettelkasten-skeleton-ui (experimental) | decide UI grouping and data placement before styling | keep (method names are the search terms) |
+| occams-razor-ui (experimental) | audit a surface and cut, tuck, or keep each element | keep (principle name is the search term) |
+| reverse-pyramid-writing (experimental) | write lead-first, in inverted pyramid order | keep (method name is the search term) |
 
 Do not rename in place without updating README, AGENTS.md, llms.txt, plugin.json, marketplace.json, skills.sh.json, and Related lines.
 
@@ -43,6 +53,9 @@ Do not rename in place without updating README, AGENTS.md, llms.txt, plugin.json
 |---|---|
 | Skill playbook | `skills/<name>/SKILL.md` |
 | Skill reference | `skills/<name>/references/<topic>.md` |
+| Skill template | `skills/<name>/templates/<artifact>.md` |
+| Experimental skill | `experimental/<name>/SKILL.md` (same internal layout: `references/`, `templates/`) |
+| Experimental index | `experimental/README.md` |
 | Agent runbook | `AGENTS.md` |
 | Human install | `README.md`, `docs/QUICKSTART.md` |
 | Doctrine | `docs/LANDMINES.md`, `docs/glossary.md` |
