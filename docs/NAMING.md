@@ -56,6 +56,16 @@ steering-push-vs-point (3 of 5). The adapter family split the panel (rename
 to -commands at the next edit, all five together, 3 votes; rename now, 2
 votes, higher mean), so no adapter rename is mandated.
 
+Panel audits, 2026-11-26, round two (five judges, votes only). Branch: the
+seven-skills branches are cherry-picked (5-0): the four daily process skills
+and the two Ralph companions land in skills/ (4-1 and 5-0), ltl-verified-loop
+goes to experimental/, the branch copy of zettelkasten-skeleton-ui is dropped
+(5-0), and the local branches collapse to the landed state (3 of 5).
+Grouping: fix misfits only (5-0); the adapters split into their own
+skills.sh.json group (3 of 5, top mean); quality-loop moves from Loop to
+Review (5-0); one-skill groups are fine (5-0); one canonical order, the
+workflow map's, aligned across README and llms.txt (3-2).
+
 ## Files in this repo
 
 | Kind | Pattern |

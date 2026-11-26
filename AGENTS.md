@@ -75,11 +75,17 @@ Pick the first matching row. Stop. Read that skill.
 | Unfamiliar codebase (orientation only) | learn-codebase | skills/learn-codebase/SKILL.md |
 | Starting a non-trivial feature | grill-execute-clear | skills/grill-execute-clear/SKILL.md |
 | Feature will span sessions | to-spec | skills/to-spec/SKILL.md |
+| Spec is settled; need the implementation plan | writing-plans | skills/writing-plans/SKILL.md |
+| Written plan to work in this session | executing-plans | skills/executing-plans/SKILL.md |
 | Domain must become one-thing modules | unix-compound | skills/unix-compound/SKILL.md |
 | UI color must be chosen, generated, fixed, or judged | material-color-system | skills/material-color-system/SKILL.md |
 | Need a verified Ralph plan + items | ralph-plan | skills/ralph-plan/SKILL.md |
 | Ticket queue must run across sessions | ralph-loop | skills/ralph-loop/SKILL.md |
+| Need a Ralph loop's current state | ralph-status | skills/ralph-status/SKILL.md |
+| A Ralph loop must halt | ralph-stop | skills/ralph-stop/SKILL.md |
 | Independent Ralph lanes in parallel | ralph-swarm | skills/ralph-swarm/SKILL.md |
+| Bug or failure needs its root cause | systematic-debugging | skills/systematic-debugging/SKILL.md |
+| About to claim done, fixed, or passing | verification-before-completion | skills/verification-before-completion/SKILL.md |
 | Phase boundary (done? QA? switch?) | handoff | skills/handoff/SKILL.md |
 | Same session, need room | compact | skills/compact/SKILL.md |
 | Starting context is bloated | kill-context-bloat | skills/kill-context-bloat/SKILL.md |

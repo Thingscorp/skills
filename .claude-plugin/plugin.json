@@ -3,15 +3,22 @@
   "description": "Operational agent skills for coding agents.",
   "version": "1.0.0",
   "skills": [
+    "./skills/review",
+    "./skills/quality-loop",
     "./skills/learn-codebase",
     "./skills/grill-execute-clear",
     "./skills/to-spec",
+    "./skills/writing-plans",
+    "./skills/executing-plans",
     "./skills/unix-compound",
+    "./skills/material-color-system",
     "./skills/ralph-plan",
     "./skills/ralph-loop",
+    "./skills/ralph-status",
+    "./skills/ralph-stop",
     "./skills/ralph-swarm",
-    "./skills/quality-loop",
-    "./skills/review",
+    "./skills/systematic-debugging",
+    "./skills/verification-before-completion",
     "./skills/handoff",
     "./skills/compact",
     "./skills/kill-context-bloat",
@@ -21,7 +28,6 @@
     "./skills/cursor-habits",
     "./skills/codex-habits",
     "./skills/copilot-habits",
-    "./skills/gemini-cli-habits",
-    "./skills/material-color-system"
+    "./skills/gemini-cli-habits"
   ]
 }

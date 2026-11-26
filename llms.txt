@@ -19,26 +19,32 @@ Catalog: https://skills.sh/Thingscorp/skills
 
 ## Skills
 
+- [review](https://github.com/Thingscorp/skills/blob/main/skills/review/SKILL.md): P0/P1/P2 read; decision-grade findings become ADRs
+- [quality-loop](https://github.com/Thingscorp/skills/blob/main/skills/quality-loop/SKILL.md): inventory features from code, then test
 - [learn-codebase](https://github.com/Thingscorp/skills/blob/main/skills/learn-codebase/SKILL.md): learn an unfamiliar repo from disk
 - [grill-execute-clear](https://github.com/Thingscorp/skills/blob/main/skills/grill-execute-clear/SKILL.md): grill design, then build in this session
 - [to-spec](https://github.com/Thingscorp/skills/blob/main/skills/to-spec/SKILL.md): destination spec and vertical tickets
+- [writing-plans](https://github.com/Thingscorp/skills/blob/main/skills/writing-plans/SKILL.md): write the implementation plan itself, task by task
+- [executing-plans](https://github.com/Thingscorp/skills/blob/main/skills/executing-plans/SKILL.md): work a written plan in this session, with a ledger
 - [unix-compound](https://github.com/Thingscorp/skills/blob/main/skills/unix-compound/SKILL.md): split a domain into one-thing modules
+- [material-color-system](https://github.com/Thingscorp/skills/blob/main/skills/material-color-system/SKILL.md): generate a UI color system from one source, every pair measured
 - [ralph-plan](https://github.com/Thingscorp/skills/blob/main/skills/ralph-plan/SKILL.md): plan a ticket queue
 - [ralph-loop](https://github.com/Thingscorp/skills/blob/main/skills/ralph-loop/SKILL.md): run a ticket queue across sessions
+- [ralph-status](https://github.com/Thingscorp/skills/blob/main/skills/ralph-status/SKILL.md): print a Ralph loop's current state
+- [ralph-stop](https://github.com/Thingscorp/skills/blob/main/skills/ralph-stop/SKILL.md): halt a Ralph loop without touching its queue
 - [ralph-swarm](https://github.com/Thingscorp/skills/blob/main/skills/ralph-swarm/SKILL.md): run independent ticket queues in parallel
-- [quality-loop](https://github.com/Thingscorp/skills/blob/main/skills/quality-loop/SKILL.md): inventory features from code, then test
-- [material-color-system](https://github.com/Thingscorp/skills/blob/main/skills/material-color-system/SKILL.md): generate a UI color system from one source, every pair measured
-- [review](https://github.com/Thingscorp/skills/blob/main/skills/review/SKILL.md): P0/P1/P2 read; decision-grade findings become ADRs
+- [systematic-debugging](https://github.com/Thingscorp/skills/blob/main/skills/systematic-debugging/SKILL.md): root cause with evidence before any fix
+- [verification-before-completion](https://github.com/Thingscorp/skills/blob/main/skills/verification-before-completion/SKILL.md): fresh verification evidence before any completion claim
 - [handoff](https://github.com/Thingscorp/skills/blob/main/skills/handoff/SKILL.md): choose the phase-boundary move
 - [compact](https://github.com/Thingscorp/skills/blob/main/skills/compact/SKILL.md): shrink this session with a one-line focus
 - [kill-context-bloat](https://github.com/Thingscorp/skills/blob/main/skills/kill-context-bloat/SKILL.md): shrink starting context
 - [session-hygiene](https://github.com/Thingscorp/skills/blob/main/skills/session-hygiene/SKILL.md): keep a session clean
+- [steering-push-vs-point](https://github.com/Thingscorp/skills/blob/main/skills/steering-push-vs-point/SKILL.md): always-on rules vs on-demand skills
 - [claude-code-habits](https://github.com/Thingscorp/skills/blob/main/skills/claude-code-habits/SKILL.md): Claude Code names for session-hygiene
 - [cursor-habits](https://github.com/Thingscorp/skills/blob/main/skills/cursor-habits/SKILL.md): Cursor names for session-hygiene
 - [codex-habits](https://github.com/Thingscorp/skills/blob/main/skills/codex-habits/SKILL.md): Codex names for session-hygiene
 - [copilot-habits](https://github.com/Thingscorp/skills/blob/main/skills/copilot-habits/SKILL.md): Copilot CLI names for session-hygiene
 - [gemini-cli-habits](https://github.com/Thingscorp/skills/blob/main/skills/gemini-cli-habits/SKILL.md): Gemini CLI names for session-hygiene
-- [steering-push-vs-point](https://github.com/Thingscorp/skills/blob/main/skills/steering-push-vs-point/SKILL.md): always-on rules vs on-demand skills
 
 ## Docs
 
