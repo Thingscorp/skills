@@ -99,6 +99,12 @@ Full map: [`AGENTS.md`](AGENTS.md). Names: [`docs/NAMING.md`](docs/NAMING.md).
 This `ralph-loop` is a portable ticket-queue contract (gate outside the worker,
 `.ralph/` state). It is not the mikeyobrien / clawdbot / eliteai runner CLIs.
 
+## Experimental
+
+Skills under test live in [`experimental/`](experimental/README.md). They are
+not in the catalogs, the workflow map, or the install set. Load one by path,
+on purpose, when a job matches it.
+
 ## For agents
 
 1. Read [`AGENTS.md`](AGENTS.md). That is the runbook.
