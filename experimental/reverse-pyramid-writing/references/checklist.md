@@ -1,7 +1,28 @@
 # Reverse Pyramid Gate
 
-Run every check on the finished draft. Any failure sends the draft
-back to the named step. Do not soften a failure into a note.
+The grader is never the writer. Run the mechanical scans first, then
+the judgment checks. Any failure sends the draft back to the named
+step, with the failing line quoted as evidence. Do not soften a
+failure into a note.
+
+## Mechanical scans (count, do not judge)
+
+- [ ] Em dash count: zero.
+- [ ] Quoted speech count: zero in Feature mode; in Brief mode, every
+      quote names its source.
+- [ ] Banned name count for the mode in force: zero in Feature mode.
+- [ ] Concept repetition scan: list each core concept's heading or
+      first mention; exactly one location explains it, the rest
+      reference or use it.
+- [ ] The draft states its mode at the top, plus any override in
+      force.
+
+## Reader stop test (Step 3)
+
+- [ ] Three stop lines are attached, one per stop (layer 1; layers 1
+      to 2; layers 1 to 3), each naming what the reader can now do
+      or decide.
+- [ ] Each stop adds a capability the stop above it did not give.
 
 ## Structure (Step 3)
 
@@ -17,12 +38,16 @@ back to the named step. Do not soften a failure into a note.
 
 ## Scope (Step 2)
 
-- [ ] Zero quoted speech.
-- [ ] Zero opinions, verdicts, or takeaways stated as the writer's own.
-- [ ] Zero project, company, or brand names, unless the task explicitly
-      required one.
-- [ ] Every paragraph is about a feature, a function, or a user
-      benefit.
+- [ ] The mode in force is the right one for the piece, and it is
+      stated at the top of the draft.
+- [ ] Feature mode: zero quoted speech, zero project, company, or
+      brand names, unless an override stated at the top required one.
+- [ ] Brief mode: every opinion is attributed to the person who holds
+      it; every quote names its source.
+- [ ] Both modes: zero opinions, verdicts, or takeaways stated as the
+      writer's own.
+- [ ] Feature mode: every paragraph is about a feature, a function,
+      or a user benefit.
 
 ## Language (Step 4)
 
@@ -33,7 +58,6 @@ back to the named step. Do not soften a failure into a note.
       No sentence mixes the two for the same fact.
 - [ ] Every technical term is defined at first use, and the same term
       names the same concept throughout.
-- [ ] Zero em dashes.
 
 ## Redundancy (Step 5)
 

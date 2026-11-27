@@ -23,6 +23,7 @@ This skill turns that prompt into a workflow with a check that can fail.
 ## When
 
 - A feature, product, or technical explanation, doc, brief, or summary.
+- A report, memo, or status piece, in Brief mode (Step 2).
 - A rewrite of material that buries its point, repeats itself, or reads
   in the order it was researched rather than the order a reader needs it.
 
@@ -49,9 +50,14 @@ Stop condition for this step: you can state the whole piece in one
 sentence, and every source fact maps to exactly one layer of the
 skeleton, or is cut.
 
-## Step 2: Apply the scope rules
+## Step 2: Pick the mode, then apply its scope rules
 
-Unless the task explicitly overrides them, these rules bind the output:
+Pick one mode before writing. State the mode at the top of the draft.
+The pyramid (Step 3), the language rules (Step 4), and redundancy
+control (Step 5) bind unchanged in both modes. Only the bans differ.
+
+**Feature mode** is the default: features, products, and technical
+explanations.
 
 - No quotes. Paraphrase source speech into plain statements of fact.
 - No opinions or takeaways. State what a thing does and what a user
@@ -60,9 +66,22 @@ Unless the task explicitly overrides them, these rules bind the output:
   Describe the feature, the function, and the benefit.
 - Focus purely on features, functionality, and user benefits.
 
-If the source material consists only of quotes, opinions, or named
-references, stop and say the scope cannot be met from that material.
-Do not fill the gap with invented facts.
+**Brief mode** covers reports, memos, and status, where the subject
+is a specific project, person, or event and a ban on naming it would
+defeat the piece.
+
+- Named references are allowed, and usually required.
+- Quotes are allowed when the exact words carry information a
+  paraphrase would lose, and only with their source named.
+- Opinions are allowed only attributed to the person who holds them.
+  The writer never states an opinion as its own, in either mode.
+
+A task may explicitly override a ban inside its mode. State any
+override in force at the top of the draft, next to the mode.
+
+If the source material in Feature mode consists only of quotes,
+opinions, or named references, stop and say the scope cannot be met
+from that material. Do not fill the gap with invented facts.
 
 ## Step 3: Build the pyramid
 
@@ -85,6 +104,16 @@ reorders them.
 
 Group related information inside its layer. Never let a later layer
 introduce a fact that an earlier decision depended on.
+
+**Reader stop test.** After drafting, run this test before the gate.
+Read only layer 1 and write, in one line, what the reader can now do
+or decide. Then read layers 1 to 2 and write the same line again,
+then layers 1 to 3. Each stop must add a real capability: a decision
+the reader can now make, an action they can now take, or a check they
+can now run. A stop that adds nothing sends its layer back: either
+the layer carries no weight and is cut, or its weight belongs in the
+layer above it. Keep the three stop lines with the draft until the
+gate passes; they are the evidence the pyramid holds its shape.
 
 ## Step 4: Apply the language rules
 
@@ -112,13 +141,31 @@ introduce a fact that an earlier decision depended on.
   implementation-specific detail, or essential context for its layer.
   If it adds none of the three, cut it.
 
-## Step 6: Run the gate
+## Step 6: Run the gate, graded by someone else
 
-Before delivery, check the draft against
-`references/checklist.md`. Every check must pass or the draft goes
-back to the step that failed it. A worked pass through all five
-layers is in `references/example.md`; load it when the layer order
-for a real piece is unclear.
+The writer never grades its own draft. Before delivery, an
+independent pass grades the draft against
+`references/checklist.md`: a fresh-context agent, a second model, or
+a reviewer who did not write the piece. The grader works in two
+stages, in this order:
+
+1. **Mechanical scans first.** Count, do not judge: em dashes, quoted
+   speech, names banned by the mode in force, repeated explanations.
+   The checklist names each scan. A mechanical failure needs no
+   judgment call and cannot be argued away.
+2. **Judgment checks second.** Structure, scope, language, and
+   redundancy checks that need a reader. For every failed check, the
+   grader quotes the failing line as evidence.
+
+Every check must pass or the draft goes back to the step that failed
+it, with the grader's quoted evidence attached. The writer fixes and
+resubmits; the writer never marks a check itself. If no independent
+grader is available, deliver the draft labeled UNGRADED rather than
+grading it yourself.
+
+A worked pass through all five layers is in
+`references/example.md`; load it when the layer order for a real
+piece is unclear.
 
 ## Anti-patterns
 
